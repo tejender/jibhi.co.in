@@ -51,6 +51,7 @@
   section.listings-cat-wrapper .swiper-slide{
     width: auto;
     /* background-color: red;     */
+    height: 70px;
   }
   section.listings-cat-wrapper img{
     width: 40px;
