@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', 'Arial', sans-serif;
+  }
+  
+  /* HEADINGS */
+  
+  h1, p {
+    color: #fff;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    color: #000;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  
+  section.hero-wrapper{
+    height: auto;
+    width: 100%;
+  }
+
+  .hero-image{
+    height: 400px;
+    width: 100%;
+  }
+
+  .hero-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  section.listings-cat-wrapper{
+    height: 150px;
+    /* background-color: rgb(158, 151, 151); */
+    padding-top: 10px;
+    /* padding: 10px; */
+  }
+
+  section.listings-cat-wrapper .swiper-slide{
+    width: auto;
+    /* background-color: red;     */
+  }
+  section.listings-cat-wrapper img{
+    width: 40px;
+    height: 40px;
+  }
+
+
+
+  section.listings-cat-wrapper .riverside img, section.listings-cat-wrapper .mudhouse img{
+        width: 30px;
+        height: 30px;
+        margin-bottom: 8px;
+  }
