@@ -1,5 +1,5 @@
 var width = window.innerWidth;
-if (width<=500){
+if (width<=600){
   var slideCount = 4
   var gap=30
 }
@@ -10,10 +10,9 @@ if(width>500){
 
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: slideCount,
-  spaceBetween: gap,
+  spaceBetween: 30,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-  
 });
