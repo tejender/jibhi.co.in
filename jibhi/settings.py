@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z67+=5ci3u9*dlmfrw^27m#)_px#=rbi=_h3z549bm!dlla0j$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['jibhicoin-production.up.railway.app/','127.0.0.1']
 
 
 # Application definition
