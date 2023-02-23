@@ -11,6 +11,7 @@ nav.classList.toggle("no-search");
 
 // Toggle the 'search-active' class on the search input element
 searchInput.classList.toggle("search-active");
+
 });
 
 // Get the menu toggle button element
@@ -22,6 +23,19 @@ menuToggle.addEventListener("click", function() {
 const nav = document.querySelector(".nav");
 nav.classList.toggle("mobile-nav");
 
+
+
 // Toggle the 'is-active' class on the menu toggle button
 menuToggle.classList.toggle("is-active");
+// Listen for the 'transitionend' event on the nav element
+if (!nav.classList.contains("mobile-nav")) {
+nav.addEventListener("transitionend", function() {
+    // Toggle the 'hidden' class on the listing section
+    const listingSection = document.querySelector(".listings-cat-wrapper");
+    listingSection.classList.toggle("z-fix");
+  }, { once: true });
+}else{
+    const listingSection = document.querySelector(".listings-cat-wrapper");
+    listingSection.classList.toggle("z-fix");
+}
 });

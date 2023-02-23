@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+    }
+    
+    .slider-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% * 8);
+      height: 100%;
+      display: flex;
+    }
+    
+    .slider-item {
+      width: calc(100% / 8);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .slider-nav {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .slider-prev,
+    .slider-next {
+      background-color: #ffffff;
+      color: #333333;
+      border: 1px solid #333333;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    
+    .slider-prev:hover,
+    .slider-next:hover {
+      background-color: #333333;
+      color: #ffffff;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slider-container">
+      <div class="slider-item">Item 1</div>
+      <div class="slider-item">Item 2</div>
+      <div class="slider-item">Item 3</div>
+      <div class="slider-item">Item 4</div>
+      <div class="slider-item">Item 5</div>
+      <div class="slider-item">Item 6</div>
+      <div class="slider-item">Item 7</div>
+      <div class="slider-item">Item 8</div>
+      <div class="slider-item">Item 9</div>
+      <div class="slider-item">Item 10</div>
+      <div class="slider-item">Item 11</div>
+      <div class="slider-item">Item 12</div>
+    </div>
+    <div class="slider-nav">
+      <button class="slider-prev">Prev</button>
+      <button class="slider-next">Next</button>
+    </div>
+  </div>
+  
+  <script>
+    const slider = document.querySelector('.slider');
+const sliderContainer = document.querySelector('.slider-container');
+const sliderItems = document.querySelectorAll('.slider-item');
+const sliderPrev = document.querySelector('.slider-prev');
+const sliderNext = document.querySelector('.slider-next');
+let currentIndex = 0;
+
+function moveSlider() {
+  sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function handlePrevClick() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = sliderItems.length - 1;
+  }
+  moveSlider();
+}
+
+function handleNextClick() {
+  currentIndex++;
+  if (currentIndex > sliderItems.length - 1) {
+    currentIndex = 0;
+  }
+  moveSlider();
+}
+
+sliderPrev.addEventListener('click', handlePrevClick);
+sliderNext.addEventListener('click', handleNextClick);
+
+  </script>
+</body>
+</html>
