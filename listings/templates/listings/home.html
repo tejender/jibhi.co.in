@@ -80,7 +80,14 @@
             
     </section>
 
-    <section>hello</section>
+    <section>
+      {% for host in hosts %}
+      <div class="single-cat">
+          {{host.name}}                
+          <img src=" {{host.image.url}}" alt="hi" height="20px">
+      </div>
+  {% endfor %}
+    </section>
 {% endblock content %}
 
 {% block scripts %}
