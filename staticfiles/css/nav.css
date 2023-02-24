@@ -8,6 +8,8 @@
     top: 0;
     background-color: #ffffff;
     border-bottom: .5px solid rgba(211, 204, 204,.6);
+  
+    z-index: 999999999;
   }
   
   

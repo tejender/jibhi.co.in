@@ -3,6 +3,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/swiper-cat-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/swiper-listing-inner.css' %}">
 {% endblock css %}
 
 {% block content %}
@@ -13,7 +14,7 @@
     </section>
 
     <section class="listings-cat-wrapper">
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper-cat">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
@@ -73,23 +74,39 @@
             </div>
             
           </div>
-          <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev cat-prev"></div>
+          <div class="swiper-button-next cat-next"></div>
             
             
             
     </section>
 
-    <section>
-      {% for host in hosts %}
-      <div class="single-cat">
-          {{host.name}}                
-          <img src=" {{host.image.url}}" alt="hi" height="20px">
-      </div>
-  {% endfor %}
+    <section class="home-listings">
+     {% for cottage in cottages %}          
+          <div class="single-listing">
+            <div class="swiper mySwiper-listing">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src=" {{cottage.main_image.url}}" alt="hi" height="20px">  
+                </div>
+                <div class="swiper-slide">
+                  <img src=" {{cottage.main_image.url}}" alt="hi" height="20px"> 
+                 </div>                
+              </div>
+              <div class="swiper-button-next listing-next"></div>
+              <div class="swiper-button-prev listing-prev"></div>              
+            </div>
+            <div class="text">
+              
+            </div>
+          </div>
+          {% endfor %} 
+      
     </section>
 {% endblock content %}
 
 {% block scripts %}
+
 <script src="{%static 'js/swiper-cat-list.js' %}"></script>
+<script src="{%static 'js/swiper-listing-inner.js' %}"></script>
 {% endblock scripts %}

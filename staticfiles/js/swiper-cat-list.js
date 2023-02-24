@@ -8,7 +8,7 @@ if(width>500){
   var gap=30
 }
 
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper(".mySwiper-cat", {
   slidesPerView: slideCount,
   spaceBetween: gap,
   pagination: {
@@ -16,7 +16,7 @@ var swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".cat-next",
+    prevEl: ".cat-prev",
   },
 });

@@ -1,0 +1,66 @@
+.home-listings{
+  display: flex;
+  /* background-color: black; */
+  width: 100%;
+  height: auto;
+   gap: 2%;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+.home-listings .single-listing{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+    height: 400px;
+  
+}
+.home-listings .swiper {
+    width: 100%;
+    height: 285px;
+    display: flex;
+    gap: 20px;
+    
+   
+  }
+
+  .home-listings .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .listing-next, .listing-prev{
+    color: red;   
+   font-size: 10px;
+   background-color: white;
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   padding: 15px;
+  }
+  .listing-next::after, .listing-prev::after{
+    
+   font-size: 14px;
+   color: black;
+   font-weight: bolder;
+   
+   
+  }
+
+  .home-listings .single-listing:hover .listing-prev,
+  .home-listings .single-listing:hover .listing-next{
+    opacity: 1;
+  }

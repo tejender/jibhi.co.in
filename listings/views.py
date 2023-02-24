@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from .models import Host
+from .models import Listings ,Host
 
 # Create your views here.
 
 def Home(request):
-    hosts = Host.objects.all()
+    cottages = Listings.objects.all()
     
     active_page='home';
 
-    context={'active_page':active_page,"hosts":hosts}
+    context={'active_page':active_page,"cottages":cottages}
     return render(request, 'listings/home.html',context)
 
 def Test(request):

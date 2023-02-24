@@ -43,12 +43,13 @@
   }
 
   section.listings-cat-wrapper{
-    height: 150px;
+    height: auto;
     /* background-color: rgb(158, 151, 151); */
     padding-top: 10px;
     /* padding: 10px; */
     /* overflow-x: scroll; */
     position: relative;
+    margin-bottom: 25px;
     /* z-index: -1; */
   }
 
@@ -72,4 +73,11 @@
 
   .z-fix{
     z-index: -1 !important;
+  }
+
+  section.home-listings{
+    width: 100%;
+    height: auto;
+    /* background-color: red; */
+    /* margin-top: 20px; */
   }
