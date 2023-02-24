@@ -60,7 +60,4 @@
    
   }
 
-  .home-listings .single-listing:hover .listing-prev,
-  .home-listings .single-listing:hover .listing-next{
-    opacity: 1;
-  }
+ 
