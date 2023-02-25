@@ -26,6 +26,9 @@
     margin-bottom: 10px;
   }
   
+  i{
+    font-style: normal;
+  }
   section.hero-wrapper{
     height: auto;
     width: 100%;
@@ -48,9 +51,13 @@
     padding-top: 10px;
     /* padding: 10px; */
     /* overflow-x: scroll; */
-    position: relative;
+    position: sticky;
     margin-bottom: 25px;
     /* z-index: -1; */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    top: 70px;
+    z-index: 9999;
+    background-color: white;
   }
 
   section.listings-cat-wrapper .swiper-slide{
@@ -78,6 +85,29 @@
   section.home-listings{
     width: 100%;
     height: auto;
-    /* background-color: red; */
-    /* margin-top: 20px; */
+    
+  }
+
+  .listing-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-transform: capitalize;
+  }
+
+  .listing-title{
+    font-weight: 600;
+    font-size: 1rem;
+    color: #242323;
+  }
+
+  .listing-location,.listing-accomodation{
+    color: #717171;
+    font-size: .9rem;
+  }
+
+  .listing-price{
+    font-weight: 600;
+    color: #242323;
+    font-size: .9rem;
   }

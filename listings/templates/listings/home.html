@@ -7,11 +7,11 @@
 {% endblock css %}
 
 {% block content %}
-    <section class="hero-wrapper">
+    {% comment %} <section class="hero-wrapper">
         <div class="hero-image">
             <img src="https://cdn.pixabay.com/photo/2018/05/13/14/52/boys-3396713_960_720.jpg" alt="">
         </div>
-    </section>
+    </section> {% endcomment %}
 
     <section class="listings-cat-wrapper">
         <div class="swiper mySwiper-cat">
@@ -93,11 +93,15 @@
                   <img src=" {{cottage.main_image.url}}" alt="hi" height="20px"> 
                  </div>                
               </div>
+              <div class="swiper-pagination"></div>
               <div class="swiper-button-next listing-next"></div>
               <div class="swiper-button-prev listing-prev"></div>              
             </div>
-            <div class="text">
-              
+            <div class="listing-info-wrapper">
+              <i class="listing-title">{{cottage.name}}</i>
+              <i class="listing-location">{{cottage.location}}</i>
+              <i class="listing-accomodation">{{cottage.capacity}} persons | {{cottage.num_bedrooms}} bedrooms</i>
+              <i class="listing-price">{{cottage.price_per_night}} / night</i>
             </div>
           </div>
           {% endfor %} 
