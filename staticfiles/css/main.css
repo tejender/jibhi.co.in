@@ -58,12 +58,14 @@
     top: 70px;
     z-index: 9999;
     background-color: white;
+    height: auto;
+    padding-bottom: 5px;
   }
 
   section.listings-cat-wrapper .swiper-slide{
     /* width: auto; */
     /* background-color: red;     */
-    height: 70px;
+    height: 60px;
   }
   section.listings-cat-wrapper img{
     width: 40px;
