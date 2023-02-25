@@ -86,29 +86,17 @@
     width: 30px;
   }
   
-  
+  .bottom-nav-wrapper{
+    display: none;
+  }
+
+
   
   /* Media Queries */
   
     /* Mobile Devices - Phones/Tablets */
   
   @media only screen and (max-width: 720px) { 
-    .features {
-      flex-direction: column;
-      padding: 50px;
-    }
-    
-    /* MOBILE HEADINGS */
-    
-    h1 {
-      font-size: 1.9rem;
-    }
-    
-    
-    
-    p {
-      font-size: 0.8rem;
-    }
     
     .navbar .logo{
       display: flex;
@@ -131,5 +119,35 @@
       width: 50%;
     }
     
+
+    .bottom-nav-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      position: fixed;
+      width: 100%;
+      height: auto;
+      background-color: white;
+      border-top: 1px solid gray;
+      left: 0;
+      bottom: 0;
+      z-index: 9999;
+      padding: 10px 20px;
+      text-transform: capitalize;
+    }
      
+    .nav-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgb(53, 51, 51);
+     
+    }
+    
+    .nav-item .fa-solid{
+      font-size: 25px;
+    }
+    
   }
