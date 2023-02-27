@@ -24,7 +24,7 @@
                   </div>
                 </a>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide {% if listing_type == 'cottage' %}active-cat{% endif %}">
                 <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-cottage.svg' %}" alt="">
                 <div class="cat-title">
@@ -32,24 +32,24 @@
                 </div>
               </a>
               </div>
-              <div class="swiper-slide">
-                <a href="{% url 'stay' listing_type='cottage' %}">
+              <div class="swiper-slide {% if listing_type == 'homestay' %}active-cat{% endif %}">
+                <a href="{% url 'stay' listing_type='homestay' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-homestay.svg' %}" alt="">
                 <div class="cat-title">
                     homestay
                 </div>
               </a>
               </div>
-              <div class="swiper-slide">
-                <a href="{% url 'stay' listing_type='cottage' %}">
+              <div class="swiper-slide {% if listing_type == 'a-frame' %}active-cat{% endif %}">
+                <a href="{% url 'stay' listing_type='a-frame' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-a-frame.svg' %}" alt="">
                 <div class="cat-title">
                     A frame
                 </div>
               </a>
               </div>
-              <div class="swiper-slide">
-                <a href="{% url 'stay' listing_type='cottage' %}">
+              <div class="swiper-slide {% if listing_type == 'camp' %}active-cat{% endif %}">
+                <a href="{% url 'stay' listing_type='camp' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-camp.svg' %}" alt="">
                 <div class="cat-title">
                     Camping
@@ -64,8 +64,8 @@
                 </div>
               </a>
               </div>
-              <div class="swiper-slide">
-                <a href="{% url 'stay' listing_type='cottage' %}">
+              <div class="swiper-slide {% if listing_type == 'dome' %}active-cat{% endif %}">
+                <a href="{% url 'stay' listing_type='dome' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-dome.svg' %}" alt="">
                 <div class="cat-title">
                     dome
@@ -80,8 +80,8 @@
                 </div>
               </a>
               </div>
-              <div class="swiper-slide mudhouse">
-                <a href="{% url 'stay' listing_type='cottage' %}">
+              <div class="swiper-slide mudhouse {% if listing_type == 'mudhouse' %}active-cat{% endif %}">
+                <a href="{% url 'stay' listing_type='mudhouse' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-mudhouse.svg' %}" alt="">
                 <div class="cat-title">
                     mudhouse
