@@ -135,6 +135,7 @@
       z-index: 9999;
       padding: 10px 30px;
       text-transform: capitalize;
+      transition: transform 0.3s ease-in-out;
     }
      
     .nav-item{
@@ -153,4 +154,8 @@
       font-size: 18px;
     }
     
+  }
+
+  .hide-nav {
+    transform: translateY(100%);
   }
