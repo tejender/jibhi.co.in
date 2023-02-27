@@ -5,6 +5,11 @@
     font-family: 'Lato', 'Arial', sans-serif;
     -webkit-tap-highlight-color: transparent;
   }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
   
   /* HEADINGS */
   
@@ -13,6 +18,7 @@
     text-align: center;
     line-height: 1.4;
   }
+
   
   h1 {
     font-size: 2.2rem;
@@ -59,14 +65,11 @@
     z-index: 9999;
     background-color: white;
     height: auto;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
+    /* border: 1px solid black; */
   }
 
-  section.listings-cat-wrapper .swiper-slide{
-    /* width: auto; */
-    /* background-color: red;     */
-    height: 60px;
-  }
+  
   section.listings-cat-wrapper img{
     width: 40px;
     height: 40px;

@@ -1,16 +1,26 @@
 .listings-cat-wrapper .swiper {
   width: 80%;
-  height: 100%;
+  height: auto;
   position: relative;
+  text-transform: capitalize;
+  /* background-color: blue; */
+  /* margin-bottom: ; */
  
 }
 
+.listings-cat-wrapper  .swiper-slide{
+  
 
-
-.listings-cat-wrapper  .swiper-slide {
   text-align: center;
   font-size: 12px;
-  background: #fff;
+  /* background: #fff; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.listings-cat-wrapper  .swiper-slide a{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +29,20 @@
   
 }
 
+.cat-title{
+  margin-bottom: 10px;
+}
+.active-cat::after{
+  width: 100%;
+  height: 1px;
+  background-color: red;
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  
+  z-index: 20;
+  
+}
 /* .listings-cat-wrapper .swiper-slide img {
   display: block;
   width: 100%;

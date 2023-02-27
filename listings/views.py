@@ -15,3 +15,10 @@ def Test(request):
     active_page='home';
     context={'active_page':active_page}
     return render(request, 'listings/test.html',context)
+
+def Stay(request,listing_type):    
+    
+    listings = Listings.objects.filter(listing_type=listing_type)
+    listing_type = listing_type
+    context={"cottages":listings,"listing_type":listing_type}
+    return render(request,'listings/stay.html',context)

@@ -16,9 +16,8 @@
     <section class="listings-cat-wrapper">
         <div class="swiper mySwiper-cat">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide {% if listing_type == 'treehouse' %}active-cat{% endif %}">
                 <a href="{% url 'stay' listing_type='treehouse' %}">
-
                   <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
                   <div class="cat-title">
                     treehouse
@@ -26,53 +25,68 @@
                 </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-cottage.svg' %}" alt="">
                 <div class="cat-title">
                     cottage
                 </div>
+              </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-homestay.svg' %}" alt="">
                 <div class="cat-title">
                     homestay
                 </div>
+              </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-a-frame.svg' %}" alt="">
                 <div class="cat-title">
                     A frame
                 </div>
-              
+              </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-camp.svg' %}" alt="">
                 <div class="cat-title">
                     Camping
                 </div>
+              </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-mountain.svg' %}" alt="">
                 <div class="cat-title">
                     Amazing View
                 </div>
+              </a>
               </div>
               <div class="swiper-slide">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-dome.svg' %}" alt="">
                 <div class="cat-title">
                     dome
                 </div>
+              </a>
               </div>
               <div class="swiper-slide riverside">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-river2.svg' %}" alt="">
                 <div class="cat-title">
                     riverside
                 </div>
+              </a>
               </div>
               <div class="swiper-slide mudhouse">
+                <a href="{% url 'stay' listing_type='cottage' %}">
                 <img src="{% static 'assets/icons/listing-cat/icon-mudhouse.svg' %}" alt="">
                 <div class="cat-title">
                     mudhouse
                 </div>
+              </a>
               </div>              
             </div>
             

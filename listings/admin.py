@@ -6,12 +6,13 @@ class ContactAdmin(admin.ModelAdmin):
         list_display = ('name', 'email', 'phone', 'address', 'image')
 
 
+
 class AmenitiesAdmin(admin.ModelAdmin):
         list_display = ('amenity_name','amenity_icon')
 
 
 class ListingsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'location', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night')
+    list_display = ('name', 'location', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night','listing_type')
 
 
 

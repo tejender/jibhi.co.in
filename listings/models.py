@@ -11,9 +11,13 @@ class Host(models.Model):
     email = models.EmailField(max_length=255, blank=True)
     phone = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=255, blank=True)
+    
 
     def __str__(self):
         return self.name
+    
+
+    
 
 
 class Amenities(models.Model):
@@ -35,6 +39,18 @@ class Listings(models.Model):
     price_per_night = models.DecimalField(max_digits=8, decimal_places=2)
     main_image = models.ImageField(upload_to='images/cottage/main-images')    
     owner = models.ForeignKey(Host, on_delete=models.CASCADE)
+    listing_type = models.CharField(
+        max_length=10,default='hi',
+        choices=[
+            ('cottage', 'Cottage'),
+            ('treehouse', 'Treehouse'),
+            ('homestay', 'Homestay'),
+            ('a-frame', 'A-Frame'),
+            ('camp','Camping'),
+            ('dome','Domes'),
+            ('mudhosue','Mudhouse')
+        ],
+    )
 
     def __str__(self):
         return self.name
