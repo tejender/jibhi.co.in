@@ -3,6 +3,7 @@
   height: auto;
   position: relative;
   text-transform: capitalize;
+ 
   /* background-color: blue; */
   /* margin-bottom: ; */
  
@@ -28,6 +29,8 @@
   
   
 }
+
+
 
 .cat-title{
   margin-bottom: 10px;

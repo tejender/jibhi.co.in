@@ -86,9 +86,9 @@
 
     <section class="home-listings">
      {% for cottage in cottages %}  
-     <a href="#">
-
-       <div class="single-listing">
+     
+     <div class="single-listing">
+         <a href="#">
          <div class="swiper mySwiper-listing">
            <div class="swiper-wrapper">
              <div class="swiper-slide">
@@ -108,8 +108,8 @@
             <i class="listing-accomodation">{{cottage.capacity}} persons | {{cottage.num_bedrooms}} bedrooms</i>
             <i class="listing-price">{{cottage.price_per_night}} / night</i>
           </div>
+        </a>        
         </div>
-      </a>        
         {% endfor %} 
       
     </section>
