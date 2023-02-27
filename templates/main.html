@@ -17,10 +17,13 @@
     {% endblock css %}
 </head>
 <body>
-    {% include 'nav.html' %}
-    {% block content %}
-    
-    {% endblock content %}
+    <div class="body-container">
+
+        {% include 'nav.html' %}
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
 
     
     

@@ -87,6 +87,18 @@
     z-index: -1 !important;
   }
 
+.result-count{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: auto;
+  margin-bottom: 30px;
+  /* background-color: red; */
+}
+
   section.home-listings{
     width: 100%;
     height: auto;
@@ -116,4 +128,12 @@
     font-weight: 600;
     color: #242323;
     font-size: .9rem;
+  }
+
+
+ 
+  @media (max-width:500px){
+    .body-container{
+      margin-bottom: 80px;
+    }
   }

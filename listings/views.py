@@ -20,5 +20,7 @@ def Stay(request,listing_type):
     
     listings = Listings.objects.filter(listing_type=listing_type)
     listing_type = listing_type
+    listing_count = len(listings)
+    print(listing_count)
     context={"cottages":listings,"listing_type":listing_type}
     return render(request,'listings/stay.html',context)
