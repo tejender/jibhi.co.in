@@ -30,11 +30,32 @@ def Search(request):
     locationType = request.GET.get('location-type')
     adults = request.GET.get('adults')
     children = request.GET.get('children')
-    total_guests = int(adults) + int(children)
-    minPrice = request.GET.get('price-range-min')
-    maxPrice = request.GET.get('price-range-max')
-    listings = Listings.objects.filter(listing_type=listingType)
-    print(listings)
+    maxPrice = request.GET.get('price-range')
+
+    if not adults:
+        adults=1
+
+    if not children:
+        children=0
+
+    total_guests = int(adults) + int(children)  
+
+    if listingType=='any' and locationType == 'any' :
+        listings = Listings.objects.filter(price_per_night__lte=maxPrice,capacity__gte=total_guests)
+
+    elif listingType == 'any' and locationType !='any':
+        listings = Listings.objects.filter(location_type=locationType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
+
+    elif listingType !='any' and locationType == 'any' :
+        listings = Listings.objects.filter(listing_type=listingType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
+
+    else:
+        listings = Listings.objects.filter(location_type=locationType,
+                 listing_type=listingType,price_per_night__lte=maxPrice,capacity__gte=total_guests)
+
+  
+    # listings = Listings.objects.filter(listing_type=listingType)
+    
     context= {
         "listing_type":listingType,
         "location_type":locationType,

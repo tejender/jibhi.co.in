@@ -51,6 +51,15 @@ class Listings(models.Model):
             ('mudhosue','Mudhouse')
         ],
     )
+    location_type = models.CharField(
+        max_length=10,default='roadside',
+        choices=[
+            ('roadside', 'Roadside'),
+            ('uphill', 'Uphill'),
+            ('downhill', 'Downhill'),
+            ('offroad', 'Offroad'),            
+        ],
+    )
 
     def __str__(self):
         return self.name

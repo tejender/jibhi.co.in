@@ -89,7 +89,7 @@
                 <div class="form-group">
                   <label for="location-type">Location</label>
                   <select id="type" name="location-type" class="select-type">
-                    <option value="Any" selected>Any</option>
+                    <option value="any" selected>Any</option>
                     <option value="roadside">Roadside</option>
                     <option value="uphill">Uphill</option>
                     <option value="downhill">downhill</option>
@@ -103,36 +103,23 @@
                 <div class="form-row">
                 <div class="form-group">
                   <label for="adults">Adults</label>
-                  <input type="number" id="adults" name="adults" min="1">
+                  <input type="number" id="adults" name="adults" min="1" required="true">
                 </div>
                 <div class="form-group">
                   <label for="children">Children</label>
                   <input type="number" id="children" name="children" min="0">
                 </div>
               </div>
+              
               <div class="form-row">
-                <div class="wrapper">  
-                  <label for="price-range">Price Range</label>                
-                  <div class="price-input" >
-                    <div class="field">
-                      <span>Min</span>
-                      <input type="number" class="input-min" value="2500"  disabled>
-                    </div>
-                    <div class="separator">-</div>
-                    <div class="field">
-                      <span>Max</span>
-                      <input type="number" class="input-max" value="7500"  disabled>
-                    </div>
+                <div class="form-group slider">
+                  <label for="price-range">Price Range:</label>
+                  <input type="range" id="price-range" name="price-range" min="500" max="10000" step="100">
+                  <div class="range-labels">
+                    <span class="min-price">500</span>
+                    <span class="max-price">5000</span>
                   </div>
-                  <div class="slider">
-                    <div class="progress"></div>
-                  </div>
-                  <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100"
-                    name="price-range-min">
-                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100"
-                    name="price-range-max">
-                  </div>
+
                 </div>
               </div>
             
