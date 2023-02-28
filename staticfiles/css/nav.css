@@ -168,7 +168,9 @@
   display: block;
   margin-bottom: 5px;
 }
-
+.select-type{
+  background-color: white;
+}
 .form-group input,
 .form-group select {
   width: 100%;
@@ -362,9 +364,14 @@ input[type="range"]::-moz-range-thumb {
       border: 0;
       margin-top: 70px;
     }
-
+    .search-modal-wrapper{
+      background-color: white;
+      opacity: 1;
+    }
     .search-form{
       width: 100%;
+      height: auto;
+      /* margin-top:50px; */
       
      
     }
