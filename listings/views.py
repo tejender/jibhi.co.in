@@ -24,3 +24,23 @@ def Stay(request,listing_type):
     print(listing_count)
     context={"cottages":listings,"listing_type":listing_type}
     return render(request,'listings/stay.html',context)
+
+def Search(request):
+    listingType = request.GET.get('listing-type')
+    locationType = request.GET.get('location-type')
+    adults = request.GET.get('adults')
+    children = request.GET.get('children')
+    total_guests = int(adults) + int(children)
+    minPrice = request.GET.get('price-range-min')
+    maxPrice = request.GET.get('price-range-max')
+    listings = Listings.objects.filter(listing_type=listingType)
+    print(listings)
+    context= {
+        "listing_type":listingType,
+        "location_type":locationType,
+        "guests":total_guests,        
+        "max_price":maxPrice,
+        "listings":listings,
+        "is_searched":True
+    }
+    return render(request,'listings/search.html', context)

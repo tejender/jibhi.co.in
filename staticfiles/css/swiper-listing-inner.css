@@ -1,4 +1,22 @@
-.home-listings{
+.search-listings-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.search-desc{
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.search-listings-wrapper p{
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.listings{
   display: flex;
   /* background-color: black; */
   width: 100%;
@@ -8,7 +26,8 @@
   justify-content: center;
   
 }
-.home-listings .single-listing{
+
+.listings .single-listing{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -23,7 +42,7 @@
   flex-direction: column;
   gap: 10px;
 } 
-.home-listings .swiper {
+.listings .swiper {
     width: 100%;
     height: 285px;
     display: flex;
@@ -33,7 +52,7 @@
    
   }
 
-  .home-listings .swiper-slide  {
+  .listings .swiper-slide  {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -84,7 +103,7 @@
 
  @media (max-width:500px) {
   
-  .home-listings .single-listing{
+  .listings .single-listing{
     width: 90%;
   }
   .single-listing:hover .listing-next,
@@ -92,7 +111,7 @@
    display: none;
   }
 
-  .home-listings{
+  .listings{
     gap: 25px;
   }
 

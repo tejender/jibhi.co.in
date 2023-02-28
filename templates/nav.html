@@ -8,6 +8,15 @@
 
         <div class="search-wrapper  trigger-desktop">
           <div class="search-box">
+            {% if is_searched %}
+            <div class="search-desc">              
+              <p>
+                   {{listing_type}}
+                  , {{guests}} guests, 
+                  {{max_price}}  &#x20b9;
+              </p>
+          </div>
+            {% endif %}
             <img src="{% static 'assets/icons/random/icon-search.svg' %}" alt="">
           </div>
         </div>
@@ -54,6 +63,7 @@
 
           
             <div class="search-form">
+              <form method="get" action="{% url 'search' %}">
               
               {% comment %} <div class="form-row">
                 <div class="form-group">
@@ -67,23 +77,23 @@
               </div> {% endcomment %}
               <div class="form-row">
                 <div class="form-group">
-                  <label for="type">Type</label>
-                  <select id="type" name="type"class="select-type">                    
-                    <option value="apartment" selected>Any</option>
-                    <option value="apartment">Apartment</option>
-                    <option value="house">House</option>
-                    <option value="villa">Villa</option>
+                  <label for="listing-type">Type</label>
+                  <select id="type" name="listing-type"class="select-type">                    
+                    <option value="any" selected>Any</option>
+                    <option value="treehouse">treehouse</option>
+                    <option value="cottage">cottage</option>
+                    <option value="a-frame">A-frame</option>
                   </select>
                 </div>  
                 
                 <div class="form-group">
                   <label for="location-type">Location</label>
                   <select id="type" name="location-type" class="select-type">
-                    <option value="apartment" selected>Any</option>
-                    <option value="house">Roadside</option>
-                    <option value="villa">Uphill</option>
-                    <option value="villa">downhill</option>
-                    <option value="villa">offroad</option>
+                    <option value="Any" selected>Any</option>
+                    <option value="roadside">Roadside</option>
+                    <option value="uphill">Uphill</option>
+                    <option value="downhill">downhill</option>
+                    <option value="offroad">offroad</option>
                   </select>
                 </div>
                 
@@ -106,20 +116,22 @@
                   <div class="price-input" >
                     <div class="field">
                       <span>Min</span>
-                      <input type="number" class="input-min" value="2500" name="price-range" disabled>
+                      <input type="number" class="input-min" value="2500"  disabled>
                     </div>
                     <div class="separator">-</div>
                     <div class="field">
                       <span>Max</span>
-                      <input type="number" class="input-max" value="7500" disabled>
+                      <input type="number" class="input-max" value="7500"  disabled>
                     </div>
                   </div>
                   <div class="slider">
                     <div class="progress"></div>
                   </div>
                   <div class="range-input">
-                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100">
-                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100">
+                    <input type="range" class="range-min" min="0" max="10000" value="2500" step="100"
+                    name="price-range-min">
+                    <input type="range" class="range-max" min="0" max="10000" value="7500" step="100"
+                    name="price-range-max">
                   </div>
                 </div>
               </div>
@@ -133,6 +145,7 @@
                   <button type="submit">Search</button>
                 </div>
               </div>
+            </form>
             </div> 
   </div>
 

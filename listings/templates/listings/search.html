@@ -1,0 +1,47 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/swiper-listing-inner.css' %}">
+{% endblock css %}
+{% block content %}
+
+<div class="search-listings-wrapper">
+    
+
+<section class="listings">    
+    {% for listing in listings %}  
+     
+      <div class="single-listing">
+         <a href="#">
+         <div class="swiper mySwiper-listing">
+           <div class="swiper-wrapper">
+             <div class="swiper-slide">
+               <img src=" {{listing.main_image.url}}" alt="hi" height="20px">  
+              </div>
+              <div class="swiper-slide">
+                <img src=" {{listing.main_image.url}}" alt="hi" height="20px"> 
+              </div>                
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next listing-next"></div>
+            <div class="swiper-button-prev listing-prev"></div>              
+          </div>
+          <div class="listing-info-wrapper">
+            <i class="listing-title">{{listing.name}}</i>
+            <i class="listing-location">{{listing.location}}</i>
+            <i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>
+            <i class="listing-price">{{listing.price_per_night}} / night</i>
+          </div>
+         </a>        
+      </div>
+        {% endfor %} 
+      
+</section>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{%static 'js/swiper-listing-inner.js' %}"></script>
+{% endblock scripts %}
