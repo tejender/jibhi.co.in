@@ -65,3 +65,7 @@ def Search(request):
         "is_searched":True
     }
     return render(request,'listings/search.html', context)
+
+
+def Sitemap(request):
+    return render(request,'listings/sitemap.html')

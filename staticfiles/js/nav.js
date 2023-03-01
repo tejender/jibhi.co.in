@@ -1,5 +1,7 @@
 var prevScrollPos = window.pageYOffset;
 var bottomNav = document.getElementById("bottomNav");
+var delay = 500; // Delay time in milliseconds
+var timeoutId;
 
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
@@ -7,8 +9,15 @@ window.onscroll = function() {
     bottomNav.classList.add("hide-nav");
   } else {
     bottomNav.classList.remove("hide-nav");
+     // If the user stops scrolling, show the nav after a delay
+     
   }
   prevScrollPos = currentScrollPos;
+  if (currentScrollPos >= (document.documentElement.scrollHeight - window.innerHeight)) {
+    timeoutId = setTimeout(function() {
+      bottomNav.classList.remove("hide-nav");
+    }, 700);
+  }
 };
 
 
