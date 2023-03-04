@@ -197,6 +197,7 @@ section.section-wrapper{
   height: 100%;
   transition: all 15s ease;
   object-fit: cover;
+  filter: contrast(120%) saturate(170%);
 }
 
 .grid-item img:hover{
@@ -359,6 +360,7 @@ footer{
   display: flex;
   justify-content: center;
   /* background-color: red; */
+  margin-top: 20px;
 }
 /* paragliding section------------------------------------------ */
 .carousel {
@@ -462,7 +464,8 @@ input:checked + .slide-container .nav label { display: block; }
 /* paragliding section ends------------------------------------------- */
 
 
-.section-content.village-slider{
+.section-content.village-slider,
+.section-content.places-slider{
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -471,7 +474,9 @@ input:checked + .slide-container .nav label { display: block; }
   border-radius: 20px;
  
 }
-.section-content.village-slider::-webkit-scrollbar {
+.section-content.village-slider::-webkit-scrollbar,
+.section-content.places-slider::-webkit-scrollbar
+ {
   display: none;
 }
 
@@ -503,6 +508,15 @@ input:checked + .slide-container .nav label { display: block; }
   font-weight: 900;
 }
 
+.place-wrapper{
+  flex: 0 0 250px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background-color: blue;
+}
+
 footer .footer-section{
   display: flex;
   align-items: center;
@@ -514,16 +528,7 @@ footer .footer-section{
 
 
 
-.bp-widget-widget {
-  bottom: 40px !important;
- 
-  background-color: #ff385c;
-  opacity: .8 !important;
-  right: 5px !important;
-  
-  
- 
-}
+
 
 
 

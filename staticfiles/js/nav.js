@@ -16,7 +16,7 @@ window.onscroll = function() {
   if (currentScrollPos >= (document.documentElement.scrollHeight - window.innerHeight)) {
     timeoutId = setTimeout(function() {
       bottomNav.classList.remove("hide-nav");
-    }, 700);
+    });
   }
 };
 
