@@ -514,8 +514,23 @@ footer .footer-section{
 
 
 
+.bp-widget-widget {
+  bottom: 40px !important;
+ 
+  background-color: #ff385c;
+  opacity: .8 !important;
+  right: 5px !important;
+  
+  
+ 
+}
 
 
+
+
+.bpw-floating-buttton{
+  border-radius: 20px;
+}
  
 
   @media (max-width:500px){
@@ -579,4 +594,6 @@ footer .footer-section{
       position: relative;
       margin-bottom: 60px;
     }
+
+   
   }
