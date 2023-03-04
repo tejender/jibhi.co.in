@@ -315,7 +315,7 @@ input[type="range"]::-webkit-slider-thumb {
       flex-direction: column;
       align-items: center;
       gap: 5px;
-      color: #ff385c;
+      color: rgba(255, 56, 93,.8);
      
     }
     
@@ -324,6 +324,10 @@ input[type="range"]::-webkit-slider-thumb {
     }
     .nav-item .fa-solid{
       font-size: 18px;
+    }
+
+    a.active-nav{
+      color: #007AFF;
     }
 
     .modal-content{

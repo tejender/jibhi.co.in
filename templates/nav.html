@@ -39,7 +39,7 @@
 
      <div class="bottom-nav-wrapper " id="bottomNav">
       <div class="nav-item">   
-        <a href="#">
+        <a href="{% url 'home' %}" class="{% if active_page == 'home' %}active-nav{% endif %}">
 
           <i class="fa-solid fa-house"></i>
           <i>home</i>
@@ -47,7 +47,8 @@
       </div>
 
       <div class="nav-item"> 
-        <a href="{% url 'stay' listing_type='treehouse' %}">
+        <a href="{% url 'stay' listing_type='treehouse' %}"
+        class="{% if active_page == 'stay' %}active-nav{% endif %}">
 
           <i class="fa-solid fa-magnifying-glass-location"></i>
           <i>explore</i>

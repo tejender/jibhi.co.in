@@ -17,12 +17,11 @@ def Test(request):
     return render(request, 'listings/test.html',context)
 
 def Stay(request,listing_type):    
-    
+    active_page='stay';
     listings = Listings.objects.filter(listing_type=listing_type)
     listing_type = listing_type
-    listing_count = len(listings)
-    print(listing_count)
-    context={"cottages":listings,"listing_type":listing_type}
+    listing_count = len(listings)    
+    context={"cottages":listings,"listing_type":listing_type,'active_page':active_page}
     return render(request,'listings/stay.html',context)
 
 def Search(request):
