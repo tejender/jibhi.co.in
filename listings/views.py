@@ -18,9 +18,12 @@ def Test(request):
 
 def Stay(request,listing_type):    
     active_page='stay';
-    listings = Listings.objects.filter(listing_type=listing_type)
-    listing_type = listing_type
-    listing_count = len(listings)    
+    if listing_type=='all':
+        listings = Listings.objects.all()
+    else:
+        listings = Listings.objects.filter(listing_type=listing_type)
+        
+    listing_type = listing_type      
     context={"cottages":listings,"listing_type":listing_type,'active_page':active_page}
     return render(request,'listings/stay.html',context)
 
