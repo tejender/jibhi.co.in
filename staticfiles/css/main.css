@@ -358,6 +358,7 @@ footer{
  /* margin-top: 20px; */
   display: flex;
   justify-content: center;
+  /* background-color: red; */
 }
 /* paragliding section------------------------------------------ */
 .carousel {
@@ -518,10 +519,7 @@ footer .footer-section{
  
 
   @media (max-width:500px){
-    .body-container{
-      margin-bottom: 80px;
-    }
-
+    
     .section-content{
       flex-direction: column;
     }
