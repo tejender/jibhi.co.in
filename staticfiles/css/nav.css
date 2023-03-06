@@ -1,3 +1,9 @@
+.scrolled{
+  background-color: white;
+  border-bottom: .5px solid rgba(211, 204, 204,.6);
+  color: #ff385c;
+}
+
 /* BASIC SETUP */
   
   
@@ -6,8 +12,10 @@
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
-    background-color: #ffffff;
-    border-bottom: .5px solid rgba(211, 204, 204,.6);
+    transition: background-color 0.5s ease;
+    color: white;
+    /* background-color: #ffffff; */
+
   
     z-index: 999999999;
   }
@@ -23,6 +31,8 @@
     align-items: center;
     height: 80px;
     overflow: hidden;
+    /* background-color: rgb(231, 209, 13); */
+    background-color: transparent;
   }
   
   .navbar img {
@@ -48,7 +58,8 @@
   .nav-item a {
     color: #000;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 900;
+    text-transform: uppercase;
     text-decoration: none;
     transition: color 0.3s ease-out;
   }
@@ -113,7 +124,7 @@
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
   z-index: 99999;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   
 }
 
@@ -121,7 +132,7 @@
 
 .search-form {
   position: absolute;
-  top: 50%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 700px;
@@ -129,26 +140,38 @@
   background-color: white;
   /* padding: 1rem 1.5rem; */
   /* width: 24rem; */
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
+ 
   
   
 }
-/* .close-button {
-  float: right;
-  width: 1.5rem;
+.close-button {
+  position: absolute;
+  top: -10px;
+  right:-10px;
+  /* width: 1.5rem; */
   line-height: 1.5rem;
   text-align: center;
   cursor: pointer;
-  border-radius: 0.25rem;
-  background-color: lightgray;
-} */
-.close-button:hover {
-  background-color: darkgray;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  background-color: #ff385c;
+  /* color: rgb(255, 255, 255); */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+ 
 }
+
 .show-modal {
   opacity: 1;
   visibility: visible;
@@ -202,7 +225,7 @@
   border-color: #6b8cff;
 }
 
-button[type="submit"] , .close-button{
+button[type="submit"] , button[type="reset"]{
   display: block;
   width: 100%;
   padding: 10px;

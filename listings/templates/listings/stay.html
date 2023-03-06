@@ -99,6 +99,8 @@
     </section>
 
     <section class="listings">
+
+      {% if cottages %}
       
      {% for cottage in cottages %}  
      
@@ -119,13 +121,22 @@
           </div>
           <div class="listing-info-wrapper">
             <i class="listing-title">{{cottage.name}}</i>
-            <i class="listing-location">{{cottage.location}}</i>
+            <div class="item-wrapper">
+              <i class="fa fa-solid fa-location-dot"></i>
+              <i class="listing-location">{{cottage.location}}</i>
+            </div>
             <i class="listing-accomodation">{{cottage.capacity}} persons | {{cottage.num_bedrooms}} bedrooms</i>
-            <i class="listing-price">{{cottage.price_per_night}} / night</i>
+            <div class="item-wrapper">
+
+              <i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{cottage.price_per_night}} / night</i>
+            </div>
           </div>
          </a>        
       </div>
         {% endfor %} 
+      {% else %}
+      <h2>hii</h2>
+        {% endif %}
       
     </section>
 {% endblock content %}

@@ -17,14 +17,17 @@ def Test(request):
     return render(request, 'listings/test.html',context)
 
 def Stay(request,listing_type):    
-    active_page='stay';
-    if listing_type=='all':
-        listings = Listings.objects.all()
-    else:
-        listings = Listings.objects.filter(listing_type=listing_type)
-        
+    
+    active_page='stay'
+    listings = Listings.objects.filter(listing_type=listing_type)        
     listing_type = listing_type      
     context={"cottages":listings,"listing_type":listing_type,'active_page':active_page}
+    return render(request,'listings/stay.html',context)
+
+def StayAll(request):
+    active_page='stay'
+    listings = Listings.objects.all()         
+    context={"cottages":listings,'active_page':active_page}
     return render(request,'listings/stay.html',context)
 
 def Search(request):
@@ -46,13 +49,13 @@ def Search(request):
         listings = Listings.objects.filter(price_per_night__lte=maxPrice,capacity__gte=total_guests)
 
     elif listingType == 'any' and locationType !='any':
-        listings = Listings.objects.filter(location_type=locationType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
+        listings = Listings.objects.filter(location=locationType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
 
     elif listingType !='any' and locationType == 'any' :
-        listings = Listings.objects.filter(listing_type=listingType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
+        listings = Listings.objects.filter(listing=listingType ,price_per_night__lte=maxPrice,capacity__gte=total_guests)
 
     else:
-        listings = Listings.objects.filter(location_type=locationType,
+        listings = Listings.objects.filter(location=locationType,
                  listing_type=listingType,price_per_night__lte=maxPrice,capacity__gte=total_guests)
 
   

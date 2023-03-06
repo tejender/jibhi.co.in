@@ -26,7 +26,7 @@
        
        <ul class="nav no-search">
          <li class="nav-item"><a href="#">Home</a></li>
-         <li class="nav-item"><a href="{% url 'stay' listing_type='all' %}">Explore</a></li>
+         <li class="nav-item"><a href="{% url 'stay' %}">Explore</a></li>
          <li class="nav-item"><a href="#">Careers</a></li>
          <li class="nav-item"><a href="#">About</a></li>
          <li class="nav-item"><a href="#">Contact Us</a></li>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="nav-item"> 
-        <a href="{% url 'stay' listing_type='all' %}"
+        <a href="{% url 'stay'%}"
         class="{% if active_page == 'stay' %}active-nav{% endif %}">
 
           <i class="fa-solid fa-magnifying-glass-location"></i>
@@ -56,12 +56,12 @@
       
       </div>  
       
-      <div class="nav-item">
+      {% comment %} <div class="nav-item">
         <a href="#">
           <i class="fa-solid fa-circle-info"></i>
           <i>about</i>
         </a>
-      </div>
+      </div> {% endcomment %}
 
       <div class="nav-item">  
         <a href="#">
@@ -86,6 +86,10 @@
 
           
             <div class="search-form">
+              <div class="close-button">
+                <i class="fa-solid fa-xmark "></i> 
+              </div>
+                
               <form method="get" action="{% url 'search' %}">
               
               {% comment %} <div class="form-row">
@@ -113,10 +117,12 @@
                   <label for="location-type">Location</label>
                   <select id="type" name="location-type" class="select-type">
                     <option value="any" selected>Any</option>
-                    <option value="roadside">Roadside</option>
-                    <option value="uphill">Uphill</option>
-                    <option value="downhill">downhill</option>
-                    <option value="offroad">offroad</option>
+                    <option value="jibhi">Jibhi</option>
+                    <option value="tandi">Tandi</option>
+                    <option value="mihar">Mihar</option>
+                    <option value="ghiyagi">Ghiyagi</option>
+                    <option value="sajwar">Sajwar</option>
+                    <option value="bahu">Bahu</option>
                   </select>
                 </div>
                 
@@ -148,7 +154,10 @@
             
               <div class="form-row">
                 <div class="form-group">
-                  <span  class="close-button">Close</span>
+                                 
+                  <div class="form-group">
+                    <button type="reset">Reset</button>
+                  </div>
 
                 </div>
                 <div class="form-group">

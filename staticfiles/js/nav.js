@@ -65,21 +65,30 @@ function getMaxPrice(currentValue) {
 
 // datepicker
 
-// Get the checkin and checkout date input elements
-const checkinInput = document.getElementById('checkin-date');
-const checkoutInput = document.getElementById('checkout-date');
+// // Get the checkin and checkout date input elements
+// const checkinInput = document.getElementById('checkin-date');
+// const checkoutInput = document.getElementById('checkout-date');
 
-// Set the minimum checkin date to the current date
-checkinInput.min = new Date().toISOString().split('T')[0];
+// // Set the minimum checkin date to the current date
+// checkinInput.min = new Date().toISOString().split('T')[0];
 
-// When the checkin date changes, set the minimum checkout date to the checkin date
-checkinInput.addEventListener('change', (event) => {
-  checkoutInput.min = event.target.value;
-});
+// // When the checkin date changes, set the minimum checkout date to the checkin date
+// checkinInput.addEventListener('change', (event) => {
+//   checkoutInput.min = event.target.value;
+// });
 
-// When the checkout date changes, set the maximum checkin date to the checkout date
-checkoutInput.addEventListener('change', (event) => {
-  checkinInput.max = event.target.value;
-});
+// // When the checkout date changes, set the maximum checkin date to the checkout date
+// checkoutInput.addEventListener('change', (event) => {
+//   checkinInput.max = event.target.value;
+// });
 
 // datepicker ends
+
+
+window.addEventListener("scroll", function() {
+  const navbar = document.querySelector(".nav-wrapper");
+  console.log(navbar);
+  navbar.classList.toggle("scrolled", window.scrollY > 0);
+});
+const navbar = document.querySelector(".nav-wrapper");
+  console.log(navbar);
