@@ -652,5 +652,15 @@ footer .footer-section{
       border-radius: 10px;
       
     }
+    .hero-content h1{
+      font-size: 2rem;
+      
+      /* background-color: black; */
+    }
     
+    .hero-content p{
+      /* line-height: normal; */
+      width: 100%;
+
+    }
   }
