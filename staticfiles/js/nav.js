@@ -85,10 +85,10 @@ function getMaxPrice(currentValue) {
 // datepicker ends
 
 
-window.addEventListener("scroll", function() {
-  const navbar = document.querySelector(".nav-wrapper");
-  console.log(navbar);
-  navbar.classList.toggle("scrolled", window.scrollY > 0);
-});
-const navbar = document.querySelector(".nav-wrapper");
-  console.log(navbar);
+// window.addEventListener("scroll", function() {
+//   const navbar = document.querySelector(".nav-wrapper");
+//   console.log(navbar);
+//   navbar.classList.toggle("scrolled", window.scrollY > 0);
+// });
+// const navbar = document.querySelector(".nav-wrapper");
+//   console.log(navbar);

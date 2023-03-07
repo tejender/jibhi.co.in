@@ -18,14 +18,14 @@ def Test(request):
 
 def Stay(request,listing_type):    
     
-    active_page='stay'
+    active_page='listinggs'
     listings = Listings.objects.filter(listing_type=listing_type)        
     listing_type = listing_type      
     context={"cottages":listings,"listing_type":listing_type,'active_page':active_page}
     return render(request,'listings/stay.html',context)
 
 def StayAll(request):
-    active_page='stay'
+    active_page='listings'
     listings = Listings.objects.all()         
     context={"cottages":listings,'active_page':active_page}
     return render(request,'listings/stay.html',context)
@@ -70,6 +70,16 @@ def Search(request):
         "is_searched":True
     }
     return render(request,'listings/search.html', context)
+
+
+
+def ListingDetail(request,slug):
+      # Retrieve the listing matching the slug
+    listing = Listings.objects.get(slug=slug)    
+    # Render the template with the listing details
+    context = {'listing': listing}
+    return render(request,'listings/listingDetail.html', context)
+
 
 
 def Sitemap(request):

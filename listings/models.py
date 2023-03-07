@@ -1,6 +1,7 @@
 from django.core.validators import FileExtensionValidator
 
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -60,6 +61,12 @@ class Listings(models.Model):
             ('offroad', 'Offroad'),            
         ],
     )
+
+    slug = models.SlugField(unique=True, max_length=255, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Listings, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name

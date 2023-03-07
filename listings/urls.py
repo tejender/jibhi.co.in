@@ -3,8 +3,9 @@ from . import views
 urlpatterns = [
     path('', views.Home, name='home'),
     path('test/', views.Test, name='test'),
-    path('stay/', views.StayAll, name='stay'),
-    path('stay/<str:listing_type>/', views.Stay, name='stay'),
+    path('listings/', views.StayAll, name='listings'),
+    path('listings/<str:listing_type>/', views.Stay, name='listings'),
     path('search/', views.Search, name='search'),
+    path('listing-detail/<str:slug>/', views.ListingDetail, name='listingDetail'),
     path('sitemap/', views.Sitemap, name='sitemap')
 ]

@@ -12,7 +12,7 @@ class AmenitiesAdmin(admin.ModelAdmin):
 
 
 class ListingsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'location', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night','listing_type','location_type')
+    list_display = ('name', 'location', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night','listing_type','location_type',"slug")
 
 
 
