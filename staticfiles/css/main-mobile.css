@@ -79,20 +79,21 @@
     margin-top: 15px;
         /* background-color: red; */
     }
-    .gallery-grid{
-      grid-template-columns: 1fr; /* set one column for mobile devices */
-      grid-template-rows: auto; /* let the rows adjust automatically */
-    }
-    .hero-grid-item{
+    .gallery-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      height: 100%;
       width: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-      height: 300px; /* set a fixed height for each image on mobile devices */
     }
-    .hero-grid-item:not(.hero-grid-item--1) {
-      display: none; /* hide all images except the first one on mobile devices */
+  
+    .hero-grid-item {
+      flex: 1 0 100%;
+      /* scroll-snap-align: start; */
     }
+    
 
 
     .listing-header{
