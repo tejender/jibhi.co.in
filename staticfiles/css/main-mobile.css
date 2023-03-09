@@ -80,9 +80,20 @@
         /* background-color: red; */
     }
     .gallery-grid{
-        row-gap: 5px;
-        column-gap: 5px;
+      grid-template-columns: 1fr; /* set one column for mobile devices */
+      grid-template-rows: auto; /* let the rows adjust automatically */
     }
+    .hero-grid-item{
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      height: 300px; /* set a fixed height for each image on mobile devices */
+    }
+    .hero-grid-item:not(.hero-grid-item--1) {
+      display: none; /* hide all images except the first one on mobile devices */
+    }
+
 
     .listing-header{
         flex-direction: column;
@@ -94,5 +105,8 @@
         text-align: left;
     }
 
+    
+
     /* lisitng detail page ends */
+
   }
