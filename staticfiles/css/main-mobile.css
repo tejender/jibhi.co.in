@@ -79,30 +79,19 @@
     margin-top: 15px;
         /* background-color: red; */
     }
-    .gallery-grid {
-      display: flex;
-      flex-direction: row;
-      overflow-x: scroll;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      height: 100%;
-      width: 110%;
-      margin-left: -5%;
-      gap: 0px;
-      
+    .gallery-grid{
+        row-gap: 0px;
+        column-gap: 0px;
+        width: 110%;
+        margin-left: -5%;
+        margin-top: -14px;
+        height: 200px;
     }
-  
-    .hero-grid-item {
-      flex: 1 0 100%;
-      width: 100%;
-      gap: -10px;
-      /* background-color: red; */
-      /* scroll-snap-align: start; */
+
+    .hero-grid-item{
       border-radius: 0px;
+     
     }
-    
-
-
     .listing-header{
         flex-direction: column;
         justify-content: flex-start;
