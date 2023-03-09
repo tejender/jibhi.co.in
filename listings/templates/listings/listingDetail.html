@@ -26,19 +26,46 @@
     </div>
     <div class="gallery-grid">
         <div class="hero-grid-item hero-grid-item--1">
-            <img src="https://cdn.pixabay.com/photo/2018/05/05/23/57/cottage-3377597_960_720.jpg" alt="">
+            <img src="{{listing.thumb_images.url1.url}}" alt="">
         </div>
         <div class="hero-grid-item">
-            <img src="https://cdn.pixabay.com/photo/2016/03/16/21/17/apartment-1261781_960_720.jpg" alt="">
+            <img src="{{listing.thumb_images.url2.url}}" alt="">    
         </div>
         <div class="hero-grid-item">
-            <img src="https://cdn.pixabay.com/photo/2017/09/15/19/19/cabin-2753263_960_720.jpg" alt="">
+            <img src="{{listing.thumb_images.url3.url}}" alt="">    
         </div>
         <div class="hero-grid-item">
-            <img src="https://cdn.pixabay.com/photo/2017/11/24/08/33/bedroom-2974355_960_720.jpg" alt="">
+            <img src="{{listing.thumb_images.url4.url}}" alt="">
         </div>
         <div class="hero-grid-item">
-            <img src="https://cdn.pixabay.com/photo/2021/09/13/13/41/house-6621456_960_720.jpg" alt="">
+            <img src="{{listing.thumb_images.url5.url}}" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper listing-body-wrapper">
+    <div class="listing-body--left">
+        <div class="listing-body--content">
+            <div class="hosting-summary">
+                <div class="owner-accomodation-info">
+                    <h3>Entire Home hosted by {{listing.owner.name}}</h3>
+                    <div class="accomodation-summary">
+                        <i>
+                            {{listing.capacity}} guests
+                        </i>
+                        <i>
+                            {{listing.num_bedrooms}} Bedrooms
+                        </i>
+                        <i>
+                            {{listing.num_bathrooms}} Bathrooms
+                        </i>
+                    </div>
+                </div>
+                <div class="host-image">
+                    <img src="{{listing.owner.image.url}}" alt="">
+                </div>
+
+            </div>
         </div>
     </div>
 </section>

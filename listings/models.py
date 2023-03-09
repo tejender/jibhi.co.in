@@ -27,6 +27,19 @@ class Amenities(models.Model):
     amenity_icon = models.FileField(upload_to='icons/amenities',validators=[FileExtensionValidator(['svg'])])
     def __str__(self):
         return self.amenity_name
+    
+
+class ThumbImages(models.Model):
+   
+   listing_name = models.CharField(max_length=50)
+   url1 = models.ImageField(upload_to='images/thumb-images')
+   url2 = models.ImageField(upload_to='images/thumb-images')
+   url3 = models.ImageField(upload_to='images/thumb-images')
+   url4 = models.ImageField(upload_to='images/thumb-images')
+   url5 = models.ImageField(upload_to='images/thumb-images')  
+
+   def __str__(self):
+        return self.listing_name
 
 
 class Listings(models.Model):
@@ -62,7 +75,9 @@ class Listings(models.Model):
         ],
     )
 
-    slug = models.SlugField(unique=True, max_length=255, blank=True, null=True)
+    thumb_images = models.ForeignKey(ThumbImages,on_delete=models.CASCADE,null=True)
+    slug = models.SlugField(unique=True, max_length=255, blank=True, null=True,default="hi")
+    
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

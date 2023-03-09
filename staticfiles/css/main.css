@@ -46,6 +46,12 @@
     font-style: normal;
   }
 
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
 
   .section-title h2{
     font-size: 1.5rem;
@@ -651,6 +657,38 @@ footer .footer-section{
   display: flex;
   gap: 20px;
 }
+
+.listing-body--left{
+  width: 60%;
+  height: auto;
+  /* background-color: yellow; */
+}
+
+.hosting-summary{
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host-image {
+  width: 50px;
+  height: 50px;
+  /* border-radius: 50%; */
+  margin-right: 10%;
+}
+
+.owner-accomodation-info{
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+}
+
+.host-image img{
+  border-radius: 50%;
+}
+
+
 
 /* page-signle-listing  ends*/
  
