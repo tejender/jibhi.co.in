@@ -102,8 +102,31 @@
         text-align: left;
     }
 
-    
+    .listing-header .wrapper{
+      flex-direction: column;
+    }
 
+    section.section-wrapper.listing-body-wrapper{
+      flex-direction: column;
+    }
+    .listing-body--left{
+      width: 100%;}
+
+      .hosting-summary{
+        gap: 20px;
+      }
+      .owner-accomodation-info{
+        /* background-color: red; */
+        width: 80%;
+      }
+      .accomodation-summary{
+        /* background-color: blue; */
+      }
+
+      .host-image{
+        /* background-color: yellow; */
+        margin-right: 0px;
+      }
     /* lisitng detail page ends */
 
   }
