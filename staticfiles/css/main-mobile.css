@@ -86,12 +86,19 @@
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
       height: 100%;
-      width: 100%;
+      width: 110%;
+      margin-left: -5%;
+      gap: 0px;
+      
     }
   
     .hero-grid-item {
       flex: 1 0 100%;
+      width: 100%;
+      gap: -10px;
+      /* background-color: red; */
       /* scroll-snap-align: start; */
+      border-radius: 0px;
     }
     
 
