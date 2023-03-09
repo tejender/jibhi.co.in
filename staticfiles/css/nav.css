@@ -36,6 +36,7 @@
     z-index: 9999;
     background-color: white;
     border-bottom: 1px solid rgba(128, 128, 128, 0.568);
+    position: relative;
   }
   
   .navbar img {
@@ -126,7 +127,8 @@
   visibility: hidden;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-  z-index: 99999;
+  z-index: 999999999;
+  
   /* overflow-y: scroll; */
   
 }

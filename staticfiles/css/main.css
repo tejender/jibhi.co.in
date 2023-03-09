@@ -19,8 +19,16 @@
   }
   
   body.no-scroll {
-    overflow: hidden;
+    position: fixed;
+    overflow-y:scroll
+    
+   
   }
+ .no-scroll-::-webkit-scrollbar {
+    width: 155px; /* set the width of the scrollbar */
+  }
+
+
   /* HEADINGS */
   
   h1, p {
@@ -46,12 +54,15 @@
     font-style: normal;
   }
 
+
+  
   img{
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
+  
 
   .section-title h2{
     font-size: 1.5rem;
@@ -731,6 +742,11 @@ footer .footer-section{
   font-family: monospace;
   font-size: 14px;
   line-height: 1.5rem;
+}
+
+.read-more-btn{
+  cursor: pointer;
+  color: blue;
 }
 /* page-signle-listing  ends*/
  

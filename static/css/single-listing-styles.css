@@ -1,0 +1,67 @@
+
+#about-listing-modal {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999;
+    transition: all 1s ease-in-out;
+    /* background-color: red; */
+    
+  }
+  
+  #about-listing-modal.open {
+    bottom: 50%;
+  }
+  
+  #about-listing-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 1s ease-in-out;
+    width: 90%;
+    height: 90vh;
+   
+    z-index: 99999999;
+    
+  }
+  
+  #modal.open #about-listing-modal-content {
+    transform: translate(-50%, -70%);
+  }
+  
+  #close-modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9999999999;
+    transition: all 1s ease-in-out;
+    
+  }
+
+  @media (max-width:500px) {
+    
+    #about-listing-modal-content {
+        
+        width: 100%;
+        height: 100vh;
+       
+        
+        
+      }
+}
