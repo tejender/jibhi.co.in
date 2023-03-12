@@ -88,6 +88,10 @@
         height: 200px;
     }
 
+    .load-gallery{
+      bottom: 5px;
+    }
+    
     .hero-grid-item{
       border-radius: 0px;
      

@@ -653,11 +653,12 @@ footer .footer-section{
 .load-gallery{
   position: absolute;
   right: 5px;
-  bottom: 5px;
+  bottom: 25px;
   background-color: rgb(247, 234, 234);
   padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
+  cursor: pointer;
 
 }
 

@@ -49,12 +49,12 @@
                     <div id="listing-gallery-modal-content">
                         {% if photos %}
                         <div class="photo-gallery">
-                          {% for photo in photos %}
-                            <div class="photo">
+                            <div class="photos">
+                                {% for photo in photos %}
                               <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
                               
+                              {% endfor %}
                             </div>
-                          {% endfor %}
                         </div>
                       {% else %}
                         <p>No photos available.</p>
