@@ -47,11 +47,16 @@
             <div id="listing-gallery-modal">                       
 
                     <div id="listing-gallery-modal-content">
+                        
                         {% if photos %}
-                        <div class="photo-gallery">
+                        <div class="photo-gallery">                           
+
                             <div class="photos">
-                                {% for photo in photos %}
-                              <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+                                {% for photo in photos %}  
+                                <div class="item--{{forloop.counter}}">
+                                    <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+                                    class="">
+                                </div>                              
                               
                               {% endfor %}
                             </div>
