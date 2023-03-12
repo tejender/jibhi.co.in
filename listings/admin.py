@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Host,Amenities,Listings,ThumbImages
+from .models import Host,Amenities,Listings,ThumbImages,PhotoGallery
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
 
@@ -17,8 +17,13 @@ class ListingsAdmin(admin.ModelAdmin):
 class ThumbImagesAdmin(admin.ModelAdmin):
        list_display = ('listing_name',)
 
+
+class PhotoGalleryAdmin(admin.ModelAdmin):
+       list_display = ('caption',)
+
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
 admin.site.register(Listings, ListingsAdmin)
 admin.site.register(ThumbImages,ThumbImagesAdmin)
+admin.site.register(PhotoGallery,PhotoGalleryAdmin)
 

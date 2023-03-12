@@ -85,6 +85,23 @@ class Listings(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class PhotoGallery(models.Model):
+    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='photos')
+    
+
+    image = models.ImageField(upload_to='photo_gallery/', blank=True)
+    caption = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        return self.caption
+
+    def save(self, *args, **kwargs):
+        # Get the listing's slug and use it to update the image field's upload_to path
+        slug = self.listing.slug
+        self.image.upload_to = f'photo_gallery/{slug}/'
+        super().save(*args, **kwargs)
     
 
 

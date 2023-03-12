@@ -624,6 +624,7 @@ footer .footer-section{
   column-gap: 25px;
   /* background-color: red; */
   height: auto;
+  position: relative;
 }
 .hero-grid-item{
   width: 100%;
@@ -647,6 +648,17 @@ footer .footer-section{
   transition: all 15s ease;
   object-fit: cover;
  
+}
+
+.load-gallery{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background-color: rgb(247, 234, 234);
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+
 }
 
 .listing-header{
@@ -748,6 +760,8 @@ footer .footer-section{
   cursor: pointer;
   color: blue;
 }
+
+
 /* page-signle-listing  ends*/
  
 

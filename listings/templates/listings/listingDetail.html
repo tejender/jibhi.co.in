@@ -40,7 +40,31 @@
         <div class="hero-grid-item">
             <img src="{{listing.thumb_images.url5.url}}" alt="">
         </div>
+        <div class="load-gallery" id="load-gallery">
+            Show All Photos
+        </div>
+        <div id="overlay-wrapper">                    
+            <div id="listing-gallery-modal">                       
+
+                    <div id="listing-gallery-modal-content">
+                        {% if photos %}
+                        <div class="photo-gallery">
+                          {% for photo in photos %}
+                            <div class="photo">
+                              <img src="{{ photo.image.url }}" alt="{{ photo.caption }}">
+                              
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% else %}
+                        <p>No photos available.</p>
+                      {% endif %}
+                      <button id="close-gallery-modal">X</button>
+                    </div>
+                </div>
+        </div>
     </div>
+
 </section>
 
 <section class="section-wrapper listing-body-wrapper">
@@ -97,10 +121,8 @@
                     <i class="read-more-btn" id="read-more-btn">Read More </i>
                     </p>
 
-                    <div id="overlay-wrapper">
-
-                    
-                    <div id="about-listing-modal">                        
+                    <div id="overlay-wrapper">                    
+                    <div id="about-listing-modal">                       
 
                             <div id="about-listing-modal-content">
                               <h2>Modal Title</h2>
@@ -113,6 +135,8 @@
         </div>
     </div>
 </section>
+
+
 {% endblock content %}
 
 

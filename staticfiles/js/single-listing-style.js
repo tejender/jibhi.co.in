@@ -23,3 +23,37 @@ closeBtn.addEventListener('click', function() {
   }, 100);
  
 });
+
+
+
+// listing galley
+
+var galleryModal = document.getElementById('listing-gallery-modal');
+
+var openGalleryBtn = document.getElementById('load-gallery');
+var overlay = document.getElementById('overlay-wrapper')
+var closeGalleryBtn = document.getElementById('close-gallery-modal');
+
+openGalleryBtn.addEventListener('click', function() {
+  galleryModal.classList.add('open');
+  document.body.classList.add('no-scroll');
+  
+  setTimeout(function() {
+    overlay.classList.add("overlay");
+  }, 1000);
+  
+
+  
+});
+
+closeGalleryBtn.addEventListener('click', function() {
+    document.body.classList.remove('no-scroll')
+    overlay.classList.remove("overlay");
+    console.log("hi");
+  setTimeout(function() {
+    galleryModal.classList.remove('open');
+  }, 100);
+ 
+});
+
+// listing gallery ends

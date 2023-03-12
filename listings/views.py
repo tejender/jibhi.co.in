@@ -75,9 +75,10 @@ def Search(request):
 
 def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
-    listing = Listings.objects.get(slug=slug)    
+    listing = Listings.objects.get(slug=slug) 
+    photos = listing.photos.all()   
     # Render the template with the listing details
-    context = {'listing': listing}
+    context = {'listing': listing,'photos':photos}
     return render(request,'listings/listingDetail.html', context)
 
 
