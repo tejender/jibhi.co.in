@@ -295,9 +295,11 @@
       #listing-gallery-modal-content{
         padding-left: 0;
         padding-right: 0;
+        top: 20px;
       }
+
       #listing-gallery-modal{
-        background-color: red;
+
         width: 100%;
         
       }
