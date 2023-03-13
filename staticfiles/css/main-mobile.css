@@ -99,7 +99,15 @@
     .listing-header{
         flex-direction: column;
         justify-content: flex-start;
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+        padding-bottom: 10px;
+       
         
+    }
+
+   
+    .listing-header i{
+      font-size: 16px;
     }
 
     .listing-header h2.listing-title{
@@ -108,6 +116,7 @@
 
     .listing-header .wrapper{
       flex-direction: column;
+      gap: 10px;
     }
 
     section.section-wrapper.listing-body-wrapper{
