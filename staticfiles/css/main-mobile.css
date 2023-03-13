@@ -121,12 +121,14 @@
 
     section.section-wrapper.listing-body-wrapper{
       flex-direction: column;
+      margin-top: 20px;
     }
     .listing-body--left{
       width: 100%;}
 
       .hosting-summary{
         gap: 20px;
+        /* margin-top: -20px; */
       }
       .owner-accomodation-info{
         /* background-color: red; */
