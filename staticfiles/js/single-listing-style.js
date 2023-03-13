@@ -59,18 +59,4 @@ closeGalleryBtn.addEventListener('click', function() {
 // listing gallery ends
 
 
-// modal position
 
-function adjustModalPosition() {
-  var urlBarHeight = window.outerHeight - window.innerHeight;
-  var modal = document.getElementById("listing-gallery-modal-content");
-
-
-  if (urlBarHeight > 0) {
-    modal.style.marginTop = 50 + "px";
-  } else {
-    modal.style.marginTop = "0";
-  }
-}
-
-window.addEventListener("resize", adjustModalPosition);
