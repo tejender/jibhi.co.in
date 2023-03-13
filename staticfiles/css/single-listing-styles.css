@@ -299,7 +299,7 @@
       #listing-gallery-modal-content{
         padding-left: 0;
         padding-right: 0;
-        top: env(safe-area-inset-top);
+        top: 45px;
         
        
       }
