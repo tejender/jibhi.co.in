@@ -292,10 +292,17 @@
         
       }
 
+      #listing-gallery-modal{
+          top: calc(50% + env(safe-area-inset-top));
+          
+          height: calc(100vh - env(safe-area-inset-top));
+
+      }
+
       #listing-gallery-modal-content{
         padding-left: 0;
         padding-right: 0;
-        top: 20px;
+       
       }
 
       #listing-gallery-modal{
