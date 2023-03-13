@@ -17,7 +17,10 @@
     text-decoration: none;
     color: inherit;
   }
-  
+  body{
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
   body.no-scroll {
     position: fixed;
     overflow-y:scroll

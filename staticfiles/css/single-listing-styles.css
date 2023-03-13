@@ -299,7 +299,7 @@
       #listing-gallery-modal-content{
         padding-left: 0;
         padding-right: 0;
-        height: calc(100vh - env(safe-area-inset-top));
+        
        
       }
 
