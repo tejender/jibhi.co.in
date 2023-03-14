@@ -7,5 +7,6 @@ urlpatterns = [
     path('listings/<str:listing_type>/', views.Stay, name='listings'),
     path('search/', views.Search, name='search'),
     path('listing-detail/<str:slug>/', views.ListingDetail, name='listingDetail'),
-    path('sitemap/', views.Sitemap, name='sitemap')
+    path('sitemap/', views.Sitemap, name='sitemap'),
+    path('enquiry/', views.Enquiry, name='enquiry')
 ]

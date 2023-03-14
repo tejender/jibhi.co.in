@@ -211,7 +211,8 @@
   background-color: white;
 }
 .form-group input,
-.form-group select {
+.form-group select,
+.form-row textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -225,7 +226,8 @@
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.form-group select:focus,
+textarea:focus {
   outline: none;
   border-color: #6b8cff;
 }
@@ -243,7 +245,8 @@ button[type="submit"] , button[type="reset"]{
   font-size: 14px;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover
+,button[type="reset"]:hover {
   background-color: #304ffe;
 }
 

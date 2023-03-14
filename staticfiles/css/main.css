@@ -679,12 +679,40 @@ footer .footer-section{
   gap: 20px;
 }
 
+
+section.section-wrapper.listing-body-wrapper{
+  display: flex;
+
+  flex-direction: row;
+  gap: 5%;
+  
+}
+
 .listing-body--left{
   width: 60%;
   height: auto;
   /* background-color: yellow; */
 }
 
+.listing-body--right{
+  width: 38%;
+  height: 100%;
+  /* background-color: green; */
+  box-shadow: 0px 0px 5px  gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  gap: 20px;
+  padding-bottom: 0px;
+  padding-bottom: 20px;
+}
+.form-price {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: rgba(3, 3, 3, 0.658);
+}
 .hosting-summary{
   display: flex;
   gap: 50px;
@@ -763,4 +791,54 @@ footer .footer-section{
 /* page-signle-listing  ends*/
  
 
+/* enquiry-page */
+
+.section-wrapper.enquiry-section {
+  padding: 20px;
+ 
+  text-align: center;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.enquiry-status {
+  
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  
+}
+
+.enquiry-status p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.enquiry-status i {
+  display: block;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.enquiry-status a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#countdown {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  margin-left: 5px;
+}
+
+/* enquiry page ends */
  

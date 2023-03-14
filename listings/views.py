@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Listings ,Host
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 
@@ -77,9 +80,41 @@ def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
     listing = Listings.objects.get(slug=slug) 
     photos = listing.photos.all()   
+    not_bottom_nav=True
     # Render the template with the listing details
-    context = {'listing': listing,'photos':photos}
+    context = {'listing': listing,'photos':photos,"not_bottom_nav":not_bottom_nav}
     return render(request,'listings/listingDetail.html', context)
+
+
+def Enquiry(request):
+    form_status=False
+    slug=""
+    if request.method == 'POST':
+        form_status=True
+        checkin_date = request.POST.get('checkin-date')
+        checkout_date = request.POST.get('checkout-date')
+        adults = request.POST.get('adults')
+        children = request.POST.get('children')
+        message = request.POST.get('message')
+        slug = request.POST.get('slug')
+        
+
+        context={}
+        
+        # send email
+        # subject = 'Booking Enquiry from Jibhi.co.in'
+        # body = f'Checkin Date: {checkin_date}\nCheckout Date: {checkout_date}\nAdults: {adults}\nChildren: {children}\nMessage: {message}'
+        # sender_email = settings.EMAIL_HOST_USER
+        # recipient_list = ["work.ushna007@gmail.com"]
+        # try:
+        #     send_mail(subject, body, sender_email, recipient_list, fail_silently=False)
+        #     message="success"
+        # except:
+        #     message="fail"
+
+    context={"form_status":form_status,"slug":slug}
+    return render(request,'listings/enquiry.html',context)
+
 
 
 

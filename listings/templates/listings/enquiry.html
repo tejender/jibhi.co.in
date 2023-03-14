@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<section class="section-wrapper enquiry-section">
+    {% if form_status %}
+        <div class="enquiry-status">
+            <p>
+                Thank you for contacting us! Your inquiry has been received and 
+                we will get back to you as soon as possible. We appreciate your interest in our
+                 company and look forward to connecting with you soon
+            </p>
+            <i>
+                you will be redirected to <a href="{% url 'listingDetail' slug=slug  %}">previous page </a>
+                 automatically in <span id="countdown">9</span> seconds
+            </i>
+        </div>
+        
+        {% comment %} <script>
+            var seconds = 100; // Change this to the desired number of seconds
+            var countdownElement = document.getElementById("countdown");
+            
+            var countdownInterval = setInterval(function() {
+                seconds--;
+                countdownElement.innerHTML = seconds;
+                
+                if (seconds == 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = "{% url 'listingDetail' slug=slug %}";
+                }
+            }, 1000); // Update the countdown every second
+        </script> {% endcomment %}
+        {% else %}
+        <p>
+            server error
+        </p>
+        
+    {% endif %}
+</section>
+
+{% endblock content %}

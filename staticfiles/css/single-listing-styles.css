@@ -280,6 +280,9 @@
   }
   /* galley modal ends */
 
+  .enquiry-nav-mobile{
+    display: none;
+  }
 
   @media (max-width:500px) {
     
@@ -307,5 +310,77 @@
       .photos{
         width: 100%;
       }
+
+      .listing-body--right{
+        display: none;
+      }
       
+      .enquiry-nav-mobile{
+        display: flex;
+        position: fixed;
+        height: 50px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: brown;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+
+      }
+
+
+      /* enquiry modal */
+      #enquiry-modal {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background-color: rgb(250, 246, 246);
+        z-index: 9999999999;
+        transition: all 1s ease-in-out;
+        /* background-color: red; */
+        height: 100vh;
+        
+        
+      }
+      
+      #enquiry-modal.open {
+        bottom: 0%;
+      }
+      
+      #enquiry-modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        /* padding: 20px; */
+       
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: all 1s ease-in-out;
+        width: 100%;
+        height: 100vh;
+      
+      
+        /* background-color: red; */
+      
+        
+       
+        z-index: 99999999;
+        
+      }
+      
+      #modal.open #enquiry-modal-content {
+        transform: translate(-50%, -70%);
+      }
+      
+      #close-enquiry-modal{
+        cursor: pointer;
+        
+      }
+      
+      
+      /* enquiry modal ends */
 }

@@ -36,7 +36,7 @@
      </div>
 
 
-
+     {% if not_bottom_nav is  None %}     
      <div class="bottom-nav-wrapper " id="bottomNav">
       <div class="nav-item">   
         <a href="{% url 'home' %}" class="{% if active_page == 'home' %}active-nav{% endif %}">
@@ -80,6 +80,7 @@
      
 
      </div>
+     {% endif %}
      
 
      <div class="search-modal-wrapper">        
@@ -92,79 +93,79 @@
                 
               <form method="get" action="{% url 'search' %}">
               
-              {% comment %} <div class="form-row">
-                <div class="form-group">
-                  <label for="checkin-date">Checkin Date</label>
-                  <input type="date" id="checkin-date" name="checkin-date" required>
+                {% comment %} <div class="form-row">
+                  <div class="form-group">
+                    <label for="checkin-date">Checkin Date</label>
+                    <input type="date" id="checkin-date" name="checkin-date" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="checkout-date">Checkout Date</label>
+                    <input type="date" id="checkout-date" name="checkout-date" required>
+                  </div>
+                </div> {% endcomment %}
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="listing-type">Type</label>
+                    <select id="type" name="listing-type"class="select-type">                    
+                      <option value="any" selected>Any</option>
+                      <option value="treehouse">treehouse</option>
+                      <option value="cottage">cottage</option>
+                      <option value="a-frame">A-frame</option>
+                    </select>
+                  </div>  
+                  
+                  <div class="form-group">
+                    <label for="location-type">Location</label>
+                    <select id="type" name="location-type" class="select-type">
+                      <option value="any" selected>Any</option>
+                      <option value="jibhi">Jibhi</option>
+                      <option value="tandi">Tandi</option>
+                      <option value="mihar">Mihar</option>
+                      <option value="ghiyagi">Ghiyagi</option>
+                      <option value="sajwar">Sajwar</option>
+                      <option value="bahu">Bahu</option>
+                    </select>
+                  </div>
+                  
                 </div>
-                <div class="form-group">
-                  <label for="checkout-date">Checkout Date</label>
-                  <input type="date" id="checkout-date" name="checkout-date" required>
-                </div>
-              </div> {% endcomment %}
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="listing-type">Type</label>
-                  <select id="type" name="listing-type"class="select-type">                    
-                    <option value="any" selected>Any</option>
-                    <option value="treehouse">treehouse</option>
-                    <option value="cottage">cottage</option>
-                    <option value="a-frame">A-frame</option>
-                  </select>
-                </div>  
-                
-                <div class="form-group">
-                  <label for="location-type">Location</label>
-                  <select id="type" name="location-type" class="select-type">
-                    <option value="any" selected>Any</option>
-                    <option value="jibhi">Jibhi</option>
-                    <option value="tandi">Tandi</option>
-                    <option value="mihar">Mihar</option>
-                    <option value="ghiyagi">Ghiyagi</option>
-                    <option value="sajwar">Sajwar</option>
-                    <option value="bahu">Bahu</option>
-                  </select>
-                </div>
-                
-              </div>
 
+                
+                  <div class="form-row">
+                  <div class="form-group">
+                    <label for="adults">Adults</label>
+                    <input type="number" id="adults" name="adults" min="1" required="true">
+                  </div>
+                  <div class="form-group">
+                    <label for="children">Children</label>
+                    <input type="number" id="children" name="children" min="0">
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group slider">
+                    <label for="price-range">Price Range:</label>
+                    <input type="range" id="price-range" name="price-range" min="500" max="10000" step="100">
+                    <div class="range-labels">
+                      <span class="min-price">500</span>
+                      <span class="max-price">5000</span>
+                    </div>
+
+                  </div>
+                </div>
               
                 <div class="form-row">
-                <div class="form-group">
-                  <label for="adults">Adults</label>
-                  <input type="number" id="adults" name="adults" min="1" required="true">
-                </div>
-                <div class="form-group">
-                  <label for="children">Children</label>
-                  <input type="number" id="children" name="children" min="0">
-                </div>
-              </div>
-              
-              <div class="form-row">
-                <div class="form-group slider">
-                  <label for="price-range">Price Range:</label>
-                  <input type="range" id="price-range" name="price-range" min="500" max="10000" step="100">
-                  <div class="range-labels">
-                    <span class="min-price">500</span>
-                    <span class="max-price">5000</span>
-                  </div>
-
-                </div>
-              </div>
-            
-              <div class="form-row">
-                <div class="form-group">
-                                 
                   <div class="form-group">
-                    <button type="reset">Reset</button>
-                  </div>
+                                  
+                    <div class="form-group">
+                      <button type="reset">Reset</button>
+                    </div>
 
+                  </div>
+                  <div class="form-group">
+                    <button type="submit">Search</button>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <button type="submit">Search</button>
-                </div>
-              </div>
-            </form>
+              </form>
             </div> 
   </div>
 

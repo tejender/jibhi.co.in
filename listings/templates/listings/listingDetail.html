@@ -13,13 +13,13 @@
             {{listing.name}}
         </h2>
         <div class="wrapper">
-            <i>
+            <i>              <i class="fa fa-solid fa-location-dot"></i>
                 <a href="#">
                     {{listing.location}}
                     , Jibhi, Himachal Prasdesh
                 </a>    
             </i>
-            <i>{{listing.location_type}}</i>
+            <i>{{listing.location_type}} {{listing.distance_in_meters}}m</i>
         </div>
     </div>
     
@@ -43,8 +43,7 @@
             Show All Photos
         </div>
         <div id="overlay-wrapper">                    
-            <div id="listing-gallery-modal">  
-                                 
+            <div id="listing-gallery-modal">                                 
 
                     <div id="listing-gallery-modal-content">
                         <div class="gallery-header">                            
@@ -141,8 +140,35 @@
                     </div>
                    
         </div>
+     </div>
     </div>
+
+    <div class="listing-body--right">
+        <div class="form-price">
+             <b>
+                <i class="fa-solid fa-indian-rupee-sign"></i>  {{listing.price_per_night}} / Night
+             </b>
+             
+        </div>        
+        {% include './listing_enquiry_form.html' %}
+    
+        </div>
+    
 </section>
+
+<div id="enquiry-modal">
+    <div id="enquary-modal-content">
+        {% include './listing_enquiry_form.html' %}
+    </div>
+</div>
+<div class="enquiry-nav-mobile">
+    <div class="price">
+        {{listing.price_per_night}}
+    </div>
+    <div class="enquiry-btn" id="enquiry-btn">
+            Enquire Now
+    </div>
+</div>
 
 
 {% endblock content %}

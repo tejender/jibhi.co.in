@@ -50,8 +50,7 @@ class Listings(models.Model):
     num_bedrooms = models.IntegerField()
     num_bathrooms = models.IntegerField()
     amenities = models.ManyToManyField(Amenities)
-    price_per_night = models.DecimalField(max_digits=8, decimal_places=2)
-    main_image = models.ImageField(upload_to='images/cottage/main-images')    
+    price_per_night = models.DecimalField(max_digits=8, decimal_places=2)        
     owner = models.ForeignKey(Host, on_delete=models.CASCADE)
     listing_type = models.CharField(
         max_length=10,default='hi',
@@ -75,6 +74,7 @@ class Listings(models.Model):
         ],
     )
 
+    distance_in_meters = models.IntegerField(default=0)
     thumb_images = models.ForeignKey(ThumbImages,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True,default="hi")
     
