@@ -284,6 +284,9 @@
     display: none;
   }
 
+  #enquiry-modal{
+    display: none;
+  }
   @media (max-width:500px) {
     
     #about-listing-modal-content {
@@ -333,6 +336,7 @@
 
       /* enquiry modal */
       #enquiry-modal {
+        display: block;
         position: fixed;
         bottom: -150%;
         left: 0;

@@ -60,25 +60,24 @@ closeGalleryBtn.addEventListener('click', function() {
 
 // datepicker
 
-// Get the checkin and checkout date input elements
+// Get the check-in and check-out date input elements
 const checkinInput = document.getElementById('checkin-date');
 const checkoutInput = document.getElementById('checkout-date');
 
+// Set the minimum check-in and check-out dates to the current date
+const currentDate = new Date().toISOString().split('T')[0];
+checkinInput.min = currentDate;
+checkoutInput.min = currentDate;
 
-// Set the minimum checkin date to the current date
-checkinInput.min = new Date().toISOString().split('T')[0];
-
-// When the checkin date changes, set the minimum checkout date to the checkin date
+// When the check-in date changes, set the minimum checkout date to the check-in date
 checkinInput.addEventListener('change', (event) => {
   checkoutInput.min = event.target.value;
 });
 
-// When the checkout date changes, set the maximum checkin date to the checkout date
+// When the checkout date changes, set the maximum check-in date to the checkout date
 checkoutInput.addEventListener('change', (event) => {
   checkinInput.max = event.target.value;
-});
-
-// datepicker ends
+});// datepicker ends
 
 
 // window.addEventListener("scroll", function() {
