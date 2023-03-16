@@ -24,9 +24,8 @@
     </div>
     
     <div class="gallery-grid">
-        <a href="{% url 'listings' %}">
-
-            <div class="prev-btn">
+        <a href="{% url 'listings' %}"class="prev-btn">
+            <div>
                 <i class="fa-solid fa-chevron-left" id="close-enquiry-modal"></i> 
             </div>
         </a>
@@ -46,7 +45,12 @@
             <img src="{{listing.thumb_images.url5.url}}" alt="">
         </div>
         <div class="load-gallery" id="load-gallery">
-            Show All Photos
+            <div class="gallery-text-wrapper">
+
+                <h4>
+                    Show All Photos
+                </h4>
+            </div>
         </div>
         <div id="overlay-wrapper">                    
             <div id="listing-gallery-modal">                                 

@@ -299,7 +299,7 @@
     border-radius: 50%;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     
     align-items: center;
     justify-content: center;
@@ -313,7 +313,7 @@
     .gallery-grid{
       display: flex;
       width: 110%;
-      height: 260px;
+      height: 250px;
 
     }
     .hero-grid-item.hero-grid-item--1{
