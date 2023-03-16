@@ -287,6 +287,20 @@
   #enquiry-modal{
     display: none;
   }
+
+  .prev-btn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   @media (max-width:500px) {
     
     #about-listing-modal-content {
