@@ -125,6 +125,9 @@ var closeEnquiryBtn = document.getElementById('close-enquiry-modal');
 openEnquiryBtn.addEventListener('click', function() {
   enquiryModal.classList.add('open');
   document.body.classList.add('no-scroll');
+  setTimeout(function() {
+    overlay.classList.add("overlay");
+  }, 1000);
   
  
   
@@ -134,8 +137,9 @@ openEnquiryBtn.addEventListener('click', function() {
 
 closeEnquiryBtn.addEventListener('click', function() {
     document.body.classList.remove('no-scroll')
+    overlay.classList.remove("overlay");
   setTimeout(function() {
-    galleryModal.classList.remove('open');
+    enquiryModal.classList.remove('open');
   }, 100);
  
 });

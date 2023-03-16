@@ -1,9 +1,20 @@
 <form method="post" action="{% url 'enquiry' %}">   
-    {% csrf_token %}           
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required="true" placeholder="Enter Your Name">
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact No.</label>
+            <input type="number" id="contact" name="contact" placeholder="Enter Your Contact No.">
+        </div>
+    </div>
         <div class="form-row">
         <div class="form-group">
             <label for="checkin-date">Checkin Date</label>
-            <input type="date" id="checkin-date" name="checkin-date" required>
+            <input type="date" id="checkin-date" name="checkin-date" required placeholder="kfgh">
         </div>
         <div class="form-group">
             <label for="checkout-date">Checkout Date</label>
@@ -14,18 +25,22 @@
 
         
         <div class="form-row">
-        <div class="form-group">
-            <label for="adults">Adults</label>
-            <input type="number" id="adults" name="adults" min="1" required="true">
-        </div>
-        <div class="form-group">
-            <label for="children">Children</label>
-            <input type="number" id="children" name="children" min="0">
-        </div>
+            <div class="form-group">
+                <label for="adults">Adults</label>
+                <input type="number" id="adults" name="adults" min="1" required="true">
+            </div>
+            <div class="form-group">
+                <label for="children">Children</label>
+                <input type="number" id="children" name="children" min="0">
+            </div>
         </div>
         
-        <div class="form-row">
-        <textarea name="" id="" cols="30" rows="7" style="resize:none;"></textarea>
+        <div class="form-row ">
+            <div class="form-group full">
+
+                <label for="details">Other Detail (if any)</label>
+                <textarea name="" id="details" cols="30" rows="7" style="resize:none;"></textarea>
+            </div>
         </div>
     
         <div class="form-row" >

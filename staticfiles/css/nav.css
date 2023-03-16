@@ -199,6 +199,10 @@
   width: 48%;
 }
 
+.form-group.full{
+  width: 100%;
+}
+
 .form-group.slider{
   width: 100%;
 }
