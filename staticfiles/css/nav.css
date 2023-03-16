@@ -241,13 +241,14 @@ button[type="submit"] , button[type="reset"]{
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #6b8cff;
+  background-color: rgb(231, 59, 59);
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 14px;
+  font-weight: bold;
 }
 
 button[type="submit"]:hover

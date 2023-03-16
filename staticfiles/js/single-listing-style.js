@@ -1,7 +1,7 @@
 var aboutModal = document.getElementById('about-listing-modal');
 var openBtn = document.getElementById('read-more-btn');
 var overlay = document.getElementById('overlay-wrapper')
-console.log(openBtn);
+
 var closeBtn = document.getElementById('close-modal');
 
 openBtn.addEventListener('click', function() {
@@ -48,8 +48,7 @@ openGalleryBtn.addEventListener('click', function() {
 
 closeGalleryBtn.addEventListener('click', function() {
     document.body.classList.remove('no-scroll')
-    overlay.classList.remove("overlay");
-    console.log("hi");
+    overlay.classList.remove("overlay");    
   setTimeout(function() {
     galleryModal.classList.remove('open');
   }, 100);
@@ -59,6 +58,36 @@ closeGalleryBtn.addEventListener('click', function() {
 // listing gallery ends
 
 //////////////////////////// datepicker desktop
+
+// enquiry modal
+var enquiryModal = document.getElementById('enquiry-modal');
+
+var openEnquiryBtn = document.getElementById('enquiry-btn');
+
+var closeEnquiryBtn = document.getElementById('close-enquiry-modal');
+
+
+
+openEnquiryBtn.addEventListener('click', function() {
+  enquiryModal.classList.add('open');
+  document.body.classList.add('no-scroll');
+  setTimeout(function() {
+    overlay.classList.add("overlay");
+  }, 700);
+});
+
+closeEnquiryBtn.addEventListener('click', function() {
+    document.body.classList.remove('no-scroll');
+    overlay.classList.remove("overlay");
+    console.log('object');
+    setTimeout(function() {
+      enquiryModal.classList.remove('open');
+    }, 100);
+ 
+});
+
+// emquiry-modal-ends
+
 
 // Get the checkin and checkout date input elements
 const checkinInput = document.querySelector('#enquiry-form-desktop #checkin-date');
@@ -104,44 +133,3 @@ checkoutInputMobile.addEventListener('change', (event) => {
 // datepicker mobile ends
 
 
-
-// window.addEventListener("scroll", function() {
-//   const navbar = document.querySelector(".nav-wrapper");
-//   console.log(navbar);
-//   navbar.classList.toggle("scrolled", window.scrollY > 0);
-// });
-// const navbar = document.querySelector(".nav-wrapper");
-//   console.log(navbar);
-
-
-
-// enquiry modal
-var enquiryModal = document.getElementById('enquiry-modal');
-
-var openEnquiryBtn = document.getElementById('enquiry-btn');
-
-var closeEnquiryBtn = document.getElementById('close-enquiry-modal');
-
-openEnquiryBtn.addEventListener('click', function() {
-  enquiryModal.classList.add('open');
-  document.body.classList.add('no-scroll');
-  setTimeout(function() {
-    overlay.classList.add("overlay");
-  }, 700);
-  
- 
-  
-
-  
-});
-
-closeEnquiryBtn.addEventListener('click', function() {
-    document.body.classList.remove('no-scroll')
-    overlay.classList.remove("overlay");
-  setTimeout(function() {
-    enquiryModal.classList.remove('open');
-  }, 100);
- 
-});
-
-// emquiry-modal-ends
