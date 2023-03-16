@@ -289,6 +289,7 @@
   }
 
   .prev-btn{
+    display: none;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -299,12 +300,25 @@
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
+    
     align-items: center;
     justify-content: center;
   }
   @media (max-width:500px) {
+
+    .hero-grid-item{
+      display: none;
+    }
     
+    .gallery-grid{
+      display: flex;
+      width: 110%;
+      height: 260px;
+
+    }
+    .hero-grid-item.hero-grid-item--1{
+      display: flex;
+    }
     #about-listing-modal-content {
         
         width: 100%;
@@ -421,4 +435,8 @@
       
       
       /* enquiry modal ends */
+
+      .prev-btn{
+        display: flex;
+      }
 }

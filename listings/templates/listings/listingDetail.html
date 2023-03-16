@@ -24,9 +24,12 @@
     </div>
     
     <div class="gallery-grid">
-        <div class="prev-btn">
-            <i class="fa-solid fa-chevron-left" id="close-enquiry-modal"></i> 
-        </div>
+        <a href="{% url 'listings' %}">
+
+            <div class="prev-btn">
+                <i class="fa-solid fa-chevron-left" id="close-enquiry-modal"></i> 
+            </div>
+        </a>
         <div class="hero-grid-item hero-grid-item--1">
             <img src="{{listing.thumb_images.url1.url}}" alt="">
         </div>
@@ -159,7 +162,6 @@
     
 </section>
 <div class="overlay-wrapper">
-
     <div id="enquiry-modal">
         <div id="enquiry-modal-content">
             <div class="gallery-header">                            
