@@ -169,7 +169,7 @@
         </div>
     </div>
 </div>
-<div class="enquiry-nav-mobile">
+<div class="enquiry-nav-mobile" id="bottomNav">
     <div class="price">
         <i class="fa-solid fa-indian-rupee-sign"></i> {{listing.price_per_night}} 
         <i style="font-weight:normal;"> Night</i>
@@ -188,4 +188,13 @@
 
 {% block scripts %}
     <script src="{%static 'js/single-listing-style.js' %}"></script>
+
+    <script type="text/javascript">
+		var notTopNav = {{ not_top_nav|yesno:"true,false" }};
+		
+		if (notTopNav && window.innerWidth < 500) {      
+			// show navigation
+			document.querySelector('.nav-wrapper').classList.add('hidden');
+		}
+	</script>
 {% endblock scripts %}

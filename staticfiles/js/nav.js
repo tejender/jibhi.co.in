@@ -1,3 +1,5 @@
+// scrolling feature
+		
 var prevScrollPos = window.pageYOffset;
 var bottomNav = document.getElementById("bottomNav");
 var delay = 500; // Delay time in milliseconds

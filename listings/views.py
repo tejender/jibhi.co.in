@@ -82,6 +82,7 @@ def ListingDetail(request,slug):
     photos = listing.photos.all()   
     not_bottom_nav=True
     not_top_nav=True
+    
     # Render the template with the listing details
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav}
