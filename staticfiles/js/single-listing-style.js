@@ -127,7 +127,7 @@ openEnquiryBtn.addEventListener('click', function() {
   document.body.classList.add('no-scroll');
   setTimeout(function() {
     overlay.classList.add("overlay");
-  }, 1000);
+  }, 700);
   
  
   
