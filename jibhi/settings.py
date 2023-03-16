@@ -58,6 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'jibhi.urls'
+CSRF_TRUSTED_ORIGINS = ['https://jibhicoin-production.up.railway.app']
+
 
 TEMPLATES = [
     {
