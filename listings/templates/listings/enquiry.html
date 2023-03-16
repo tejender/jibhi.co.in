@@ -16,8 +16,8 @@
             </i>
         </div>
         
-        {% comment %} <script>
-            var seconds = 100; // Change this to the desired number of seconds
+        <script>
+            var seconds = 9; // Change this to the desired number of seconds
             var countdownElement = document.getElementById("countdown");
             
             var countdownInterval = setInterval(function() {
@@ -29,7 +29,7 @@
                     window.location.href = "{% url 'listingDetail' slug=slug %}";
                 }
             }, 1000); // Update the countdown every second
-        </script> {% endcomment %}
+        </script> 
         {% else %}
         <p>
             server error

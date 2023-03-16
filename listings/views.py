@@ -99,23 +99,26 @@ def Enquiry(request):
         adults = request.POST.get('adults')
         children = request.POST.get('children')
         message = request.POST.get('message')
+        name= request.POST.get('name')
+        contact = request.POST.get('contact')
         slug = request.POST.get('slug')
+
         
 
         context={}
         
         # send email
-        # subject = 'Booking Enquiry from Jibhi.co.in'
-        # body = f'Checkin Date: {checkin_date}\nCheckout Date: {checkout_date}\nAdults: {adults}\nChildren: {children}\nMessage: {message}'
-        # sender_email = settings.EMAIL_HOST_USER
-        # recipient_list = ["work.ushna007@gmail.com"]
-        # try:
-        #     send_mail(subject, body, sender_email, recipient_list, fail_silently=False)
-        #     message="success"
-        # except:
-        #     message="fail"
+        subject = 'Booking Enquiry from Jibhi.co.in'
+        body = f'Name: {name}\n\nContact Number: {contact}\n\nCheckin Date: {checkin_date}\n\nCheckout Date: {checkout_date}\n\nAdults: {adults}\n\nChildren: {children}\n\nMessage: {message}'
+        sender_email = settings.EMAIL_HOST_USER
+        recipient_list = ["work.ushna007@gmail.com"]
+        try:
+            send_mail(subject, body, sender_email, recipient_list, fail_silently=False)
+            status_message="success"
+        except:
+            status_message="fail"
 
-    context={"form_status":form_status,"slug":slug}
+    context={"form_status":form_status,"slug":slug,"status_message":status_message}
     return render(request,'listings/enquiry.html',context)
 
 
