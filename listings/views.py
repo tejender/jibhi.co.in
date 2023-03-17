@@ -109,9 +109,10 @@ def Enquiry(request):
         
         # send email
         subject = 'Booking Enquiry from Jibhi.co.in'
-        body = f'Name: {name}\n\nContact Number: {contact}\n\nCheckin Date: {checkin_date}\n\nCheckout Date: {checkout_date}\n\nAdults: {adults}\n\nChildren: {children}\n\nMessage: {message}'
+        body=f'Dear Sir,\n\nI am interested in booking the following property:\n{slug}\n\n\nMy details are as follows:\nName: {name}\nContact Number: {contact}\nCheckin Date: {checkin_date}\nCheckout Date: {checkout_date}\nAdults: {adults}\nChildren: {children}\n\n\nMessage:\n{message}\n\nThank you for your assistance. I look forward to hearing from you soon.'
+        # body = f'Name: {name}\n\nContact Number: {contact}\n\nProperty: {slug}\n\nCheckin Date: {checkin_date}\n\nCheckout Date: {checkout_date}\n\nAdults: {adults}\n\nChildren: {children}\n\nMessage: {message}'
         sender_email = settings.EMAIL_HOST_USER
-        recipient_list = ["work.ushna007@gmail.com"]
+        recipient_list = ["kumartejender007@hotmail.com"]
         try:
             send_mail(subject, body, sender_email, recipient_list, fail_silently=False)
             status_message="success"
