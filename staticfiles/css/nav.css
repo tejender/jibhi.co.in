@@ -130,6 +130,7 @@
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
   z-index: 999999999;
   
+  
   /* overflow-y: scroll; */
   
 }
@@ -148,7 +149,7 @@
   /* width: 24rem; */
   /* border-radius: 0.5rem; */
   padding-top: 10px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   /* justify-content: center; */
  

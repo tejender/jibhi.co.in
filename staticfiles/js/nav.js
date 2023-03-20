@@ -27,7 +27,13 @@ var closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
-   
+    // document.body.classList.toggle("no-scroll")
+
+    // if (modal.classList.contains("show-modal")) {
+    //     document.body.classList.add("no-scroll");
+    //   } else {
+    //     document.body.classList.remove("no-scroll");
+    //   }
 }
 
 function windowOnClick(event) {

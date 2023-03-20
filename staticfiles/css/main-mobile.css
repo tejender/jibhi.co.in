@@ -144,4 +144,8 @@
       }
     /* lisitng detail page ends */
 
+    .no-result{
+      width: 90%;
+    }
+
   }

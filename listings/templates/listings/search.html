@@ -10,6 +10,7 @@
     
 
 <section class="listings">    
+  {% if listings %}  
     {% for listing in listings %}  
      
       <div class="single-listing">
@@ -36,6 +37,27 @@
          </a>        
       </div>
         {% endfor %} 
+
+      {% else %}
+      <div class="no-result">
+        <p>
+            We're sorry, but we didn't have any listings that match your search for <b> {{listing_type}}
+              , {{guests}} guests, 
+              {{max_price}}  &#x20b9;</b>.
+            </p>
+
+            <p>
+
+            Please try adjusting your search criteria and try again. <br>
+            If you need further assistance, please <a href="">contact us</a> 
+        </p>
+        <i>
+            See All <a href="#">listings</a>
+        </i>
+    </div>
+    
+
+    {% endif %}   
       
 </section>
 </div>
