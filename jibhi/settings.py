@@ -31,7 +31,6 @@ if 'DJANGO_ENV' in os.environ:
         DEBUG = False
 
 
-ERROR_400_TEMPLATE = '400.html'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
