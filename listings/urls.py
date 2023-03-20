@@ -10,3 +10,5 @@ urlpatterns = [
     path('sitemap/', views.Sitemap, name='sitemap'),
     path('enquiry/', views.Enquiry, name='enquiry')
 ]
+
+

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .error_404{
+     {% comment %} background-color:red; {% endcomment %}
+     display:flex;
+     flex-direction:column;
+     align-items:center;
+     justify-content:center;
+     height:78vh;
+     background: rgb(2,0,36);
+        background: linear-gradient(130deg, rgba(2,0,36,1) 0%,
+         rgba(243,249,0,1) 0%, rgba(47,203,180,1) 32%,
+          rgba(0,212,255,1) 53%, rgba(97,233,58,1) 81%);
+    }
+ </style>
+<div class="error_404">
+    <h1 style="font-size: 48px; margin-bottom: 20px;">Page not found</h1>
+    <p style="font-size: 24px;text-align:center;">We're sorry, but the page you requested could not be found.</p>
+  </div>
+{% endblock %}
