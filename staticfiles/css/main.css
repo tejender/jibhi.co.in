@@ -20,7 +20,7 @@
   
   body.no-scroll {
     position: fixed;
-    overflow-y:scroll
+    overflow-y:scroll;
     
    
   }
@@ -338,6 +338,9 @@ section.section-wrapper{
 section.listings{
   
 }
+
+
+
   section.listings-cat-wrapper{
     height: auto;
     /* background-color: rgb(158, 151, 151); */
@@ -600,8 +603,20 @@ input:checked + .slide-container .nav label { display: block; }
   overflow: hidden;
   position: relative;
   background-color: blue;
+  cursor: pointer;
 }
 
+.place-title{
+  position: absolute;
+  bottom: 5px;
+  
+  width: 100%;
+  text-align: center;
+  
+}
+.place-title h2{
+  color: white;
+}
 footer .footer-section{
   display: flex;
   align-items: center;
