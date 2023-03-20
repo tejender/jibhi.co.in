@@ -23,7 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z67+=5ci3u9*dlmfrw^27m#)_px#=rbi=_h3z549bm!dlla0j$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = True  # Default value for development environment
+
+if 'DJANGO_ENV' in os.environ:
+    if os.environ['DJANGO_ENV'] == 'production':
+        DEBUG = False
+
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
