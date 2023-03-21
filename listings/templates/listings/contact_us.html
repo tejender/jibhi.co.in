@@ -23,9 +23,11 @@
 
     <div class="contact-wrapper">
         <div class="enquiry-form">
+            <h2>Send Us a Message</h2>
             <form method="post" action="{% url 'enquiry' %}">   
                 {% csrf_token %}
                 
+            
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -85,15 +87,28 @@
             </form>
         </div>
         <div class="social-contact">
+            <h2>Get in Touch</h2>
+            <div class="social-wrapper">
+
+            
                 <div class="wrapper">
                     <h3>Addresss</h3>
-                    <i>Village Mihar , P.O Tandi , Teh. Banjar ,<br>Distt. Kullu H.P 175123</i>
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-earth-asia"></i>
+                        <i>Village Mihar , P.O Tandi , Teh. Banjar ,<br>Distt. Kullu H.P 175123</i>
+                    </div>
                 </div>
 
                 <div class="wrapper">
                     <h3>Contact</h3>
-                    <i>+91 62302 86198</i>
-                    <i>jibhi.co.in@outlook.com</i>                    
+                    <div class="icon-wraper">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <i>+91 62302 86198</i>
+                    </div>
+                    <div class="icon-wrapper">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <i>jibhi.co.in@outlook.com</i>                    
+                    </div>
                 </div>
 
                 <div class="wrapper">
@@ -113,6 +128,7 @@
                         </p>
                         <a href="#">Go to FAQs</a>
                 </div>
+            </div>
         </div>
     </div>
 </section>

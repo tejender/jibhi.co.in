@@ -180,9 +180,14 @@
     .contact-wrapper{
       flex-direction: column;
      gap: 30px;
+     align-items: center;
+
     }
     .contact-wrapper .enquiry-form{
-      width: 100%;
+      width: 90%;
+
+      border-bottom: 1px solid gray;
+      padding-bottom: 10px;
       /* background-color: red; */
       /* background-color: red; */
     }

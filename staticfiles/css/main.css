@@ -515,24 +515,66 @@ section.listings{
     .contact-wrapper{
       display: flex;
       gap: 5%;
-      align-items: center;
+      /* align-items: center; */
     }
+    .contact-wrapper h2{
+      /* background-color: red; */
+      font-size: 25px;
+    }
+    
+
     .contact-wrapper .enquiry-form{
       width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      
+
       /* background-color: red; */
+    }
+
+    .contact-wrapper .enquiry-form form .form-row{
+     padding: 10px 0;
     }
 
     .social-contact{
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 20px;
       width: 36%;
+      
+    }
+
+    .social-contact h3{
+      color: rgba(0, 0, 0, 0.662);
+    }
+
+    .social-contact .social-wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .contact-wrapper .enquiry-form,.social-contact{
+      padding-top: 10px;
+      border-top: 3px solid rgb(0, 174, 255);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .icon-wrapper{
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .social-contact .wrapper{
       display: flex;
       flex-direction: column;
       gap: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.375);
+      padding-bottom: 20px;
+   
     }
 
     .social-contact .contact-icon-wrapper{

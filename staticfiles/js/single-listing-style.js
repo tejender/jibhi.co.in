@@ -64,13 +64,14 @@ var enquiryModal = document.getElementById('enquiry-modal');
 
 var openEnquiryBtn = document.getElementById('enquiry-btn');
 
-var closeEnquiryBtn = document.getElementById('close-enquiry-modal');
+var closeEnquiryBtn = document.getElementById('close-enquiry-modal-mobile');
 
 
 
 openEnquiryBtn.addEventListener('click', function() {
   enquiryModal.classList.add('open');
   document.body.classList.add('no-scroll');
+  
   setTimeout(function() {
     overlay.classList.add("overlay");
   }, 700);
@@ -78,8 +79,7 @@ openEnquiryBtn.addEventListener('click', function() {
 
 closeEnquiryBtn.addEventListener('click', function() {
     document.body.classList.remove('no-scroll');
-    overlay.classList.remove("overlay");
-    console.log('object');
+    overlay.classList.remove("overlay");    
     setTimeout(function() {
       enquiryModal.classList.remove('open');
     }, 100);
