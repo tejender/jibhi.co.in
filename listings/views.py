@@ -123,6 +123,10 @@ def Enquiry(request):
     return render(request,'listings/enquiry.html',context)
 
 
+def ContactUs(request):
+    context={}
+    return render(request, 'listings/contact_us.html',context)
+
 
 
 def Sitemap(request):

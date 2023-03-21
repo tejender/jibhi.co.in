@@ -149,4 +149,29 @@
       padding: 0 20px;
     }
 
+
+    /* contact-us page */
+
+    .contact-hero--title{
+     left: 20px;
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+
+     
+
+    }
+
+    .contact-hero p{
+      
+      font-size: 1rem;
+     
+    }
+
+    .contact-hero h2{
+      font-size: 40px;
+      
+    }
+    /* contact-us page ends */
+
   }

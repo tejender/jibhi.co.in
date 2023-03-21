@@ -470,6 +470,41 @@ section.listings{
     
   }
 
+/* contact-us page */
+    .contact-hero{
+      height: 550px;
+      position: relative;
+      width: 100%;
+    }
+
+    .contact-hero--title{
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translate(0%, -50%);
+      color: white;
+    }
+
+    .contact-hero p{
+      
+      font-weight: 100;
+      font-size: 2rem;
+      text-transform: uppercase;
+
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .contact-hero h2{
+      font-size: 65px;
+      text-transform: capitalize;
+      color: white;
+      /* font-weight: 900; */
+      font-family: 'Montserrat', sans-serif;
+    }
+/* contact us page ends */
+
+
+
 /* footer section------------------------------------ */
 
 footer{
