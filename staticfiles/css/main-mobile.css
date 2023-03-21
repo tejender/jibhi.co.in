@@ -172,6 +172,24 @@
       font-size: 40px;
       
     }
+
+    .section-wrapper.contact-body{
+     
+      padding: 0;
+    }
+    .contact-wrapper{
+      flex-direction: column;
+     gap: 30px;
+    }
+    .contact-wrapper .enquiry-form{
+      width: 100%;
+      /* background-color: red; */
+      /* background-color: red; */
+    }
+
+    .social-contact{
+      width: 90%;
+    }
     /* contact-us page ends */
 
   }

@@ -477,18 +477,29 @@ section.listings{
       width: 100%;
     }
 
+    .contact-hero::after{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      content: '';
+      background-color: rgba(2, 2, 2, 0.488);
+      z-index: 1;
+    }
     .contact-hero--title{
       position: absolute;
       top: 50%;
       left: 10%;
       transform: translate(0%, -50%);
       color: white;
+      z-index: 3;
     }
 
     .contact-hero p{
       
       font-weight: 100;
-      font-size: 2rem;
+      font-size: 1.7rem;
       text-transform: uppercase;
 
       font-family: 'Montserrat', sans-serif;
@@ -500,6 +511,39 @@ section.listings{
       color: white;
       /* font-weight: 900; */
       font-family: 'Montserrat', sans-serif;
+    }
+    .contact-wrapper{
+      display: flex;
+      gap: 5%;
+      align-items: center;
+    }
+    .contact-wrapper .enquiry-form{
+      width: 60%;
+      /* background-color: red; */
+    }
+
+    .social-contact{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      width: 36%;
+    }
+
+    .social-contact .wrapper{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-contact .contact-icon-wrapper{
+      display: flex;
+      gap: 20px;
+      font-size: 1.6rem;
+      color: #ff385c;
+    }
+
+    .social-contact a{
+      color: #ff385c;
     }
 /* contact us page ends */
 

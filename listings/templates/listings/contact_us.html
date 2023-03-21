@@ -16,5 +16,105 @@
     </div>
     <img src="https://cdn.pixabay.com/photo/2016/11/23/15/22/adults-1853483_960_720.jpg" alt="">
 </section>
+<section class="section-wrapper contact-body">
+    <div class="section-title">
+        <h2>Contact Us</h2>
+    </div>
+
+    <div class="contact-wrapper">
+        <div class="enquiry-form">
+            <form method="post" action="{% url 'enquiry' %}">   
+                {% csrf_token %}
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required="true" placeholder="Enter Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact No.</label>
+                        <input type="number" id="contact" name="contact" placeholder="Enter Your Contact No.">
+                    </div>
+                </div>
+                    <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin-date">Checkin Date</label>
+                        <input type="date" id="checkin-date" name="checkin-date" required placeholder="kfgh">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-date">Checkout Date</label>
+                        <input type="date" id="checkout-date" name="checkout-date" required>
+                    </div>
+                    </div> 
+                    
+            
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Adults</label>
+                            <input type="number" id="adults" name="adults" min="1" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Children</label>
+                            <input type="number" id="children" name="children" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row ">
+                        <div class="form-group full">
+            
+                            <label for="details">Other Detail (if any)</label>
+                            <textarea name="message" id="details" cols="30" rows="7" style="resize:none;"></textarea>
+                        </div>
+                    </div>
+                
+                    <div class="form-row" >
+                        <input type="hidden" name="slug" value={{listing.slug}}>
+                    <div class="form-group">
+            
+                                    
+                        <div class="form-group">
+                        <button type="reset">Reset</button>
+                        </div>
+            
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Send Enquiry</button>
+                    </div>
+                    </div>
+            </form>
+        </div>
+        <div class="social-contact">
+                <div class="wrapper">
+                    <h3>Addresss</h3>
+                    <i>Village Mihar , P.O Tandi , Teh. Banjar ,<br>Distt. Kullu H.P 175123</i>
+                </div>
+
+                <div class="wrapper">
+                    <h3>Contact</h3>
+                    <i>+91 62302 86198</i>
+                    <i>jibhi.co.in@outlook.com</i>                    
+                </div>
+
+                <div class="wrapper">
+                    <h3>Social Handles</h3>
+                    <div class="contact-icon-wrapper">
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <h3>See  Our FAQs</h3>
+                    <p>Our FAQ section comprehensively addresses the frequently asked questions from our esteemed customers.
+                         Kindly peruse it to promptly obtain the answers you seek.
+                        </p>
+                        <a href="#">Go to FAQs</a>
+                </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
 
