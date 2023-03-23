@@ -128,6 +128,9 @@ def ContactUs(request):
     return render(request, 'listings/contact_us.html',context)
 
 
+def Places(request):
+    context={}
+    return render(request, 'listings/places.html',context)
 
 def Sitemap(request):
     return render(request,'listings/sitemap.html')

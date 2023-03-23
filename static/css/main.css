@@ -970,8 +970,8 @@ section.section-wrapper.listing-body-wrapper{
 
 .description-text{
   /* background-color: red; */
-  font-family: monospace;
-  font-size: 14px;
+  /* font-family: monospace; */
+  /* font-size: 14px; */
   line-height: 1.5rem;
 }
 
@@ -1024,6 +1024,44 @@ section.section-wrapper.listing-body-wrapper{
 
 /* page-signle-listing  ends*/
  
+
+/* places page */
+
+  .places-hero{
+    width: 100%;
+    height: 500px;
+    background-color: red;
+    object-fit: cover;
+    position: relative;
+  }
+  .video-hero{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  
+  
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-image: url("{% static 'assets/images/play.png' %}"); */
+    
+    
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 5rem;
+    background-color: transparent;
+    color: white;
+  }
+  
+
+/* places page ends */
 
 /* enquiry-page */
 

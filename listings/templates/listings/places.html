@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="places-hero">
+        <video class="video-hero" poster="{% static 'assets/images/poster.jpg' %}" >
+        <source src="{% static 'assets/videos/places/mountain.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <button class="play-btn">
+            <i class="fa-regular fa-circle-play"></i>
+        </button>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        const video = document.querySelector('.video-hero');
+        const playBtn = document.querySelector('.play-btn');
+
+        playBtn.addEventListener('click', () => {
+            console.log('clicked');
+        if (video.paused) {
+            video.play();
+            playBtn.style.display = 'none';
+        } else {
+            video.pause();
+            playBtn.style.display = 'block';
+        }
+        });
+
+        video.addEventListener('click', () => {
+            if (!video.paused) {
+                video.pause();
+                playBtn.style.display = 'block';
+            }
+        });
+
+    </script>
+{% endblock scripts %}
