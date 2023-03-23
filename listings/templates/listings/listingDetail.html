@@ -67,7 +67,7 @@
                                 {% for photo in photos %}  
                                 <div class="item--{{forloop.counter}}">
                                     <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
-                                    class="">
+                                    class="" loading="lazy">
                                 </div>                              
                               
                               {% endfor %}

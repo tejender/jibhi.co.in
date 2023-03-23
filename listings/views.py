@@ -3,6 +3,8 @@ from .models import Listings ,Host
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
+import requests
+import json
 
 # Create your views here.
 
@@ -129,8 +131,35 @@ def ContactUs(request):
 
 
 def Places(request):
-    context={}
+    # url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJGbYej9CvBTkRlFAEgUusb6w&fields=name%2Crating%2Cformatted_phone_number,reviews&key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc"
+    # payload={}
+    # headers = {}
+    
+    # response = requests.request("GET", url, headers=headers, data=payload)
+    # print(response.text)
+    
+    # data = json.loads(response.text)
+    # print(data)
+
+
+
+    place_id = "ChIJAdBq8rSvBTkRCDcaaOBjL4U" # Replace with your own place ID
+    api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc" # Replace with your actual API key
+    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
+
+    # Send API request and get response
+    response = requests.get(url)
+    data = response.json()
+
+    # Extract reviews
+    rating = data['result']['rating']
+    user_rating_total = data['result']['user_ratings_total']
+    print(rating)
+    reviews = data['result']['reviews']
+    
+    context={'rating':rating,'reviews':reviews,'user_rating_total':user_rating_total}
     return render(request, 'listings/places.html',context)
+
 
 def Sitemap(request):
     return render(request,'listings/sitemap.html')

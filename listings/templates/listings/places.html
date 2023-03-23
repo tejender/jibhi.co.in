@@ -12,6 +12,35 @@
             <i class="fa-regular fa-circle-play"></i>
         </button>
     </div>
+
+
+    <section class="section-wrapper">
+        <div class="rating">
+            <i> Google Rating : {{rating}}</i> <i class="fa-solid fa-star"></i>
+             ({{user_rating_total}} reviews) 
+        </div>
+        <div class="reviews-wrapper">
+            {% for review in reviews   %}            
+            <div class="review-wrapper">
+                <div class="review-header">
+                    <div class="reviewer-dp">
+                        <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+                    </div>
+                    <div class="review-meta">
+                        <i>{{review.author_name}}</i>
+                        <i class="relative-time">{{review.relative_time_description}}</i>
+                    </div>                   
+          
+                </div>
+                <div class="review-text">
+                    <p>
+                        {{ review.text}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock content %}
 
 {% block scripts %}
@@ -35,6 +64,13 @@
                 video.pause();
                 playBtn.style.display = 'block';
             }
+        });
+
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.poster = '{% static "assets/images/poster.jpg" %}';
+            playBtn.style.display = 'block';
+            
         });
 
     </script>
