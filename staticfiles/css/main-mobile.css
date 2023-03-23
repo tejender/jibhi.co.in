@@ -142,14 +142,25 @@
         /* background-color: yellow; */
         margin-right: 0px;
       }
-
+      .section-wrapper.things-to-know{
+        /* background-color: blue; */
+        margin-top: 20px;
+        gap: 10px;
+      }
       .things-to-know-wrapper{
         flex-direction: column;;
         border-bottom: 1px solid rgba(128, 128, 128, 0.459);
         padding-bottom: 20px;
+        gap: 15px;
       }
       .house-rules, .reaching-here,.cancellation-policy{
         width: 100%;
+      }
+
+      .description-wrapper{
+        border-bottom:1px solid rgba(128, 128, 128, 0.479);
+        padding-bottom: 15px;
+
       }
     /* lisitng detail page ends */
 
