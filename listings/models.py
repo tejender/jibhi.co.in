@@ -40,6 +40,16 @@ class ThumbImages(models.Model):
 
    def __str__(self):
         return self.listing_name
+   
+
+class ThingsToKnow(models.Model):
+    name = models.CharField(max_length=255)
+    checkInAfter = models.CharField(max_length=20)
+    checkInBefore = models.CharField(max_length=20)
+    checkOutBefore = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
 
 
 class Listings(models.Model):
@@ -77,6 +87,7 @@ class Listings(models.Model):
     distance_in_meters = models.IntegerField(default=0)
     thumb_images = models.ForeignKey(ThumbImages,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True,default="hi")
+    thingsToKnow = models.ForeignKey('ThingsToKnow', on_delete=models.CASCADE, null=True, blank=True)
     
 
     def save(self, *args, **kwargs):
@@ -102,6 +113,9 @@ class PhotoGallery(models.Model):
         slug = self.listing.slug
         self.image.upload_to = f'photo_gallery/{slug}/'
         super().save(*args, **kwargs)
+
+
+
     
 
 

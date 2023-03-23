@@ -981,6 +981,47 @@ section.section-wrapper.listing-body-wrapper{
 }
 
 
+.things-to-know-wrapper{  
+  display: flex;  
+   gap: 50px;
+   width: 100%;
+   /* background-color: red; */
+   
+}
+
+.house-rules{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 20%;
+  /* background-color: blue; */
+}
+
+.house-rules p{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reaching-here{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
+  /* background-color: blue; */
+}
+
+.reaching-here p{
+ 
+}
+
+.cancellation-policy{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 /* page-signle-listing  ends*/
  
 
