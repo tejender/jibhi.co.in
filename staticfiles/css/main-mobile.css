@@ -228,6 +228,10 @@
       justify-content: fstart;
       align-items: start;
     }
+
+    .photo-wrapper{
+      width: 50%;
+    }
     /* places-page ends */
 
   }

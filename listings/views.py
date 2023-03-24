@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib import messages
 import requests
 import json
+import googlemaps
 
 # Create your views here.
 
@@ -141,6 +142,8 @@ def Places(request,slug):
     
     
     # place_id = "ChIJAdBq8rSvBTkRCDcaaOBjL4U" # Replace with your own place ID
+
+
     api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc" # Replace with your actual API key
     url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
 
@@ -153,10 +156,21 @@ def Places(request,slug):
     user_rating_total = data['result']['user_ratings_total']
     
     reviews = data['result']['reviews']
+
+
+    gmaps = googlemaps.Client(api_key)
+    place = gmaps.place(placeDetails.place_id)['result']
+    photos = []
+    for photo in place.get('photos', []):
+        photo_reference = photo.get('photo_reference')
+        photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
+        photos.append(photo_url)
+    
+    print(photos)
     
     context={'rating':rating,'reviews':reviews,
              'user_rating_total':user_rating_total,
-             'placeDetails':placeDetails}
+             'placeDetails':placeDetails,'photos':photos}
     return render(request, 'listings/places.html',context)
 
 

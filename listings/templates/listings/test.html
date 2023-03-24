@@ -110,5 +110,61 @@ sliderPrev.addEventListener('click', handlePrevClick);
 sliderNext.addEventListener('click', handleNextClick);
 
   </script>
+
+  <section class="section-wrapper reaching-place">
+    <div class="reaching-info-wrapper">
+        <h2>Reaching {{placeDetails.name}}</h2>
+
+        <div class="reaching-info">
+            <p><i>Distance from jibhi : </i> {{placeDetails.other_info.distance}} Km(s)</p>
+
+            <p><i> Mode of Transport : </i>{{placeDetails.other_info.transport_mode}}</p>
+            {% if placeDetails.other_info.drop_off_point_public_transport == placeDetails.other_info.drop_off_point_private_transport %}
+            <p><i>Drop off point : </i> {{placeDetails.other_info.drop_off_point_public_transport}} </p>
+            <p><i>Trail Length  from {{placeDetails.other_info.drop_off_point_public_transport}} : </i> {{placeDetails.other_info.trail_length_public_transport}} km(s)</p>
+            {% else %}
+            <p><i> Drop off point(Buses):</i> {{placeDetails.other_info.drop_off_point_public_transport}}</p>
+            <p><i>Drop off point(Private Vehicle):</i>  {{placeDetails.other_info.drop_off_point_private_transport}}</p>
+            <p><i>Trail Length from {{placeDetails.other_info.drop_off_point_public_transport}} :</i>  {{placeDetails.other_info.trail_length_public_transport}}</p>
+            <p><i> Trail Length from {{placeDetails.other_info.drop_off_point_private_transport}} :</i> {{placeDetails.other_info.trail_length_private_transport}}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+<div class="reviews-wrapper">
+  <div class="swiper ReviewSwiper">
+      <div class="swiper-wrapper">
+      {% for review in reviews   %}   
+        <div class="swiper-slide">
+          <div class="review-wrapper">
+              <div class="review-header">
+                  <div class="reviewer-dp">
+                      <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+                  </div>
+                  <div class="review-meta">
+                      <i>{{review.author_name}}</i>
+                      <i class="relative-time">{{review.relative_time_description}}</i>
+                  </div>                   
+        
+              </div>
+              <div class="review-text">
+                  <p>
+                      {{ review.text}}
+                  </p>
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+           
+  
+  
+</div>
 </body>
 </html>

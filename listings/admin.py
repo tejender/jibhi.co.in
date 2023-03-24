@@ -5,7 +5,8 @@ from django.db import models
 # Register your models here.
 from .models import (
        Host,Amenities,Listings,ThumbImages,
-       PhotoGallery,ThingsToKnow,NearByPlaces
+       PhotoGallery,ThingsToKnow,NearByPlaces,
+       OtherInfoPlaces
        )
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
@@ -33,9 +34,13 @@ class ThingsToKnowAdmin(admin.ModelAdmin):
 class NearByPlacesAdmin(admin.ModelAdmin):
        formfield_overrides = {
         models.TextField: {'widget': CKEditorWidget}
+
     }
        list_display = ('name','place_id','latitude','longitude','slug','thumb_img')
 
+
+class OtherInfoPlacesAdmin(admin.ModelAdmin):
+       list_display = ('name','distance','transport_mode','drop_off_point_public_transport','drop_off_point_private_transport','trail_length_public_transport','trail_length_private_transport')
 
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
@@ -44,4 +49,5 @@ admin.site.register(ThumbImages,ThumbImagesAdmin)
 admin.site.register(PhotoGallery,PhotoGalleryAdmin)
 admin.site.register(ThingsToKnow,ThingsToKnowAdmin)
 admin.site.register(NearByPlaces,NearByPlacesAdmin)
+admin.site.register(OtherInfoPlaces,OtherInfoPlacesAdmin)
 

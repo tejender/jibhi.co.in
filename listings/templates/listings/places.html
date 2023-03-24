@@ -3,6 +3,36 @@
 
 
 {% block content %}
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+      }
+  
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom:50px;
+        background: rgb(2,0,36);
+background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574229692) 0%, rgba(47,203,60,0.7987570028011204) 32%, rgba(0,255,29,0.6867121848739496) 53%, rgba(73,233,58,0.835171568627451) 81%);
+        height: 300px;
+        text-align: left;
+        padding:10px;
+        
+      }
+  
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    
+</style>
     <div class="places-hero">
         <video class="video-hero" poster="{% static 'assets/images/poster.jpg' %}" >
         <source src="{% static 'assets/videos/places/mountain.mp4' %}" type="video/mp4">
@@ -31,33 +61,58 @@
             </div>
         </div>
     </section>
+   <section class="section-wrapper">
+    <h2>Photos By Travellers</h2>
+    <div class="places-photo-gallery">
+        {% for photo in photos %}
+        <div class="photo-wrapper">
+            <img src="{{ photo }}" alt="Photo of " class="photo">
+        </div>
+        {% endfor %}
+   </section>
+
     <section class="section-wrapper place-map">
+        <h2>
+            Google map location
+        </h2>
 
         <div id="map">hia</div>
     </section>
     <section class="section-wrapper">
+        <h2>What Traveller says</h2>
         
         <div class="reviews-wrapper">
-            {% for review in reviews   %}            
-            <div class="review-wrapper">
-                <div class="review-header">
-                    <div class="reviewer-dp">
-                        <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+            <div class="swiper ReviewSwiper">
+                <div class="swiper-wrapper">
+                {% for review in reviews   %}   
+                  <div class="swiper-slide">
+                    <div class="review-wrapper">
+                        <div class="review-header">
+                            <div class="reviewer-dp">
+                                <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+                            </div>
+                            <div class="review-meta">
+                                <i>{{review.author_name}}</i>
+                                <i class="relative-time">{{review.relative_time_description}}</i>
+                            </div>                   
+                  
+                        </div>
+                        <div class="review-text">
+                            <p>
+                                {{ review.text |truncatechars:300 }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="review-meta">
-                        <i>{{review.author_name}}</i>
-                        <i class="relative-time">{{review.relative_time_description}}</i>
-                    </div>                   
-          
+                  </div>
+                  {% endfor %}
+                  
                 </div>
-                <div class="review-text">
-                    <p>
-                        {{ review.text}}
-                    </p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+                <div class="swiper-pagination"></div>
+              </div>
+                     
+            
+            
+          </div>
     </section>
 {% endblock content %}
 
@@ -119,4 +174,26 @@ function initMap() {
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
       defer
     ></script>
+
+
+    <!-- Initialize Swiper -->
+  <script>
+    var screen_size = window.innerWidth
+    if (screen_size <500){
+        var slidesPerView = 1
+    }
+    else{
+        var slidesPerView = 3
+    }
+    
+    var swiper = new Swiper(".ReviewSwiper", {
+      slidesPerView: slidesPerView,
+      spaceBetween: 50,
+      
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 {% endblock scripts %}

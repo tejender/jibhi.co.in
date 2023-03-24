@@ -116,12 +116,26 @@ class PhotoGallery(models.Model):
         super().save(*args, **kwargs)
 
 
+
+class OtherInfoPlaces(models.Model):
+    name = models.CharField(max_length=255)
+    distance = models.DecimalField(default=0,max_digits=7,decimal_places=1)
+    transport_mode = models.CharField(max_length=255)
+    drop_off_point_public_transport = models.CharField(max_length=255)
+    drop_off_point_private_transport = models.CharField(max_length=255)
+    trail_length_public_transport = models.DecimalField(default=0,max_digits=7,decimal_places=1)
+    trail_length_private_transport = models.DecimalField(default=0,max_digits=7,decimal_places=1)
+    
+    def __str__(self):
+        return self.name
+    
 class NearByPlaces(models.Model):
     name = models.CharField(max_length=255)
     place_id = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
     thumb_img = models.ImageField(upload_to='images/places/', null=True, blank=True)
     description = RichTextField(null=True, blank=True)
+    other_info = models.ForeignKey(OtherInfoPlaces, on_delete=models.CASCADE, null=True, blank=True)
     latitude = models.DecimalField(default=0,max_digits=30,decimal_places=16)
     longitude = models.DecimalField(default=0,max_digits=30,decimal_places=16)
 
