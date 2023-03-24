@@ -2,6 +2,7 @@ from django.core.validators import FileExtensionValidator
 
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -113,6 +114,27 @@ class PhotoGallery(models.Model):
         slug = self.listing.slug
         self.image.upload_to = f'photo_gallery/{slug}/'
         super().save(*args, **kwargs)
+
+
+class NearByPlaces(models.Model):
+    name = models.CharField(max_length=255)
+    place_id = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    thumb_img = models.ImageField(upload_to='images/places/', null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
+    latitude = models.DecimalField(default=0,max_digits=30,decimal_places=16)
+    longitude = models.DecimalField(default=0,max_digits=30,decimal_places=16)
+
+    # hero_video = models.FileField(upload_to='videos/')
+    # video_poster = models.ImageField(upload_to='images/')
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(NearByPlaces, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name    
+
+
 
 
 

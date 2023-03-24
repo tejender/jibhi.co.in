@@ -13,12 +13,30 @@
         </button>
     </div>
 
-
-    <section class="section-wrapper">
-        <div class="rating">
-            <i> Google Rating : {{rating}}</i> <i class="fa-solid fa-star"></i>
+    <section class="section-wrapper place-description">
+        <div class="description-wrapper">
+            <div class="description-header">
+                <h2>
+                    {{placeDetails.name}}
+                </h2>   
+                
+                <p class="place-rating">
+                    <i> Google Rating : {{rating}}</i> <i class="fa-solid fa-star"></i>
              ({{user_rating_total}} reviews) 
+                </p>
+            </div>
+
+            <div class="description-body">
+                {{placeDetails.description | safe}}
+            </div>
         </div>
+    </section>
+    <section class="section-wrapper place-map">
+
+        <div id="map">hia</div>
+    </section>
+    <section class="section-wrapper">
+        
         <div class="reviews-wrapper">
             {% for review in reviews   %}            
             <div class="review-wrapper">
@@ -73,5 +91,32 @@
             
         });
 
+
+
+        //map
+        // Initialize and add the map
+function initMap() {
+    // The location of Uluru
+    
+    const center = {lat: {{placeDetails.latitude}}, lng: {{placeDetails.longitude}} };
+    
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 18,
+      center: center,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: center,
+      map: map,
+    });
+  }
+  
+  window.initMap = initMap;
+
     </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
+      defer
+    ></script>
 {% endblock scripts %}

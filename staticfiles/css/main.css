@@ -1050,7 +1050,6 @@ section.section-wrapper.listing-body-wrapper{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* background-image: url("{% static 'assets/images/play.png' %}"); */
     
     
     border: none;
@@ -1118,6 +1117,35 @@ section.section-wrapper.listing-body-wrapper{
 
 
 /* map-data */
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px; /* The height is 400 pixels */
+  width: 100%;
+  background-color: red; /* The width is the width of the web page */
+}
+
+.description-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+
+.description-header{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 100%;
+  align-items: center;
+}
+
+.description-body{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
 .reviews-wrapper{
   display: flex;
   flex-direction: column;

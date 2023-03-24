@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Listings ,Host
+from .models import Listings 
+from .models import NearByPlaces
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
@@ -9,11 +10,12 @@ import json
 # Create your views here.
 
 def Home(request):
-    cottages = Listings.objects.all()
     
+    places= NearByPlaces.objects.all()
+
     active_page='home';
 
-    context={'active_page':active_page,"cottages":cottages}
+    context={'active_page':active_page,'places':places}
     return render(request, 'listings/home.html',context)
 
 def Test(request):
@@ -130,22 +132,17 @@ def ContactUs(request):
     return render(request, 'listings/contact_us.html',context)
 
 
-def Places(request):
-    # url = "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJGbYej9CvBTkRlFAEgUusb6w&fields=name%2Crating%2Cformatted_phone_number,reviews&key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc"
-    # payload={}
-    # headers = {}
+def Places(request,slug):
     
-    # response = requests.request("GET", url, headers=headers, data=payload)
-    # print(response.text)
+
+
+   
+    placeDetails = NearByPlaces.objects.get(slug=slug) 
     
-    # data = json.loads(response.text)
-    # print(data)
-
-
-
-    place_id = "ChIJAdBq8rSvBTkRCDcaaOBjL4U" # Replace with your own place ID
+    
+    # place_id = "ChIJAdBq8rSvBTkRCDcaaOBjL4U" # Replace with your own place ID
     api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc" # Replace with your actual API key
-    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
+    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
 
     # Send API request and get response
     response = requests.get(url)
@@ -154,10 +151,12 @@ def Places(request):
     # Extract reviews
     rating = data['result']['rating']
     user_rating_total = data['result']['user_ratings_total']
-    print(rating)
+    
     reviews = data['result']['reviews']
     
-    context={'rating':rating,'reviews':reviews,'user_rating_total':user_rating_total}
+    context={'rating':rating,'reviews':reviews,
+             'user_rating_total':user_rating_total,
+             'placeDetails':placeDetails}
     return render(request, 'listings/places.html',context)
 
 

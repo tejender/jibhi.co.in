@@ -1,7 +1,12 @@
 from django.contrib import admin
+from ckeditor.widgets import CKEditorWidget
+from django.db import models
 
 # Register your models here.
-from .models import Host,Amenities,Listings,ThumbImages,PhotoGallery, ThingsToKnow
+from .models import (
+       Host,Amenities,Listings,ThumbImages,
+       PhotoGallery,ThingsToKnow,NearByPlaces
+       )
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
 
@@ -24,10 +29,19 @@ class PhotoGalleryAdmin(admin.ModelAdmin):
 class ThingsToKnowAdmin(admin.ModelAdmin):
        list_display = ('name','checkInAfter', 'checkInBefore','checkOutBefore')
 
+
+class NearByPlacesAdmin(admin.ModelAdmin):
+       formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget}
+    }
+       list_display = ('name','place_id','latitude','longitude','slug','thumb_img')
+
+
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
 admin.site.register(Listings, ListingsAdmin)
 admin.site.register(ThumbImages,ThumbImagesAdmin)
 admin.site.register(PhotoGallery,PhotoGalleryAdmin)
 admin.site.register(ThingsToKnow,ThingsToKnowAdmin)
+admin.site.register(NearByPlaces,NearByPlacesAdmin)
 

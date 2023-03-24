@@ -218,4 +218,16 @@
     }
     /* contact-us page ends */
 
+    /* places-page */
+    section.section-wrapper.place-description{
+      /* background-color: red; */
+      margin-top: 0px;
+    }
+    .description-header{
+      flex-direction: column;
+      justify-content: fstart;
+      align-items: start;
+    }
+    /* places-page ends */
+
   }
