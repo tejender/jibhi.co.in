@@ -1,11 +1,101 @@
 {% extends 'main.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/swiper-cat-list.css' %}">
+<link rel="stylesheet" href="{% static 'css/swiper-listing-inner.css' %}">
+{% endblock css %}
 
 {% block content %}
+<section class="listings-cat-wrapper">
+    <div class="swiper mySwiper-cat">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide {% if listing_type == 'treehouse' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='treehouse' %}">
+              <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
+              <div class="cat-title">
+                treehouse
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide {% if listing_type == 'cottage' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='cottage' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-cottage.svg' %}" alt="">
+            <div class="cat-title">
+                cottage
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide {% if listing_type == 'homelistings' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='homestay' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-homestay.svg' %}" alt="">
+            <div class="cat-title">
+                homestay
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide {% if listing_type == 'a-frame' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='a-frame' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-a-frame.svg' %}" alt="">
+            <div class="cat-title">
+                A frame
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide {% if listing_type == 'camp' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='camp' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-camp.svg' %}" alt="">
+            <div class="cat-title">
+                Camping
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="{% url 'map' listing_type='cottage' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-mountain.svg' %}" alt="">
+            <div class="cat-title">
+                Amazing View
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide {% if listing_type == 'dome' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='dome' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-dome.svg' %}" alt="">
+            <div class="cat-title">
+                dome
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide riverside">
+            <a href="{% url 'map' listing_type='cottage' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-river2.svg' %}" alt="">
+            <div class="cat-title">
+                riverside
+            </div>
+          </a>
+          </div>
+          <div class="swiper-slide mudhouse {% if listing_type == 'mudhouse' %}active-cat{% endif %}">
+            <a href="{% url 'map' listing_type='mudhouse' %}">
+            <img src="{% static 'assets/icons/listing-cat/icon-mudhouse.svg' %}" alt="">
+            <div class="cat-title">
+                mudhouse
+            </div>
+          </a>
+          </div>              
+        </div>
+        
+      </div>
+      <div class="swiper-button-prev cat-prev"></div>
+      <div class="swiper-button-next cat-next"></div>
+        
+        
+        
+</section>
 
     
 
     <div class="listings-map-wrapper">
-        <div id="map">hia</div>
+        <div id="map"></div>
         <p class="map-tip">
             <i class="fa-solid fa-lightbulb"></i>
 
@@ -29,50 +119,14 @@
                   zoom: 11,
                   center: myLatLng,
                   styles: [
-                  {
-                    featureType: "poi",
-                    stylers: [{ visibility: "off" }]
-                  },
+                  
                   {
                     featureType: "poi.business",
                     stylers: [{ visibility: "off" }]
                   },
-                  {
-                    featureType: "administrative",
-                    elementType: "labels.text.fill",
-                    stylers: [{ color: "#444444" }]
-                  },
-                  {
-                    featureType: "landscape",
-                    elementType: "all",
-                    stylers: [{ color: "#f2f2f2" }]
-                  },
-                  {
-                    featureType: "road",
-                    elementType: "all",
-                    stylers: [{ saturation: -100 }, { lightness: 45 }]
-                  },
-                  {
-                    featureType: "road.highway",
-                    elementType: "all",
-                    stylers: [{ visibility: "simplified" }]
-                  },
-                  {
-                    featureType: "road.arterial",
-                    elementType: "labels.icon",
-                    stylers: [{ visibility: "off" }]
-                  },
-                  {
-                    featureType: "transit",
-                    elementType: "all",
-                    stylers: [{ visibility: "off" }]
-                  },
-                  {
-                    featureType: "water",
-                    elementType: "all",
-                    stylers: [{ color: "#46bcec" }, { visibility: "on" }]
-                  }
+                  
                 ]
+                 
                 });
                 
                 // loop through your listings and create a marker for each one
@@ -105,4 +159,10 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
       defer
     ></script>
+
+  
+
+<script src="{%static 'js/swiper-cat-list.js' %}"></script>
+<script src="{%static 'js/swiper-listing-inner.js' %}"></script>
+
 {% endblock scripts %}

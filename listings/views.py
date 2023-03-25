@@ -188,7 +188,13 @@ def Places(request,slug):
     return render(request, 'listings/places.html',context)
 
 
-def ListingsMap(request):
+def ListingsMap(request,listing_type):
+    listingCordinates = Listings.objects.filter(listing_type=listing_type).values('name','latitude', 'longitude')        
+    listing_type = listing_type    
+    context={'listingCordinates':listingCordinates,'listing_type':listing_type}
+    return render(request, 'listings/map.html',context)
+
+def ListingsMapAll(request,):
     listingCordinates = Listings.objects.all().values('name','latitude', 'longitude')
    
     context={'listingCordinates':listingCordinates}
