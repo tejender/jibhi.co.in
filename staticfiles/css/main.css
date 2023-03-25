@@ -1117,6 +1117,18 @@ section.section-wrapper.listing-body-wrapper{
 
 
 /* map-data */
+.listings-map-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: rgba(0, 0, 0, 0.733);
+  margin-top: 0px;
+
+}
+
+.listings-map-wrapper #map{
+  height: 600px;
+}
 
 .map-wrapper{
   display: flex;

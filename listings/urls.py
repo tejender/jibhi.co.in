@@ -10,7 +10,8 @@ urlpatterns = [
     path('sitemap/', views.Sitemap, name='sitemap'),
     path('enquiry/', views.Enquiry, name='enquiry'),
     path('contact/', views.ContactUs, name="contact-us"),
-    path('places/<str:slug>',views.Places, name="places")
+    path('places/<str:slug>',views.Places, name="places"),
+    path('map/',views.ListingsMap,name="map")
 ]
 
 

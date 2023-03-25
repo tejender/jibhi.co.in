@@ -188,6 +188,13 @@ def Places(request,slug):
     return render(request, 'listings/places.html',context)
 
 
+def ListingsMap(request):
+    listingCordinates = Listings.objects.all().values('name','latitude', 'longitude')
+   
+    context={'listingCordinates':listingCordinates}
+    return render(request, 'listings/map.html',context)
+
+
 def Sitemap(request):
     return render(request,'listings/sitemap.html')
 

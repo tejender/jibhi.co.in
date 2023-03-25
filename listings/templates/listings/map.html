@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    
+
+    <div class="listings-map-wrapper">
+        <div id="map">hia</div>
+        <p class="map-tip">
+            <i class="fa-solid fa-lightbulb"></i>
+
+            Quick Tip : Drag the pagman (<i class="fa-solid fa-person"></i>) from middle-right of map over blue dots around the 
+            marker to open street view.
+        </p>
+    </div>
+
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+        <script>
+            // initialize the map
+            function initMap() {
+                // center the map on your town
+                var myLatLng = {lat: 31.59103810391068, lng: 77.35339520655404};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 11,
+                  center: myLatLng,
+                  styles: [
+                  {
+                    featureType: "poi",
+                    stylers: [{ visibility: "off" }]
+                  },
+                  {
+                    featureType: "poi.business",
+                    stylers: [{ visibility: "off" }]
+                  },
+                  {
+                    featureType: "administrative",
+                    elementType: "labels.text.fill",
+                    stylers: [{ color: "#444444" }]
+                  },
+                  {
+                    featureType: "landscape",
+                    elementType: "all",
+                    stylers: [{ color: "#f2f2f2" }]
+                  },
+                  {
+                    featureType: "road",
+                    elementType: "all",
+                    stylers: [{ saturation: -100 }, { lightness: 45 }]
+                  },
+                  {
+                    featureType: "road.highway",
+                    elementType: "all",
+                    stylers: [{ visibility: "simplified" }]
+                  },
+                  {
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [{ visibility: "off" }]
+                  },
+                  {
+                    featureType: "transit",
+                    elementType: "all",
+                    stylers: [{ visibility: "off" }]
+                  },
+                  {
+                    featureType: "water",
+                    elementType: "all",
+                    stylers: [{ color: "#46bcec" }, { visibility: "on" }]
+                  }
+                ]
+                });
+                
+                // loop through your listings and create a marker for each one
+                {% for listing in listingCordinates %}
+                  var markerLatLng = {lat: {{ listing.latitude }}, lng: {{ listing.longitude }} };
+                  var marker = new google.maps.Marker({
+                    position: markerLatLng,
+                    map: map,
+                    title: '{{ listing.name }}'
+                  });
+                  
+                  // create an info window for each marker
+                  var contentString{{ forloop.counter }} = '<div class="info-window">' +
+                    '<h3>' + '{{ listing.name }}' + '</h3>' +
+                    '</div>';
+              
+                  var infoWindow{{ forloop.counter }} = new google.maps.InfoWindow({
+                    content: contentString{{ forloop.counter }}
+                  });
+                  
+                  // add an event listener to show the info window when the marker is clicked
+                  marker.addListener('click', function() {
+                    infoWindow{{ forloop.counter }}.open(map, this);
+                  });
+                {% endfor %}
+              }
+              
+        </script>
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
+      defer
+    ></script>
+{% endblock scripts %}
