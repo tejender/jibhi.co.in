@@ -1117,13 +1117,28 @@ section.section-wrapper.listing-body-wrapper{
 
 
 /* map-data */
+
+.map-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: rgba(0, 0, 0, 0.733);
+}
+
+.map-wrapper i{
+  color:#FDBF2D;
+}
 /* Set the size of the div element that contains the map */
 #map {
   height: 400px; /* The height is 400 pixels */
-  width: 100%;
-  background-color: red; /* The width is the width of the web page */
+  width: 100%;/*  The width is the width of the web page */
+  box-shadow: 0 0 2px  rgba(8, 8, 8, 0.507); 
+  border-radius: 4px;
 }
 
+.marker{
+  color: green;
+}
 .description-wrapper{
   display: flex;
   flex-direction: column;
@@ -1156,13 +1171,10 @@ section.section-wrapper.listing-body-wrapper{
   width: 20%;
   /* background-color: red; */
   overflow: hidden;
+  height: 200px;
 }
 
-.photo-wrapper img{
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+
 
 .photo-wrapper img:hover{
   transform: scale(1.5);

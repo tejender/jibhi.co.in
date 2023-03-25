@@ -61,6 +61,24 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
             </div>
         </div>
     </section>
+    <section class="section-wrapper place-map">
+        <h2>
+            Google map location
+        </h2>
+
+        <div class="map-wrapper">
+            <div id="map">hia</div>
+            <p class="map-tip">
+                <i class="fa-solid fa-lightbulb"></i>
+
+                Quick Tip : Drag the pagman (<i class="fa-solid fa-person"></i>) from middle-right of map over blue dots around the 
+                marker to open street view.
+            </p>
+        </div>
+
+
+    </section>
+
    <section class="section-wrapper">
     <h2>Photos By Travellers</h2>
     <div class="places-photo-gallery">
@@ -71,13 +89,7 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
         {% endfor %}
    </section>
 
-    <section class="section-wrapper place-map">
-        <h2>
-            Google map location
-        </h2>
-
-        <div id="map">hia</div>
-    </section>
+  
     <section class="section-wrapper">
         <h2>What Traveller says</h2>
         
@@ -159,8 +171,9 @@ function initMap() {
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 18,
       center: center,
+      
     });
-    // The marker, positioned at Uluru
+    
     const marker = new google.maps.Marker({
       position: center,
       map: map,

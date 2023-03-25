@@ -166,7 +166,7 @@ def Places(request,slug):
         photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
         photos.append(photo_url)
     
-    print(photos)
+
     
     context={'rating':rating,'reviews':reviews,
              'user_rating_total':user_rating_total,
