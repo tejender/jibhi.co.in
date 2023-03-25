@@ -511,3 +511,21 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
   object-fit: cover;
 }
 
+.reviews-wrapper-listing{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviews-wrapper-listing .review-wrapper{
+  /* background-color: rgb(249, 249, 249);
+  padding: 10px; */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.234);
+  padding-bottom: 20px;
+}
+
+.reviews-wrapper-listing .review-wrapper:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
+  /* background-color: blue; */
+}

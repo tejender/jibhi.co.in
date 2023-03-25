@@ -208,7 +208,7 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
 </section>
 
 <section class="section-wrapper view-360">
-    <h2>360 View</h2>
+    <h2>Where You'll we</h2>
     <div class="map-wrapper">
         <div id="map-listing">hia</div>
         <p class="map-tip">
@@ -224,11 +224,10 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
     <section class="section-wrapper">
         <h2>What Guest says</h2>
         
-        <div class="reviews-wrapper">
-            <div class="swiper ReviewSwiperListing">
-                <div class="swiper-wrapper">
+        <div class="reviews-wrapper-listing">
+            
                 {% for review in reviews   %}   
-                <div class="swiper-slide">
+                    
                     <div class="review-wrapper">
                         <div class="review-header">
                             <div class="reviewer-dp">
@@ -242,17 +241,14 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
                         </div>
                         <div class="review-text">
                             <p>
-                                {{ review.text |truncatechars:300 }}
+                                {{ review.text | truncatewords:200  }}
                             </p>
                         </div>
                     </div>
-                </div>
+                
                 {% endfor %}
                 
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-                    
+                                
             
             
         </div>
