@@ -86,11 +86,25 @@ def ListingDetail(request,slug):
     listing = Listings.objects.get(slug=slug) 
     photos = listing.photos.all()   
     not_bottom_nav=True
-    not_top_nav=True
-    
-    # Render the template with the listing details
+    not_top_nav=True           
+    api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc"
+    if listing.place_id:
+        url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
+
+        # Send API request and get response
+        response = requests.get(url)
+        data = response.json()
+        # Extract reviews
+        rating = data['result']['rating']
+        user_rating_total = data['result']['user_ratings_total']    
+        reviews = data['result']['reviews']
+    else:
+        rating=user_rating_total=reviews=None
+
     context = {'listing': listing,'photos':photos,
-               "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav}
+               "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
+               'rating': rating,
+               'reviews':reviews}
     return render(request,'listings/listingDetail.html', context)
 
 
@@ -133,28 +147,18 @@ def ContactUs(request):
     return render(request, 'listings/contact_us.html',context)
 
 
-def Places(request,slug):
-    
+def Places(request,slug): 
 
-
-   
-    placeDetails = NearByPlaces.objects.get(slug=slug) 
-    
-    
-    # place_id = "ChIJAdBq8rSvBTkRCDcaaOBjL4U" # Replace with your own place ID
-
-
+    placeDetails = NearByPlaces.objects.get(slug=slug)     
     api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc" # Replace with your actual API key
     url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
 
     # Send API request and get response
     response = requests.get(url)
     data = response.json()
-
     # Extract reviews
     rating = data['result']['rating']
-    user_rating_total = data['result']['user_ratings_total']
-    
+    user_rating_total = data['result']['user_ratings_total']    
     reviews = data['result']['reviews']
 
 
@@ -165,12 +169,11 @@ def Places(request,slug):
         photo_reference = photo.get('photo_reference')
         photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
         photos.append(photo_url)
-    
 
-    
     context={'rating':rating,'reviews':reviews,
              'user_rating_total':user_rating_total,
              'placeDetails':placeDetails,'photos':photos}
+    
     return render(request, 'listings/places.html',context)
 
 

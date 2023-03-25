@@ -209,17 +209,57 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
 
 <section class="section-wrapper view-360">
     <h2>360 View</h2>
-    <div class="map-frame">
-        <iframe src="https://www.google.com/maps/embed?pb=!4v1679553170130!6m8!1m7!1sCAoSLEFGMVFpcE9Yam9ybmpENjNsWXhmdHNPeGN4aldjaDZ1NkpDY0owSHdzdDl2!2m2!1d31.525513!2d77.2624836!3f140!4f20!5f0.7820865974627469" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-wrapper">
+        <div id="map-listing">hia</div>
+        <p class="map-tip">
+            <i class="fa-solid fa-lightbulb"></i>
+
+            Quick Tip : Drag the pagman (<i class="fa-solid fa-person"></i>) from middle-right of map over blue dots around the 
+            marker to open street view.
+        </p>
     </div>
 </section>
 
-<section class="section-wrapper map">
-    <h2> Where You'll be</h2>
-    <div class="map-frame">
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1VrHv2bMGR3OPv50PQtVO-H1fROTzg1g&ehbc=2E312F" ></iframe>
-    </div>
-</section>
+{% if listing.place_id %}
+    <section class="section-wrapper">
+        <h2>What Guest says</h2>
+        
+        <div class="reviews-wrapper">
+            <div class="swiper ReviewSwiperListing">
+                <div class="swiper-wrapper">
+                {% for review in reviews   %}   
+                <div class="swiper-slide">
+                    <div class="review-wrapper">
+                        <div class="review-header">
+                            <div class="reviewer-dp">
+                                <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+                            </div>
+                            <div class="review-meta">
+                                <i>{{review.author_name}}</i>
+                                <i class="relative-time">{{review.relative_time_description}}</i>
+                            </div>                   
+                
+                        </div>
+                        <div class="review-text">
+                            <p>
+                                {{ review.text |truncatechars:300 }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+                    
+            
+            
+        </div>
+    </section>
+{% endif %}
+
+
 
 
 
@@ -259,6 +299,44 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
 		if (notTopNav && window.innerWidth < 500) {      
 			// show navigation
 			document.querySelector('.nav-wrapper').classList.add('hidden');
-		}
+		}     
 	</script>
+
+    <script>
+             //map
+        // Initialize and add the map
+    function initMap() {
+               // The location of Uluru ,         
+        const center = {lat:{{listing.latitude}}, lng:{{listing.longitude}}};
+        
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map-listing"), {
+          zoom: 16,
+          center: center,
+          
+        });
+        
+        const marker = new google.maps.Marker({
+          position: center,
+          map: map,
+          title:'click on marker to see details'
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: "<h3>New York City</h3><p>This is some custom information.</p>",
+          });
+          
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+          });
+      }
+      
+      window.initMap = initMap;
+    
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
+      defer
+    ></script>
+  
 {% endblock scripts %}

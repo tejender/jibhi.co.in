@@ -133,3 +133,25 @@ checkoutInputMobile.addEventListener('change', (event) => {
 // datepicker mobile ends
 
 
+
+// <!-- Initialize Swiper -->
+
+  var screen_size = window.innerWidth
+  if (screen_size < 500){
+      var slidesPerView = 1
+  }
+  else{
+      var slidesPerView = 3
+  }
+  
+  var swiper = new Swiper(".ReviewSwiperListing", {
+    slidesPerView: slidesPerView,
+    spaceBetween: 50,
+    
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+

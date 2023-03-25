@@ -134,37 +134,6 @@ sliderNext.addEventListener('click', handleNextClick);
 
 
 
-<div class="reviews-wrapper">
-  <div class="swiper ReviewSwiper">
-      <div class="swiper-wrapper">
-      {% for review in reviews   %}   
-        <div class="swiper-slide">
-          <div class="review-wrapper">
-              <div class="review-header">
-                  <div class="reviewer-dp">
-                      <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
-                  </div>
-                  <div class="review-meta">
-                      <i>{{review.author_name}}</i>
-                      <i class="relative-time">{{review.relative_time_description}}</i>
-                  </div>                   
-        
-              </div>
-              <div class="review-text">
-                  <p>
-                      {{ review.text}}
-                  </p>
-              </div>
-          </div>
-        </div>
-        {% endfor %}
-        
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-           
-  
-  
-</div>
+
 </body>
 </html>

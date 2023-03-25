@@ -1129,7 +1129,7 @@ section.section-wrapper.listing-body-wrapper{
   color:#FDBF2D;
 }
 /* Set the size of the div element that contains the map */
-#map {
+#map ,#map-listing{
   height: 400px; /* The height is 400 pixels */
   width: 100%;/*  The width is the width of the web page */
   box-shadow: 0 0 2px  rgba(8, 8, 8, 0.507); 
