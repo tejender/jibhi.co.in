@@ -253,6 +253,16 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
             
         </div>
     </section>
+
+    <section class="section-wrapper">
+        <h2>Traveler's Shots</h2>
+        <div class="places-photo-gallery">
+            {% for photo in api_photos %}
+            <div class="photo-wrapper">
+                <img src="{{ photo }}" alt="Photo of " class="photo">
+            </div>
+            {% endfor %}
+       </section>
 {% endif %}
 
 

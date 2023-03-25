@@ -86,7 +86,8 @@ def ListingDetail(request,slug):
     listing = Listings.objects.get(slug=slug) 
     photos = listing.photos.all()   
     not_bottom_nav=True
-    not_top_nav=True           
+    not_top_nav=True   
+    api_photos = []        
     api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc"
     if listing.place_id:
         url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
@@ -98,13 +99,23 @@ def ListingDetail(request,slug):
         rating = data['result']['rating']
         user_rating_total = data['result']['user_ratings_total']    
         reviews = data['result']['reviews']
+
+
+        # get photos from api
+        gmaps = googlemaps.Client(api_key)
+        place = gmaps.place(listing.place_id)['result']
+        
+        for photo in place.get('photos', []):
+            photo_reference = photo.get('photo_reference')
+            photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
+            api_photos.append(photo_url)
     else:
         rating=user_rating_total=reviews=None
 
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
                'rating': rating,
-               'reviews':reviews}
+               'reviews':reviews,'api_photos':api_photos,}
     return render(request,'listings/listingDetail.html', context)
 
 
