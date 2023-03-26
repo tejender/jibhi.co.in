@@ -1130,6 +1130,43 @@ section.section-wrapper.listing-body-wrapper{
   height: 600px;
 }
 
+.custom-marker {
+  background-color:#EA4335;
+  color: #ffffff;
+  height: 35px;
+  width: 35px;
+  margin-top: -10px;
+  border: 1.2px solid #C6221F;
+  border-bottom: none;
+  
+  font-weight: bold;
+  font-size: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.info-window{
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in;
+  gap: 10px;
+}
+.info-window-image{
+  width: 80px;
+  height: 100px;
+}
+
+.info-window-image img{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
 .map-wrapper{
   display: flex;
   flex-direction: column;

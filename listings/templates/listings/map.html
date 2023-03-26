@@ -125,23 +125,52 @@
                     stylers: [{ visibility: "off" }]
                   },
                   
-                ]
+                  
+                ],
+                mapId: "4504f8b37365c3d0",
                  
                 });
-                
+                const iconBase = "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
                 // loop through your listings and create a marker for each one
+                
+                
+                
+                
                 {% for listing in listingCordinates %}
+               
                   var markerLatLng = {lat: {{ listing.latitude }}, lng: {{ listing.longitude }} };
                   var marker = new google.maps.Marker({
                     position: markerLatLng,
                     map: map,
-                    title: '{{ listing.name }}'
+                    
+                    title: '{{ listing.name }}',
+                    label: {
+                      text: '{{ listing.price_per_night }}',
+                      fontWeight: 'bold',
+                      fontSize: '12px', 
+                      className: 'custom-marker',
+                      color: 'white',
+                  }                    
+                    
                   });
                   
                   // create an info window for each marker
                   var contentString{{ forloop.counter }} = '<div class="info-window">' +
-                    '<h3>' + '{{ listing.name }}' + '</h3>' +
-                    '</div>';
+                    '<div class="info-window-image">'+
+                      '<img src="{{ listing.banner_image.url }}" alt="">' +
+                    '</div>'+
+                    '<div class="listing-info-wrapper">' +
+                      '<i class="listing-title">{{listing.name}}</i>'+
+                      '<div class="item-wrapper">'+
+                        '<i class="fa fa-solid fa-location-dot"></i>'+
+                        '<i class="listing-location">{{listing.location}}</i>'+
+                      '</div>'+
+                        '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
+                        '<div class="item-wrapper">'+
+                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'
+                        '</div>+'+
+                    '</div>'+
+                  '</div>';
               
                   var infoWindow{{ forloop.counter }} = new google.maps.InfoWindow({
                     content: contentString{{ forloop.counter }}
@@ -155,10 +184,14 @@
               }
               
         </script>
-        <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
-      defer
-    ></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+      
+   
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&libraries=marker&v=beta"
+    defer
+  ></script>
 
   
 

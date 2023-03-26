@@ -64,8 +64,9 @@ class Listings(models.Model):
     num_bedrooms = models.IntegerField()
     num_bathrooms = models.IntegerField()
     amenities = models.ManyToManyField(Amenities)
-    price_per_night = models.DecimalField(max_digits=8, decimal_places=2)        
+    price_per_night = models.IntegerField()        
     owner = models.ForeignKey(Host, on_delete=models.CASCADE)
+    banner_image = models.ImageField(upload_to='banner_images/', blank=True)
     listing_type = models.CharField(
         max_length=10,default='hi',
         choices=[
