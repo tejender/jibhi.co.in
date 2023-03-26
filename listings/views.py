@@ -198,16 +198,19 @@ def Places(request,slug):
 def ListingsMap(request,listing_type):
     listingCordinates = Listings.objects.filter(listing_type=listing_type)       
     listing_type = listing_type 
-    view_type='map'   
+    view_type='map' 
+    view_url='specific'  
     context={'listingCordinates':listingCordinates,
-             'listing_type':listing_type,'view_type':view_type}
+             'listing_type':listing_type,'view_type':view_type,
+             'view_url':view_url}
     return render(request, 'listings/map.html',context)
 
 def ListingsMapAll(request,):
     listingCordinates = Listings.objects.all()
     view_type='map'
-   
-    context={'listingCordinates':listingCordinates,'view_type':view_type}
+    view_url='all'
+    context={'listingCordinates':listingCordinates,'view_type':view_type,
+             'view_url':view_url}
     return render(request, 'listings/map.html',context)
 
 
