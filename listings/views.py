@@ -26,16 +26,23 @@ def Test(request):
 
 def Stay(request,listing_type):    
     
-    active_page='listinggs'
+    active_page='listings'
+    view_type='list'
+    view_url='specific'
     listings = Listings.objects.filter(listing_type=listing_type)        
     listing_type = listing_type      
-    context={"cottages":listings,"listing_type":listing_type,'active_page':active_page}
+    context={"cottages":listings,"listing_type":listing_type,
+             'active_page':active_page,'view_type':view_type
+             ,'view_url':view_url}
     return render(request,'listings/stay.html',context)
 
 def StayAll(request):
     active_page='listings'
+    view_type='list'
+    view_url= 'all'
     listings = Listings.objects.all()         
-    context={"cottages":listings,'active_page':active_page}
+    context={"cottages":listings,'active_page':active_page,
+             'view_type':view_type,'view_url':view_url}
     return render(request,'listings/stay.html',context)
 
 def Search(request):
@@ -190,14 +197,17 @@ def Places(request,slug):
 
 def ListingsMap(request,listing_type):
     listingCordinates = Listings.objects.filter(listing_type=listing_type)       
-    listing_type = listing_type    
-    context={'listingCordinates':listingCordinates,'listing_type':listing_type}
+    listing_type = listing_type 
+    view_type='map'   
+    context={'listingCordinates':listingCordinates,
+             'listing_type':listing_type,'view_type':view_type}
     return render(request, 'listings/map.html',context)
 
 def ListingsMapAll(request,):
     listingCordinates = Listings.objects.all()
+    view_type='map'
    
-    context={'listingCordinates':listingCordinates}
+    context={'listingCordinates':listingCordinates,'view_type':view_type}
     return render(request, 'listings/map.html',context)
 
 

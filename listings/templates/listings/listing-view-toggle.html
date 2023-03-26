@@ -1,0 +1,17 @@
+<div class="listing-view-wrapper">
+    {% if view_type == 'map' %}
+        <a href=" {% if view_url == 'all' %}{% url 'listings' %}{% else %}{% url 'listings' listing_type %}{% endif %} " class="list-view">
+            <i>Show list</i>
+            <i class="fa-solid fa-list-ul"></i>
+        </a>
+    {% elif view_type == 'list' %}
+        <a href=" {% if view_url == 'all' %}{% url 'map' %}{% else %}{% url 'map' listing_type %}{% endif %} " class="map-view">
+            
+            <i>Show Map</i>
+
+            <i class="fa-solid fa-map-location-dot"></i>
+            
+        </a>    
+    {% endif %}
+    
+</div>

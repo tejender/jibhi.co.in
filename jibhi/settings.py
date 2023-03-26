@@ -37,7 +37,7 @@ EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jibhi.co.in@outlook.com'
-EMAIL_HOST_PASSWORD = 'badshah@007'
+EMAIL_HOST_PASSWORD = 'ushna@007'
 
 ALLOWED_HOSTS = ['*']
 

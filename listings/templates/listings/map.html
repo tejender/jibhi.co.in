@@ -95,7 +95,7 @@
     
 
     <div class="listings-map-wrapper">
-        <div id="map"></div>
+        <div id="map-listingPin"></div>
         <p class="map-tip">
             <i class="fa-solid fa-lightbulb"></i>
 
@@ -103,6 +103,8 @@
             marker to open street view.
         </p>
     </div>
+
+    {% include './listing-view-toggle.html' %}
 
 
 
@@ -115,8 +117,9 @@
             function initMap() {
                 // center the map on your town
                 var myLatLng = {lat: 31.59103810391068, lng: 77.35339520655404};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 11,
+                var map = new google.maps.Map(document.getElementById('map-listingPin'), {
+                  zoom: 12,
+                  draggable:true,
                   center: myLatLng,
                   styles: [
                   
@@ -143,6 +146,7 @@
                     position: markerLatLng,
                     map: map,
                     
+                    
                     title: '{{ listing.name }}',
                     label: {
                       text: '{{ listing.price_per_night }}',
@@ -167,7 +171,8 @@
                       '</div>'+
                         '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
                         '<div class="item-wrapper">'+
-                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'
+                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+
+                          '<a href="{% url "listingDetail" listing.slug %}">visit</a>'+
                         '</div>+'+
                     '</div>'+
                   '</div>';
