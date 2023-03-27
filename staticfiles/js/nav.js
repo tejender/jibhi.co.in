@@ -2,6 +2,7 @@
 		
 var prevScrollPos = window.pageYOffset;
 var bottomNav = document.getElementById("bottomNav");
+var listingView = document.getElementById("listing-view-wrapper");
 var delay = 500; // Delay time in milliseconds
 var timeoutId;
 
@@ -9,8 +10,14 @@ window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollPos < currentScrollPos) {
     bottomNav.classList.add("hide-nav");
+    if(listingView){
+      listingView.classList.add('bottom-fix')
+    }
   } else {
     bottomNav.classList.remove("hide-nav");
+    if(listingView){
+      listingView.classList.remove('bottom-fix')
+    }
      // If the user stops scrolling, show the nav after a delay
      
   }

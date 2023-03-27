@@ -24,7 +24,7 @@
    
    
   }
- 
+  
 
   /* HEADINGS */
   
@@ -1290,18 +1290,24 @@ section.section-wrapper.listing-body-wrapper{
     }
 
     .listing-view-wrapper{
+     
       position: fixed;
       left: 50%;
       bottom: 10%;
-      transform: translate(-50%, 0);
+      transform: translateX(-50%);
       background-color: black;
       color: white;
       padding: 15px;
       border-radius: 40px;
       cursor: pointer;
-      z-index: 99999999 !important;
+      z-index: 999 !important;
+      transition: transform 0.5s ease-in-out;
     }
 
+    .bottom-fix{
+      transform: translate(-50%,300%);
+      /* transform: translateX(-50%) ; */
+    }
     .list-view, .map-view{
       display: flex;
       gap:10px;

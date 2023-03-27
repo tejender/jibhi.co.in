@@ -1,4 +1,4 @@
-<div class="listing-view-wrapper">
+<div class="listing-view-wrapper" id="listing-view-wrapper">
     {% if view_type == 'map' %}    
         <a href=" {% if view_url == 'all' %}{% url 'listings' %}{% else %}{% url 'listings' listing_type=listing_type %}{% endif %}" class="list-view">
             <i>Show list</i>
@@ -15,24 +15,3 @@
     {% endif %}
     
 </div>
-{% comment %} <script>
-    // scrolling feature
-            
-    var prevScrollPos = window.pageYOffset;
-    var listingView = document.getElementById("listing-view-wrapper")
-    var delay = 500; // Delay time in milliseconds
-    var timeoutId;
-
-    window.onscroll = function() {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollPos < currentScrollPos) {
-        listingNam.classList.add("hide-nav");
-    } else {
-        listingnav.classList.remove("hide-nav");
-        // If the user stops scrolling, show the nav after a delay
-        
-    }
-    prevScrollPos = currentScrollPos;
-    
-    };
-</script> {% endcomment %}
