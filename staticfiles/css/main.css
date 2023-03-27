@@ -1185,6 +1185,18 @@ section.section-wrapper.listing-body-wrapper{
   border-radius: 4px;
 }
 
+
+.listings-map-wrapper{
+  margin-top: -15px;
+}
+#map-listingPin{
+  height: 450px; /* The height is 400 pixels */
+  width: 100%;/*  The width is the width of the web page */
+  box-shadow: 0 0 2px  rgba(8, 8, 8, 0.507); 
+  border-radius: 4px;
+}
+
+
 .marker{
   color: green;
 }
@@ -1276,4 +1288,26 @@ section.section-wrapper.listing-body-wrapper{
       height: 50px;
       border-radius: 50%;
     }
+
+    .listing-view-wrapper{
+      position: fixed;
+      left: 50%;
+      bottom: 10%;
+      transform: translate(-50%, 0);
+      background-color: black;
+      color: white;
+      padding: 15px;
+      border-radius: 40px;
+      cursor: pointer;
+      z-index: 99999999 !important;
+    }
+
+    .list-view, .map-view{
+      display: flex;
+      gap:10px;
+      font-weight: bold;
+
+    }
 /* map-data ends */
+
+

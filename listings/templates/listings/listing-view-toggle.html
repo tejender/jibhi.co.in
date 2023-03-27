@@ -15,3 +15,24 @@
     {% endif %}
     
 </div>
+{% comment %} <script>
+    // scrolling feature
+            
+    var prevScrollPos = window.pageYOffset;
+    var listingView = document.getElementById("listing-view-wrapper")
+    var delay = 500; // Delay time in milliseconds
+    var timeoutId;
+
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollPos < currentScrollPos) {
+        listingNam.classList.add("hide-nav");
+    } else {
+        listingnav.classList.remove("hide-nav");
+        // If the user stops scrolling, show the nav after a delay
+        
+    }
+    prevScrollPos = currentScrollPos;
+    
+    };
+</script> {% endcomment %}
