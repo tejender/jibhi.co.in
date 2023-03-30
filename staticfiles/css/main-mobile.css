@@ -170,7 +170,7 @@
       }
 
       .description-wrapper{
-        border-bottom:1px solid rgba(128, 128, 128, 0.479);
+        /* border-bottom:1px solid rgba(128, 128, 128, 0.479); */
         padding-bottom: 15px;
 
       }
@@ -246,5 +246,10 @@
       width: 50%;
     }
     /* places-page ends */
+
+    .yt-tour{
+      height: 190px;
+      margin-bottom: 50px;
+    }
 
   }
