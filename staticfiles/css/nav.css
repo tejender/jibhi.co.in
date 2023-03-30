@@ -54,10 +54,16 @@
   
   .navbar ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    justify-self: end;
+    display: flex;
+    /* grid-template-columns: repeat(6,1fr); */
+    gap: 40px;
+    align-items: center;
     
+  }
+
+  .nav-item{
+    /* background-color: red; */
+    width: fit-content;
   }
   
   .nav-item a {
@@ -67,6 +73,7 @@
     text-transform: uppercase;
     text-decoration: none;
     transition: color 0.3s ease-out;
+    
   }
   
   .nav-item a:hover {

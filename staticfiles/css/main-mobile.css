@@ -1,4 +1,8 @@
 @media (max-width:500px){
+
+  .mobile-hidden{
+    display: none;
+  }
     
     .section-content{
       flex-direction: column;
@@ -76,7 +80,7 @@
     }
 
     #map-listingPin{
-        height: 80vh;
+        height: 70vh;
     }
 
 
@@ -215,10 +219,11 @@
     .contact-wrapper .enquiry-form{
       width: 90%;
 
-      border-bottom: 1px solid gray;
+      /* border-bottom: 1px solid gray; */
       padding-bottom: 10px;
       /* background-color: red; */
       /* background-color: red; */
+      /* box-shadow: 0px 0px 5px black; */
     }
 
     .social-contact{

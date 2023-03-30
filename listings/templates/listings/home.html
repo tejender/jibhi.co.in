@@ -39,13 +39,13 @@
                         fragrance of pine trees will enchant you throughout your stay. <br>
                     </p>
                     
-                         <p>  
+                         <p class="mobile-hidden">  
                          Jibhi's picturesque surroundings make it an ideal destination for 
                          trekking and hiking. The region is dotted with numerous trails that will
                           take you through the dense forest, and the spectacular views of the
                            surrounding mountain ranges will leave you spellbound.<br>
                     </p>
-                           <p>   
+                           <p class="mobile-hidden">   
                         The town is also known for its vibrant local culture and traditions. 
                         You can immerse yourself in 
                         the local customs and rituals, taste the local cuisine, and shop for 
@@ -67,42 +67,42 @@
             </div>
 
             <div class="section-content explore-grid">
-                <div class="grid-item grid-item--1">
+                <a  href="{% url 'listings' listing_type='treehouse' %}" class="grid-item grid-item--1">
                     <div class="grid-text">
                         treehouse
                     </div>
                     <img src="https://cdn.pixabay.com/photo/2017/04/23/20/39/tree-2254979_960_720.jpg" alt="">
-                </div>
-                <div class="grid-item grid-item--2">
+                </a>
+                <a href="{% url 'listings' listing_type='cottage' %}" class="grid-item grid-item--2">
                     <div class="grid-text">
                         cottage
                     </div>
                     <img src="https://cdn.pixabay.com/photo/2018/05/04/07/55/snow-3373432_960_720.jpg" alt="">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="{% url 'listings' listing_type='a-frame' %}" class="grid-item">
                     <div class="grid-text">
                         A-frame
                     </div>
                     <img src="https://img1.wsimg.com/isteam/ip/c53adb37-49c1-44b5-a78a-76241785d596/A%20FRAME%20WOOD%20COTTAGE.png/:/cr=t:0%25,l:0%25,w:100%25,h:66.93%25/rs=w:1240,h:932.3308270676691,cg:true" alt="">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="{% url 'listings' listing_type='mudhouse' %}" class="grid-item">
                     <div class="grid-text">
                         mudhouse
                     </div>
                     <img src="https://cdn.pixabay.com/photo/2017/11/03/16/00/bhunga-2914772_960_720.jpg" alt="">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="{% url 'listings' listing_type='homestay' %}" class="grid-item">
                     <div class="grid-text">
                         homestay
                     </div>
                     <img src="https://cdn.pixabay.com/photo/2014/11/21/17/17/house-540796_960_720.jpg" alt="">
-                </div>
-                <div class="grid-item">
+                </a>
+                <a href="{% url 'listings' listing_type='camping' %}" class="grid-item">
                     <div class="grid-text">
                         camps
                     </div>
                     <img src="https://cdn.pixabay.com/photo/2014/11/27/18/36/tent-548022_960_720.jpg" alt="">
-                </div>
+                </a>
             </div>
         </section>
 

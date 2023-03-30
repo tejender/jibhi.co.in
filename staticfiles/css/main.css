@@ -1177,7 +1177,7 @@ section.section-wrapper.listing-body-wrapper{
   color: rgba(0, 0, 0, 0.733);
 }
 
-.map-wrapper i{
+.map-tip i{
   color:#FDBF2D;
 }
 /* Set the size of the div element that contains the map */
@@ -1193,7 +1193,7 @@ section.section-wrapper.listing-body-wrapper{
   margin-top: -21px;
 }
 #map-listingPin{
-  height: 550px; /* The height is 400 pixels */
+  height: 510px; /* The height is 400 pixels */
   width: 100%;/*  The width is the width of the web page */
   box-shadow: 0 0 2px  rgba(8, 8, 8, 0.507); 
   border-radius: 4px;

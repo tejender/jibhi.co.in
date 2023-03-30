@@ -96,7 +96,6 @@
         <div id="map-listingPin"></div>
         <p class="map-tip">
             <i class="fa-solid fa-lightbulb"></i>
-
             Quick Tip : Drag the pagman (<i class="fa-solid fa-person"></i>) from middle-right of map over blue dots around the 
             marker to open street view.
         </p>
@@ -156,7 +155,7 @@
                   });
                   
                   // create an info window for each marker
-                  var contentString{{ forloop.counter }} = '<div class="info-window">' +
+                  var contentString{{ forloop.counter }} = '<a href="{% url "listingDetail" listing.slug %}" class="info-window">' +
                     '<div class="info-window-image">'+
                       '<img src="{{ listing.banner_image.url }}" alt="">' +
                     '</div>'+
@@ -168,11 +167,10 @@
                       '</div>'+
                         '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
                         '<div class="item-wrapper">'+
-                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+
-                          '<a href="{% url "listingDetail" listing.slug %}">visit</a>'+
-                        '</div>+'+
+                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
+                        '</div>'+
                     '</div>'+
-                  '</div>';
+                  '</a>';
               
                   var infoWindow{{ forloop.counter }} = new google.maps.InfoWindow({
                     content: contentString{{ forloop.counter }}
