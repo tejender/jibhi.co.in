@@ -25,6 +25,9 @@
    
   }
   
+  .body-container{
+    min-height: 100vh;
+  }
 
   /* HEADINGS */
   
@@ -1187,10 +1190,10 @@ section.section-wrapper.listing-body-wrapper{
 
 
 .listings-map-wrapper{
-  margin-top: -15px;
+  margin-top: -21px;
 }
 #map-listingPin{
-  height: 450px; /* The height is 400 pixels */
+  height: 550px; /* The height is 400 pixels */
   width: 100%;/*  The width is the width of the web page */
   box-shadow: 0 0 2px  rgba(8, 8, 8, 0.507); 
   border-radius: 4px;
@@ -1293,11 +1296,11 @@ section.section-wrapper.listing-body-wrapper{
      
       position: fixed;
       left: 50%;
-      bottom: 10%;
+      bottom: 2%;
       transform: translateX(-50%);
       background-color: black;
       color: white;
-      padding: 15px;
+      padding: 10px 15px;
       border-radius: 40px;
       cursor: pointer;
       z-index: 999 !important;

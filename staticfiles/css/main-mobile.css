@@ -71,6 +71,14 @@
 
     }
 
+    .listing-view-wrapper{
+      bottom: 10%;
+    }
+
+    #map-listingPin{
+        height: 80vh;
+    }
+
 
     /* listing-detail-page */
 
