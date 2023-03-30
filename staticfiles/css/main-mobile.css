@@ -252,4 +252,13 @@
       margin-bottom: 50px;
     }
 
+    .direct-contact{
+      width:auto;
+      gap: 15px;
+      
+    }
+    
+.direct-contact i{
+  font-size: 1.7rem;
+}
   }

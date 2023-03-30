@@ -1038,6 +1038,68 @@ section.section-wrapper.listing-body-wrapper{
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  
+}
+
+.direct-contact-wrapper{
+  width: 100%;
+  padding-left: 30px;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* background-color: red; */
+
+}
+
+.direct-contact{
+
+  width: 100%;
+  
+  display: flex;
+  gap: 12px;
+  font-size: 1rem;
+  /* background-color: royalblue; */
+
+ 
+}
+
+.direct-contact a{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+  /* background-color: #721c24; */
+}
+
+.direct-contact i{
+  font-size: 1.2rem;
+  color: #C6221F;
+}
+
+.or{
+position: relative;
+}
+
+.or::before{
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 200px;
+  transform: translate(-101%,-50%);
+  background-color: gray;
+}
+.or::after{
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 200px;
+  transform: translate(12%,-50%);
+  background-color: gray;
 }
 /* page-signle-listing  ends*/
  
@@ -1321,7 +1383,7 @@ section.section-wrapper.listing-body-wrapper{
     }
 
     .bottom-fix{
-      transform: translate(-50%,300%);
+      transform: translate(-50%,350%);
       /* transform: translateX(-50%) ; */
     }
     .list-view, .map-view{
