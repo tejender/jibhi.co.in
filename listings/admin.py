@@ -6,7 +6,7 @@ from django.db import models
 from .models import (
        Host,Amenities,Listings,ThumbImages,
        PhotoGallery,ThingsToKnow,NearByPlaces,
-       OtherInfoPlaces
+       OtherInfoPlaces,Testimg
        )
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
@@ -42,6 +42,9 @@ class NearByPlacesAdmin(admin.ModelAdmin):
 class OtherInfoPlacesAdmin(admin.ModelAdmin):
        list_display = ('name','distance','transport_mode','drop_off_point_public_transport','drop_off_point_private_transport','trail_length_public_transport','trail_length_private_transport')
 
+class testimgAdmin(admin.ModelAdmin):
+       list_display = ('name','image')
+
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
 admin.site.register(Listings, ListingsAdmin)
@@ -50,4 +53,5 @@ admin.site.register(PhotoGallery,PhotoGalleryAdmin)
 admin.site.register(ThingsToKnow,ThingsToKnowAdmin)
 admin.site.register(NearByPlaces,NearByPlacesAdmin)
 admin.site.register(OtherInfoPlaces,OtherInfoPlacesAdmin)
+admin.site.register(Testimg,testimgAdmin)
 
