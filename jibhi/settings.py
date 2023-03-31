@@ -31,9 +31,9 @@ SECRET_KEY = 'django-insecure-z67+=5ci3u9*dlmfrw^27m#)_px#=rbi=_h3z549bm!dlla0j$
 
 DEBUG = True  # Default value for development environment
 
-# if 'DJANGO_ENV' in os.environ:
-#     if os.environ['DJANGO_ENV'] == 'production':
-#         DEBUG = False
+if 'DJANGO_ENV' in os.environ:
+    if os.environ['DJANGO_ENV'] == 'production':
+        DEBUG = False
 
 
 
@@ -46,7 +46,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://jibhicoin-production.up.railway.app/']
+ALLOWED_HOSTS = ['127.0.0.1', 'jibhicoin-production.up.railway.app']
 
 
 # Application definition
