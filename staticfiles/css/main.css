@@ -179,6 +179,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    text-align: center;
     
     /* background-color: red; */
     gap: 20px;
@@ -249,6 +250,8 @@ section.section-wrapper{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
+  
  
 }
 
@@ -258,7 +261,7 @@ section.section-wrapper{
   letter-spacing: .5px;
   word-spacing: .5rem;
   line-height: 1.5rem;
-  text-align: left;
+  text-align: center;
   /* font-weight: 500; */
   
 
@@ -308,12 +311,7 @@ section.section-wrapper{
   transform: translate(-50%, -50%); /* move the child div up and left by half its width and height */
   text-align: center; 
   z-index: 2;
-  background-color: #000;
-  padding: 5px 10px;
-  border-radius: 15px;
-  background: rgb(11,13,33);
-  background: linear-gradient(130deg, rgba(11,13,33,1) 0%, rgba(11,13,33,0.9500175070028011) 37%, rgba(11,13,33,0.8183648459383753) 59%, rgba(11,13,33,0.8939950980392157) 91%, rgba(11,13,33,0.7231267507002801) 100%);
-  
+ 
  
 }
 
