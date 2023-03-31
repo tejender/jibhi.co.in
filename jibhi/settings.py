@@ -9,8 +9,13 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from pathlib import Path
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +31,9 @@ SECRET_KEY = 'django-insecure-z67+=5ci3u9*dlmfrw^27m#)_px#=rbi=_h3z549bm!dlla0j$
 
 DEBUG = True  # Default value for development environment
 
-# if 'DJANGO_ENV' in os.environ:
-#     if os.environ['DJANGO_ENV'] == 'production':
-#         DEBUG = False
+if 'DJANGO_ENV' in os.environ:
+    if os.environ['DJANGO_ENV'] == 'production':
+        DEBUG = False
 
 
 
@@ -38,10 +43,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.office365.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'jibhi.co.in@outlook.com'
-EMAIL_HOST_PASSWORD = 'ushna@007'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://jibhicoin-production.up.railway.app/']
 
 
 # Application definition
@@ -161,10 +166,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # s3 bucket setup 
 
 
-AWS_STORAGE_BUCKET_NAME = 'jibhi-gallery'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = 'ap-southeast-2'
-AWS_ACCESS_KEY_ID = 'AKIAUDWETA6CWPNQ63RU'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_LOCATION = 'media'
 AWS_DEFAULT_ACL = 'public-read'
