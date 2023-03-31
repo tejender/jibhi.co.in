@@ -90,8 +90,8 @@ def Search(request):
 
 def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
-    listing = Listings.objects.get(slug=slug) 
-    photos = listing.photos.all()   
+    listing = Listings.objects.get(slug=slug)     
+    photos = listing.photos.all()       
     not_bottom_nav=True
     not_top_nav=True   
     api_photos = []        

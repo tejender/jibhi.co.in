@@ -49,11 +49,20 @@
     .carousel{
       height: 200px;
     }
+
+    .paragliding-info{
+      /* background-color: red; */
+      margin-top: -10px;
+     
+    }
     .paragliding-info p{
       font-size: 1rem;
       color: white;
       font-weight: bolder;
       border-radius: 10px;
+      /* background-color: blue; */
+      text-align: center;
+      
       
     }
     .hero-image{

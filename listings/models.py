@@ -3,6 +3,7 @@ from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+import os
 
 # Create your models here.
 
@@ -103,21 +104,19 @@ class Listings(models.Model):
         return self.name
 
 
+
+
+
+def get_upload_path(instance, filename):
+    return f'images/photo_gallery/{instance.listing.slug}/{filename}'
+
 class PhotoGallery(models.Model):
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='photos')
-    
-
-    image = models.ImageField(upload_to='photo_gallery/', blank=True)
+    image = models.ImageField(upload_to=get_upload_path, blank=True)
     caption = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return self.caption
-
-    def save(self, *args, **kwargs):
-        # Get the listing's slug and use it to update the image field's upload_to path
-        slug = self.listing.slug
-        self.image.upload_to = f'photo_gallery/{slug}/'
-        super().save(*args, **kwargs)
+        return self.listing.slug
 
 
 
@@ -153,12 +152,18 @@ class NearByPlaces(models.Model):
         return self.name    
 
 
+
+def get_upload_path(instance, filename):
+    return f'images/testimg/{instance.name}/{filename}'
+
 class Testimg(models.Model):
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/testimg/', null=True, blank=True)
+    image = models.ImageField(upload_to=get_upload_path, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+
 
 
     

@@ -25,7 +25,7 @@ class ThumbImagesAdmin(admin.ModelAdmin):
 
 
 class PhotoGalleryAdmin(admin.ModelAdmin):
-       list_display = ('caption',)
+       list_display = ('listing','image','caption',)
 
 class ThingsToKnowAdmin(admin.ModelAdmin):
        list_display = ('name','checkInAfter', 'checkInBefore','checkOutBefore')
