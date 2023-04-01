@@ -135,5 +135,44 @@ sliderNext.addEventListener('click', handleNextClick);
 
 
 
+<div class="nav-item">   
+  <a href="{% url 'home' %}" class="{% if active_page == 'home' %}active-nav{% endif %}">
+
+    <i class="fa-solid fa-house"></i>
+    <i>home</i>
+  </a>     
+</div>
+
+<div class="nav-item"> 
+  <a href="{% url 'listings'%}"
+  class="{% if active_page == 'listings' %}active-nav{% endif %}">
+
+    <i class="fa-solid fa-magnifying-glass-location"></i>
+    <i>explore</i>
+  </a>       
+
+</div>  
+
+
+
+<div class="nav-item">  
+  <a href="{% url 'contact-us' %}">
+    <i class="fa-solid fa-message"></i>
+    <i>contact</i>
+  </a>      
+</div>
+
+
+<div class="nav-item">   
+  <a href="#">
+
+    <i class="fa-solid fa-angles-right"></i>
+    <i>more</i>
+  </a>     
+</div>    
+
+
+
+
 </body>
 </html>

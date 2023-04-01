@@ -27,11 +27,21 @@
         </div>
        
        <ul class="nav no-search">
-         <li class="nav-item"><a href="#">Home</a></li>
-         <li class="nav-item"><a href="{% url 'listings' %}">Explore</a></li>
-         <li class="nav-item"><a href="{% url 'map' %}">Map</a></li>
-         <li class="nav-item"><a href="#">About</a></li>
-         <li class="nav-item"><a href="{% url 'contact-us' %}">Contact Us</a></li>
+         <li class="nav-item {% if active_page == 'home' %}active{% endif %}">
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+         <li class="nav-item {% if active_page == 'listings' %}active{% endif %}">
+            <a href="{% url 'listings' %}">Explore</a>
+          </li>
+         <li class="nav-item">
+            <a href="{% url 'map' %}">Map</a>
+          </li>
+         <li class="nav-item">
+            <a href="#">About</a>
+          </li>
+         <li class="nav-item">
+            <a href="{% url 'contact-us' %}">Contact Us</a>
+          </li>
          
        </ul>
      </nav>
@@ -39,54 +49,36 @@
      
 
 
-     {% if not_bottom_nav is  None %}     
+     {% if not_bottom_nav is  None %}  
+        
      <div class="bottom-nav-wrapper " id="bottomNav">
-      <div class="nav-item">   
-        <a href="{% url 'home' %}" class="{% if active_page == 'home' %}active-nav{% endif %}">
-
-          <i class="fa-solid fa-house"></i>
-          <i>home</i>
-        </a>     
-      </div>
-
-      <div class="nav-item"> 
-        <a href="{% url 'listings'%}"
-        class="{% if active_page == 'listings' %}active-nav{% endif %}">
-
-          <i class="fa-solid fa-magnifying-glass-location"></i>
-          <i>explore</i>
-        </a>       
-      
-      </div>  
-      
-      {% comment %} <div class="nav-item">
-        <a href="#">
-          <i class="fa-solid fa-circle-info"></i>
-          <i>about</i>
-        </a>
-      </div> {% endcomment %}
-
-      <div class="nav-item">  
-        <a href="{% url 'contact-us' %}">
-          <i class="fa-solid fa-message"></i>
-          <i>contact</i>
-        </a>      
-      </div>
-      
-
-      <div class="nav-item">   
-        <a href="#">
-
+      <div class="outer-container">
+        <span class="button off">
+          <i class="fa fa-solid fa-house"></i>
+          <p>home</p>
+        </span>
+        <span class="button off">
+          <i class="fa fa-solid fa-magnifying-glass-location"></i>
+          <p>explore</p>
+        </span>
+        <span class="button off">
+          <i class="fa fa-solid fa-message"></i>
+          <p>contact</p>
+      </span>
+        <span class="button off">
           <i class="fa-solid fa-angles-right"></i>
-          <i>more</i>
-        </a>     
-      </div>    
-     
-
+          <p>more</p>
+        </span>
+    </div>
      </div>
+     
      {% endif %}
      
 
+
+
+
+     
      <div class="search-modal-wrapper">        
 
           

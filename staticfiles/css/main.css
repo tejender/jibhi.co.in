@@ -104,52 +104,58 @@
     transform: rotate(45deg);
   }
 
+
+  .btn-container{
+    background-color: white;
+        z-index: -1;
+    border-radius: 10px;
+  }
   
   .btn{
-    width: auto;
-    padding: 15px 10px;
-    /* border: 1px solid black; */
+    border: 1px solid #3498db;
     border-radius: 10px;
-    background-color: #007bff;
-    color: white;
-    text-transform: uppercase;
-    font-family: monospace;
-    /* font-size: .2rem; */
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "montserrat";
     cursor: pointer;
-    box-shadow: 0 0 5px rgb(3, 3, 3);
-    transition: all 5s ease;
-    font-weight: bold;
-  }
-
-  .btn:hover{
-    background-color: #76ade7;
-  }
-
-  .btn-home-contact{
-    /* background-color: rgb(241, 50, 50); */
-    font-weight: bold;
-    border-radius: 20px;
-    box-shadow: 0 2px 2px black;
-    transition: all 3s ease-in-out;
+    
+    transition: 0.8s;
     position: relative;
     overflow: hidden;
-      background-color: #007bff;
-    background-size: 100% 200%;
-    background-position: bottom;
-    transition:  1s ease-in-out;
-
+  }
+  
+ .btn{
+    color: #fff;
+  }
+  
+.btn:hover{
+    color: #3498db;
+    border: 1px solid #fff;
   }
 
-  
-  .btn-home-contact:hover{
-    /* background-color: rgb(138, 21, 21);     */
-    background-position: top;
-    background-color: #0f58a7;
-   
+  .btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
   }
-
+ 
+  .btn::before{
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+  }
+  .btn::before{
+    height: 180%;
+  }
   
-
+  .btn:hover::before{
+    height: 0%;
+  }
 
   section.hero-wrapper{
     height: auto;
