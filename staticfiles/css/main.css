@@ -116,9 +116,10 @@
     border-radius: 10px;
     background: none;
     padding: 10px 20px;
-    font-size: 20px;
+    /* font-size: 14px; */
     font-family: "montserrat";
     cursor: pointer;
+    font-weight: bold;
     
     transition: 0.8s;
     position: relative;
@@ -607,8 +608,8 @@ section.listings{
     .contact-wrapper .enquiry-form,.social-contact{
       padding-top: 10px;
       border-top: 3px solid rgb(0, 174, 255);
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      /* border-top-left-radius: 5px;
+      border-top-right-radius: 5px; */
     }
 
     .icon-wrapper{
@@ -621,8 +622,11 @@ section.listings{
       display: flex;
       flex-direction: column;
       gap: 10px;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.375);
+      /* border-bottom: 1px solid rgba(128, 128, 128, 0.375); */
       padding-bottom: 20px;
+      box-shadow: 0px 3px 5px -1px rgb(0,0,0,0.15),
+                -6px -6px 5px -1px rgb(255,255,255,0.7);
+
    
     }
 
@@ -1451,3 +1455,48 @@ position: relative;
 /* map-data ends */
 
 
+/*//////////////////////// neomorphic buttons */
+
+.contact-icon-wrapper a{
+  display:flex;
+  padding: 10px;
+  background:white;
+  
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
+                -6px -6px 10px -1px rgb(255,255,255,0.7);
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0);
+  transition:transform 0.5s;
+}
+.contact-icon-wrapper a i{
+  font-size:24px;
+  color:grey;
+  transition:transform 0.5s;
+}
+.contact-icon-wrapper a:hover{
+  box-shadow:inset 4px 4px 6px -1px rgb(0,0,0,0.15),
+                inset -4px -4px 6px -1px rgb(255,255,255,0.7);
+  border:1px solid rgbs(0,0,0,0.1);
+transform: translateY(2px);
+}
+.contact-icon-wrapper a:hover i{
+  transform:scale(0.90);
+}
+.contact-icon-wrapper a:hover .fa-facebook{
+    color: rgba(6, 6, 192, 0.822);
+}
+.contact-icon-wrapper a:hover .fa-twitter{
+    color: rgba(20, 89, 236, 0.822);
+}
+.contact-icon-wrapper a:hover .fa-whatsapp{
+    color: rgba(15, 235, 70, 0.945);
+}
+.contact-icon-wrapper a:hover .fa-instagram{
+    color: #f14843;
+}
+.contact-icon-wrapper a:hover .fa-youtube{
+    color: rgb(250, 14, 14);
+}
