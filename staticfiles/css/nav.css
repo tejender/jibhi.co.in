@@ -425,7 +425,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   
-  span{
+  .bottom-nav-wrapper span{
     background: rgb(227, 237, 247);
     border-radius: 18px;
     display: flex;
@@ -438,7 +438,7 @@ input[type="range"]::-webkit-slider-thumb {
     text-align: center;
     font-size: 24px; 
     font-weight: 600;
-    padding: 15px 15px;
+    padding: 15px 20px;
   }
   
   span p{
