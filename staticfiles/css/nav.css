@@ -365,10 +365,10 @@ input[type="range"]::-webkit-slider-thumb {
       
       position: fixed;
       width: 100%;
-      height: auto;
+      height: 60px;
       background: rgb(227, 237, 247);
       background-color: white;
-      border-top: 1px solid rgb(227, 237, 247);
+      border-top: 1px solid rgb(200, 203, 206);
       left: 0;
       bottom: 0;
       z-index: 9999;
