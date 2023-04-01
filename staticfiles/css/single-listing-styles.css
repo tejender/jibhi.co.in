@@ -386,7 +386,7 @@ h2,h3{
       .enquiry-nav-mobile{
         display: flex;
         position: fixed;
-        height: 60px;
+        height: 65px;
         bottom: 0;
         left: 0;
         width: 100%;
@@ -433,12 +433,13 @@ h2,h3{
         border-radius:8px;
         border:1px solid rgba(0,0,0,0);
         transition:transform 0.5s;
+        border: 1px solid #f1494342;
 
       }
 
       .direct-contact-mobile a i{
         font-size:24px;
-        color:grey;
+        color:#f14843;
         transition:transform 0.5s;
       }
       .direct-contact-mobile a:hover{
