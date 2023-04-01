@@ -386,7 +386,7 @@ h2,h3{
       .enquiry-nav-mobile{
         display: flex;
         position: fixed;
-        height: 65px;
+        height: 60px;
         bottom: 0;
         left: 0;
         width: 100%;
@@ -433,9 +433,10 @@ h2,h3{
         border-radius:8px;
         border:1px solid rgba(0,0,0,0);
         transition:transform 0.5s;
-        border: 1px solid #f1494342;
 
       }
+
+
 
       .direct-contact-mobile a i{
         font-size:24px;
@@ -473,6 +474,7 @@ h2,h3{
   
 
 
+     
       /* enquiry modal */
       #enquiry-modal {
         display: block;
@@ -548,8 +550,28 @@ h2,h3{
       
 }
 
+.amenity-icon{
+  display:flex;
+  padding: 5px 8px;
+  background:white;
+  
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:4px 4px 6px -1px rgb(0,0,0,0.15),
+   -4px -4px 6px -1px rgb(255,255,255,0.7);
+  border:1px solid rgbs(0,0,0,0.1); 
+   border-radius:8px;
+  border:1px solid rgba(0,0,0,0);
+  transition:transform 0.5s;
+
+}
 
 
+.amenity-icon{
+  width: 35px;
+  height: auto;
+}
 
 .swiper {
   width: 100%;
