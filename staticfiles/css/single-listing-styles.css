@@ -393,8 +393,8 @@ h2,h3{
         background-color: rgb(255, 255, 255);
         justify-content: space-between;
         align-items: center;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
         border-top: 1px solid rgba(128, 128, 128, 0.534);
         font-weight: bold;
 
@@ -410,6 +410,64 @@ h2,h3{
         color: white;
         font-weight: bold;
       }
+
+
+
+      .direct-contact-mobile{
+        width:auto;
+        justify-content: space-between;
+        display: flex;
+        gap: 10px;
+      }
+      
+      .direct-contact-mobile a{
+        display:flex;
+        padding: 5px;
+        background:white;
+        
+        align-items:center;
+        justify-content:center;
+        text-decoration:none;
+      box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
+                      -6px -6px 10px -1px rgb(255,255,255,0.7);
+        border-radius:8px;
+        border:1px solid rgba(0,0,0,0);
+        transition:transform 0.5s;
+
+      }
+      
+      .direct-contact-mobile a i{
+        font-size:24px;
+        color:grey;
+        transition:transform 0.5s;
+      }
+      .direct-contact-mobile a:hover{
+        box-shadow:inset 4px 4px 6px -1px rgb(0,0,0,0.15),
+                    inset -4px -4px 6px -1px rgb(255,255,255,0.7);
+        border:1px solid rgbs(0,0,0,0.1);
+      transform: translateY(2px);
+      }
+      .direct-contact-mobile a:hover i{
+        transform:scale(0.90);
+      }
+      .direct-contact-mobile a:hover .fa-facebook{
+          color: rgba(6, 6, 192, 0.822);
+      }
+      .direct-contact-mobile a:hover .fa-twitter{
+          color: rgba(20, 89, 236, 0.822);
+      }
+      .direct-contact-mobile a:hover .fa-whatsapp{
+          color: rgba(15, 235, 70, 0.945);
+      }
+      .direct-contact-mobile a:hover .fa-instagram{
+          color: #f14843;
+      }
+      .direct-contact-mobile a:hover .fa-youtube{
+          color: rgb(250, 14, 14);
+      }
+      
+  
+  
 
 
       /* enquiry modal */
@@ -481,7 +539,14 @@ h2,h3{
         height: 220px;
 
       }
+
+
+
+      
 }
+
+
+
 
 .swiper {
   width: 100%;

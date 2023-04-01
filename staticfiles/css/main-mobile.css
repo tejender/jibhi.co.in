@@ -261,15 +261,11 @@
       margin-bottom: 50px;
     }
 
-    .direct-contact{
-      width:auto;
-      gap: 18px;
-     
-      
-    }
-    
-.direct-contact i{
+   
+
+
+/* .direct-contact i{
   font-size: 1.7rem;
   color:#e73b3b;
-}
+} */
   }

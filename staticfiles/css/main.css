@@ -1478,7 +1478,7 @@ box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
 }
 .contact-icon-wrapper a:hover{
   box-shadow:inset 4px 4px 6px -1px rgb(0,0,0,0.15),
-                inset -4px -4px 6px -1px rgb(255,255,255,0.7);
+              inset -4px -4px 6px -1px rgb(255,255,255,0.7);
   border:1px solid rgbs(0,0,0,0.1);
 transform: translateY(2px);
 }
