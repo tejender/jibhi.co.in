@@ -420,9 +420,9 @@ h2,h3{
         gap: 10px;
       }
       
-      .direct-contact-mobile a{
+      .direct-contact-mobile a, .price{
         display:flex;
-        padding: 5px;
+        padding: 5px 8px;
         background:white;
         
         align-items:center;
@@ -435,7 +435,7 @@ h2,h3{
         transition:transform 0.5s;
 
       }
-      
+
       .direct-contact-mobile a i{
         font-size:24px;
         color:grey;
@@ -466,7 +466,9 @@ h2,h3{
           color: rgb(250, 14, 14);
       }
       
-  
+      .price{
+        padding: 10px 5px;
+      }
   
 
 
@@ -593,31 +595,4 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
   border-bottom: none;
   padding-bottom: 0;
   /* background-color: blue; */
-}
-
-
-.price-tag {
-  background-color: #4285F4;
-  border-radius: 8px;
-  color: #FFFFFF;
-  font-size: 14px;
-  padding: 10px 15px;
-  position: relative;
-}
-
-.price-tag::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, 0);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #4285F4;
-}
-
-[class$=api-load-alpha-banner] {
-  display: none;
 }
