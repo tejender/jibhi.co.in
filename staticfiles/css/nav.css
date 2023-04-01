@@ -355,11 +355,11 @@ input[type="range"]::-webkit-slider-thumb {
       width: 100%;
       height: auto;
       background: rgb(227, 237, 247);
-      border-top: 1px solid gray;
+      border-top: 1px solid rgb(227, 237, 247);
       left: 0;
       bottom: 0;
       z-index: 9999;
-      padding: 10px 30px;
+      /* padding: 10px 30px; */
       text-transform: capitalize;
       transition: transform 0.3s ease-in-out;
     }
@@ -452,6 +452,8 @@ input[type="range"]::-webkit-slider-thumb {
     display: flex; 
     justify-content: space-between;
     width: 100%;
+    /* background-color: red; */
+    margin: 10px 10px;
     
    
     

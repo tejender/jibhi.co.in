@@ -53,22 +53,33 @@
         
      <div class="bottom-nav-wrapper " id="bottomNav">
       <div class="outer-container">
-        <span class="button off">
+        <a href="{% url 'home' %}">
+        <span class="button  {% if active_page == 'home' %}on {% else  %}off{% endif %}">
           <i class="fa fa-solid fa-house"></i>
           <p>home</p>
         </span>
-        <span class="button off">
+      </a>
+      <a href="{% url 'listings' %}">
+
+        <span class="button {% if active_page == 'listings' %}on {% else  %}off{% endif %}">
           <i class="fa fa-solid fa-magnifying-glass-location"></i>
           <p>explore</p>
         </span>
-        <span class="button off">
+      </a>
+      <a href="{% url 'contact-us' %}">
+
+        <span class="button {% if active_page == 'contact' %}on {% else  %}off{% endif %}">
           <i class="fa fa-solid fa-message"></i>
           <p>contact</p>
-      </span>
+        </span>
+      </a>
+      <a href="">
         <span class="button off">
-          <i class="fa-solid fa-angles-right"></i>
+          
+          <i class="fa fa-solid fa-angles-right"></i>
           <p>more</p>
         </span>
+      </a>
     </div>
      </div>
      

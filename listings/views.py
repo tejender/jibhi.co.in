@@ -161,7 +161,8 @@ def Enquiry(request):
 
 
 def ContactUs(request):
-    context={}
+    active_page="contact"
+    context={"active_page":active_page}
     return render(request, 'listings/contact_us.html',context)
 
 
