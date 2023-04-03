@@ -7,6 +7,8 @@
 
 {% block content %}
 
+
+
 <section class="section-wrapper hero-gallery">
     <div class="listing-header">
         <h2 class="listing-title">
@@ -247,7 +249,7 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
 </section>
 
 {% if listing.place_id %}
-    <section class="section-wrapper">
+    <section class="section-wrapper listing-reviews">
         <h2>What Guest says</h2>
         
         <div class="reviews-wrapper-listing">
@@ -255,10 +257,10 @@ Review the Host’s full cancellation policy which applies even if you cancel fo
                 {% for review in reviews   %}   
                     
                     <div class="review-wrapper">
+                        <div class="reviewer-dp">
+                            <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
+                        </div>
                         <div class="review-header">
-                            <div class="reviewer-dp">
-                                <img src="{{  review.profile_photo_url  }}" alt="{{ review.author_name }}'s profile photo">
-                            </div>
                             <div class="review-meta">
                                 <i>{{review.author_name}}</i>
                                 <i class="relative-time">{{review.relative_time_description}}</i>

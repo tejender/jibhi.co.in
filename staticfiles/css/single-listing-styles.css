@@ -309,6 +309,9 @@ h2,h3{
     justify-content: center;
   }
 
+
+  
+
   .section-wrapper.map{
     display: flex;
     flex-direction: column;
@@ -601,10 +604,15 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
   object-fit: cover;
 }
 
+.section-wrapper.listing-reviews{
+  background-color: #F6F8FB;
+} 
+
 .reviews-wrapper-listing{
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .reviews-wrapper-listing .review-wrapper{
@@ -612,10 +620,22 @@ background: linear-gradient(130deg, rgba(2,0,36,1) 0%, rgba(0,217,7,0.7651435574
   padding: 10px; */
   border-bottom: 1px solid rgba(128, 128, 128, 0.234);
   padding-bottom: 20px;
+  position: relative;
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 10px 10px 15px 2px lavender;
+  /* text-align: center; */
+  
+  
 }
 
-.reviews-wrapper-listing .review-wrapper:last-child{
-  border-bottom: none;
-  padding-bottom: 0;
-  /* background-color: blue; */
+.reviewer-dp{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 3px solid white;
 }
+
