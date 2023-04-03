@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from dotenv import load_dotenv
+from django.conf import settings
 
 load_dotenv()
 
@@ -61,6 +62,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'ckeditor',
     'storages',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -165,15 +167,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # s3 bucket setup 
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_REGION_NAME = 'ap-southeast-2'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_REGION_NAME = 'ap-southeast-2'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_LOCATION = 'media'
-AWS_DEFAULT_ACL = 'public-read'
-MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False
+
+AWS_S3_CUSTOM_DOMAIN='d1myeom73wa04c.cloudfront.net'
+

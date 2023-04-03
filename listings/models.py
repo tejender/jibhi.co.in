@@ -31,17 +31,7 @@ class Amenities(models.Model):
         return self.amenity_name
     
 
-class ThumbImages(models.Model):
-   
-   listing_name = models.CharField(max_length=50)
-   url1 = models.ImageField(upload_to='images/thumb-images')
-   url2 = models.ImageField(upload_to='images/thumb-images')
-   url3 = models.ImageField(upload_to='images/thumb-images')
-   url4 = models.ImageField(upload_to='images/thumb-images')
-   url5 = models.ImageField(upload_to='images/thumb-images')  
 
-   def __str__(self):
-        return self.listing_name
    
 
 class ThingsToKnow(models.Model):
@@ -52,6 +42,22 @@ class ThingsToKnow(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ThumbImages(models.Model):   
+   def get_thumb_upload_path(instance, filename):
+    return f'images/thumb_images/{instance.listing_name}/{filename}'
+
+   
+   listing_name = models.CharField(max_length=50,null=True)
+   url1 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url2 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url3 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url4 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url5 = models.ImageField(upload_to=get_thumb_upload_path,null=True)  
+
+   def __str__(self):
+        return self.listing_name
 
 
 class Listings(models.Model):
@@ -102,8 +108,6 @@ class Listings(models.Model):
 
     def __str__(self):
         return self.name
-
-
 
 
 

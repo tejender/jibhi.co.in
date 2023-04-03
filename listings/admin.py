@@ -21,7 +21,7 @@ class ListingsAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'location','place_id', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night','listing_type','location_type','distance_in_meters',"slug",'latitude','longitude')
 
 class ThumbImagesAdmin(admin.ModelAdmin):
-       list_display = ('listing_name',)
+       list_display = ('listing_name','url1','url2','url3','url4','url5',)
 
 
 class PhotoGalleryAdmin(admin.ModelAdmin):
