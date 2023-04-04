@@ -1051,7 +1051,11 @@ section.section-wrapper.listing-body-wrapper{
 
 .read-more-btn{
   cursor: pointer;
-  color: blue;
+  border: 1px solid black;
+  padding: 10px 20px;
+  width: fit-content;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 
@@ -1081,7 +1085,7 @@ section.section-wrapper.listing-body-wrapper{
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 40%;
+  width: 35%;
   /* background-color: blue; */
 }
 
@@ -1089,12 +1093,20 @@ section.section-wrapper.listing-body-wrapper{
  
 }
 
-.cancellation-policy{
-  width: 30%;
+.about-listing{
+  width: 35%;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
+.about-text{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 
 .yt-tour{
   width: 100%;
@@ -1169,6 +1181,8 @@ position: relative;
   transform: translate(12%,-50%);
   background-color: gray;
 }
+
+
 /* page-signle-listing  ends*/
  
 
@@ -1346,28 +1360,11 @@ position: relative;
 .marker{
   color: green;
 }
-.description-wrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
 
 
 
-.description-header{
-  display: flex;
-  justify-content: space-between;
-  /* background-color: red; */
-  width: 100%;
-  align-items: center;
-}
 
-.description-body{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 
-}
 
 .places-photo-gallery{
   display: flex;

@@ -170,19 +170,21 @@
       }
       .things-to-know-wrapper{
         flex-direction: column;;
-        border-bottom: 1px solid rgba(128, 128, 128, 0.459);
-        padding-bottom: 20px;
+        /* border-bottom: 1px solid rgba(128, 128, 128, 0.459); */
+        /* padding-bottom: 20px; */
         gap: 15px;
       }
-      .house-rules, .reaching-here,.cancellation-policy{
+      .house-rules, .reaching-here,.about-listing{
         width: 100%;
       }
-
-      .description-wrapper{
-        /* border-bottom:1px solid rgba(128, 128, 128, 0.479); */
-        padding-bottom: 15px;
-
+      .read-more-btn{
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
       }
+
+
+      
     /* lisitng detail page ends */
 
     .no-result{

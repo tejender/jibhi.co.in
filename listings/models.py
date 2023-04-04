@@ -62,7 +62,6 @@ class ThumbImages(models.Model):
 
 class Listings(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
     location = models.CharField(max_length=255)
     latitude = models.DecimalField(max_digits=19, decimal_places=14 ,default=0.0)
     longitude = models.DecimalField(max_digits=30, decimal_places=14,default=0.0)
@@ -96,6 +95,7 @@ class Listings(models.Model):
         ],
     )
 
+    thumb_description =  models.TextField(max_length=500,blank=True)
     distance_in_meters = models.IntegerField(default=0)
     thumb_images = models.ForeignKey(ThumbImages,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True,default="hi")
@@ -111,10 +111,11 @@ class Listings(models.Model):
 
 
 
-def get_upload_path(instance, filename):
-    return f'images/photo_gallery/{instance.listing.slug}/{filename}'
-
 class PhotoGallery(models.Model):
+
+    def get_upload_path(instance, filename):
+        return f'images/photo_gallery/{instance.listing.slug}/{filename}'
+
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='photos')
     image = models.ImageField(upload_to=get_upload_path, blank=True)
     caption = models.CharField(max_length=255, blank=True)
@@ -122,8 +123,14 @@ class PhotoGallery(models.Model):
     def __str__(self):
         return self.listing.slug
 
+class ListingDescription(models.Model):
+    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='description')
+    
+    complete_description = RichTextField(null=True, blank=True)
 
-
+    def __str__(self):
+        return self.listing.slug
+    
 class OtherInfoPlaces(models.Model):
     name = models.CharField(max_length=255)
     distance = models.DecimalField(default=0,max_digits=7,decimal_places=1)

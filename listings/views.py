@@ -114,7 +114,9 @@ def Search(request):
 
 def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
-    listing = Listings.objects.get(slug=slug)     
+    listing = Listings.objects.get(slug=slug)
+    listing_description = listing.description.first()
+    print(listing_description)     
     photos = listing.photos.all()       
     not_bottom_nav=True
     not_top_nav=True   
@@ -145,7 +147,7 @@ def ListingDetail(request,slug):
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
                'rating': rating,
-               'reviews':reviews,'api_photos':api_photos,}
+               'reviews':reviews,'api_photos':api_photos,'listing_description':listing_description}
     return render(request,'listings/listingDetail.html', context)
 
 

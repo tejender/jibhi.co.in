@@ -6,7 +6,7 @@ from django.db import models
 from .models import (
        Host,Amenities,Listings,ThumbImages,
        PhotoGallery,ThingsToKnow,NearByPlaces,
-       OtherInfoPlaces,Testimg
+       OtherInfoPlaces,Testimg,ListingDescription
        )
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
@@ -19,6 +19,13 @@ class AmenitiesAdmin(admin.ModelAdmin):
 
 class ListingsAdmin(admin.ModelAdmin):
     list_display = ('id','name', 'location','place_id', 'capacity', 'num_bedrooms', 'num_bathrooms', 'price_per_night','listing_type','location_type','distance_in_meters',"slug",'latitude','longitude')
+
+
+class ListingDescriptionAdmin(admin.ModelAdmin):
+       formfield_overrides = {
+              models.TextField: {'widget': CKEditorWidget}
+        }
+       list_display = ('listing','complete_description')
 
 class ThumbImagesAdmin(admin.ModelAdmin):
        list_display = ('listing_name','url1','url2','url3','url4','url5',)
@@ -48,6 +55,7 @@ class testimgAdmin(admin.ModelAdmin):
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
 admin.site.register(Listings, ListingsAdmin)
+admin.site.register(ListingDescription,ListingDescriptionAdmin)
 admin.site.register(ThumbImages,ThumbImagesAdmin)
 admin.site.register(PhotoGallery,PhotoGalleryAdmin)
 admin.site.register(ThingsToKnow,ThingsToKnowAdmin)

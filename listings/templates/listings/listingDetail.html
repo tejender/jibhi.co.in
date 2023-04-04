@@ -132,26 +132,7 @@
                 
             </div>
 
-            <div class="description-wrapper">
-                
-                    <h2>About {{listing.listing_type}}</h2>
-                    <p class="description-text">
-                    {{listing.description | truncatewords:50}}
-                    <i class="read-more-btn" id="read-more-btn">Read More </i>
-                    </p>
-
-                    <div id="overlay-wrapper">                    
-                    <div id="about-listing-modal">                       
-
-                            <div id="about-listing-modal-content">
-                              <h2>Modal Title</h2>
-                              <p>{{listing.description }}</p>
-                              <button id="close-modal">X</button>
-                            </div>
-                        </div>
-                    </div>
-                   
-        </div>
+            
         <div class="yt-tour">
             <h2>Get a Tour</h2>
             <iframe   src="https://www.youtube.com/embed/8EVvTxhb-TU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -195,6 +176,28 @@
 <section class="section-wrapper things-to-know">
     <h2>Things to Know</h2>
     <div class="things-to-know-wrapper">
+        <div class="about-listing">
+            <h3>About {{listing.listing_type}}</h3>
+            
+            <p class="about-text">
+                <i>
+
+                    {{listing.thumb_description | truncatewords:30}}
+                </i>
+            
+            </p>
+
+            <div id="overlay-wrapper">                    
+            <div id="about-listing-modal">                       
+
+                    <div id="about-listing-modal-content">
+                      
+                      <p>{{listing_description.complete_description | safe }}</p>
+                      <button id="close-modal">X</button>
+                    </div>
+                </div>
+            </div>
+    </div>
         <div class="house-rules">
                 <h3>House rules</h3>
                 <p>
@@ -222,14 +225,10 @@
                      who prefer not to walk on uneven terrain. 
                 </p>
         </div>
-        <div class="cancellation-policy">
-                <h3>Cancellation Poilcy</h3>
-                <p>
-                    Free cancellation before 28 <br>
-Review the Host’s full cancellation policy which applies even if you cancel for
- illness or disruptions caused by COVID-19.
-                </p>
-        </div>
+        
+    </div>
+    <div class="read-more-btn" id="read-more-btn">
+        <i  >Read More </i>
     </div>
 </section>
 
