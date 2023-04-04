@@ -184,6 +184,16 @@
       }
 
 
+      .amenities{
+      
+       gap: 0px;
+
+      }
+      .single-amenity{
+        width: 50%;
+        /* background-color: red; */
+        margin-top: 10px;
+      }
       
     /* lisitng detail page ends */
 

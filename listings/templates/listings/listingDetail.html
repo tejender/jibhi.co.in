@@ -58,8 +58,10 @@
             <div id="listing-gallery-modal">                                 
 
                     <div id="listing-gallery-modal-content">
-                        <div class="gallery-header">                            
-                                <i class="fa-solid fa-chevron-left" id="close-gallery-modal"></i>                          
+                        <div class="gallery-header"> 
+                            <div class="close-btn" id="close-gallery-modal">
+                                <i class="fa-solid fa-chevron-left"></i>                          
+                            </div>                           
                         </div>
                         <div class="photo-gallery">                           
                         {% if photos %}
@@ -136,6 +138,7 @@
         <div class="yt-tour">
             <h2>Get a Tour</h2>
             <iframe   src="https://www.youtube.com/embed/8EVvTxhb-TU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      
         </div>
      </div>
     </div>
@@ -188,12 +191,19 @@
             </p>
 
             <div id="overlay-wrapper">                    
-            <div id="about-listing-modal">                       
+            <div id="about-listing-modal">  
+                                  
 
                     <div id="about-listing-modal-content">
-                      
-                      <p>{{listing_description.complete_description | safe }}</p>
-                      <button id="close-modal">X</button>
+                        <div class="about-modal-header">  
+                            <div class="close-btn " id="close-modal">
+                                <i class="fa-solid fa-chevron-left" ></i>                          
+                            </div>                          
+                    </div>  
+                      <div class="description-container">
+                        {{listing_description.complete_description | safe }}
+                    </div>
+                     
                     </div>
                 </div>
             </div>
@@ -299,8 +309,10 @@
 <div class="overlay-wrapper">
     <div id="enquiry-modal">
         <div id="enquiry-modal-content">
-            <div class="gallery-header">                            
-                <i class="fa-solid fa-chevron-left" id="close-enquiry-modal-mobile"></i>                          
+            <div class="gallery-header">   
+                <div class="close-btn"  id="close-enquiry-modal-mobile">
+                    <i class="fa-solid fa-chevron-left"></i>                          
+                </div>                         
         </div>
             {% include './listing_enquiry_form.html' %}
             

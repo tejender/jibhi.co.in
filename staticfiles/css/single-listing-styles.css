@@ -32,11 +32,18 @@ h2,h3{
     transition: all 1s ease-in-out;
     width: 90%;
     height: 90vh;
+    
 
    
     z-index: 99999999;
     
   }
+
+  .description-container{
+    overflow-y: scroll;
+  }
+
+ 
   
   #modal.open #about-listing-modal-content {
     transform: translate(-50%, -70%);
@@ -45,7 +52,7 @@ h2,h3{
   #close-modal{
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
   }
 
   .overlay {
@@ -265,7 +272,7 @@ h2,h3{
   }
 
   
-  .gallery-header{
+  .gallery-header , .about-modal-header{
     height: 50px;
     width: 100%;
     /* background-color: red; */
@@ -277,6 +284,12 @@ h2,h3{
     display: flex;
     align-items: center;
     margin-left: 20px;
+  }
+
+  .about-modal-header{
+    height: 40px;
+    margin-bottom: 0px;
+    margin-left: 0px;
   }
   
   .photos img:hover {
