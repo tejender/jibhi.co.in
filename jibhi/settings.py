@@ -179,3 +179,8 @@ AWS_S3_FILE_OVERWRITE = False
 
 AWS_S3_CUSTOM_DOMAIN='d1myeom73wa04c.cloudfront.net'
 
+
+# gcp key setup
+
+GOOGLE_PLACES_API_KEY = os.environ.get('GOOGLE_PLACES_API_KEY')
+

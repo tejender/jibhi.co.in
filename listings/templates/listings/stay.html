@@ -100,28 +100,29 @@
 
     <section class="listings">
 
-      {% if cottages %}
+      {% if listings %}
       
-     {% for cottage in cottages %}  
+     {% for listing in listings %}       
+      
      
       <div class="single-listing">
-         <a href="{% url 'listingDetail' slug=cottage.slug %}">
+         <a href="{% url 'listingDetail' slug=listing.slug %}">
          <div class="swiper mySwiper-listing">
            <div class="swiper-wrapper">
              <div class="swiper-slide">
-               <img src=" {{cottage.thumb_images.url1.url}}" alt="hi" height="20px">  
+               <img src=" {{listing.thumb_images.url1.url}}" alt="hi" height="20px">  
               </div>
               <div class="swiper-slide">
-                <img src=" {{cottage.thumb_images.url2.url}}" alt="hi" height="20px">  
+                <img src=" {{listing.thumb_images.url2.url}}" alt="hi" height="20px">  
                </div>
                <div class="swiper-slide">
-                <img src=" {{cottage.thumb_images.url3.url}}" alt="hi" height="20px">  
+                <img src=" {{listing.thumb_images.url3.url}}" alt="hi" height="20px">  
                </div>
                <div class="swiper-slide">
-                <img src=" {{cottage.thumb_images.url4.url}}" alt="hi" height="20px">  
+                <img src=" {{listing.thumb_images.url4.url}}" alt="hi" height="20px">  
                </div>
                <div class="swiper-slide">
-                <img src=" {{cottage.thumb_images.url5.url}}" alt="hi" height="20px">  
+                <img src=" {{listing.thumb_images.url5.url}}" alt="hi" height="20px">  
                </div>
                              
             </div>
@@ -130,20 +131,24 @@
             <div class="swiper-button-prev listing-prev"></div>              
           </div>
           <div class="listing-info-wrapper">
-            <i class="listing-title">{{cottage.name}}</i>
+            <div class="listing-title">
+              <i class="listing-title">{{listing.name}}</i>
+              <i> {{listing.rating}} <i class="fa fa-solid fa-star"></i></i>
+            </div>
             <div class="item-wrapper">
               <i class="fa fa-solid fa-location-dot"></i>
-              <i class="listing-location">{{cottage.location}}</i>
+              <i class="listing-location">{{listing.location}}</i>
             </div>
-            <i class="listing-accomodation">{{cottage.capacity}} persons | {{cottage.num_bedrooms}} bedrooms</i>
+            <i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>
             <div class="item-wrapper">
 
-              <i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{cottage.price_per_night}} / night</i>
+              <i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>
             </div>
           </div>
          </a>        
       </div>
-        {% endfor %} 
+      {% endfor %}
+     
 
 
       {% else %}

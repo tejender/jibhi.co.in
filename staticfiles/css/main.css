@@ -482,6 +482,14 @@ section.listings{
     font-weight: 600;
     font-size: 1rem;
     color: #242323;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .listing-title i.fa{
+    color: #f7ca03;
+    transform: translateY(-15%);
   }
 
   .listing-location,.listing-accomodation{

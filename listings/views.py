@@ -29,9 +29,20 @@ def Stay(request,listing_type):
     active_page='listings'
     view_type='list'
     view_url='specific'
-    listings = Listings.objects.filter(listing_type=listing_type)        
+    listings = Listings.objects.filter(listing_type=listing_type) 
+    for listing in listings:
+        if listing.place_id:
+    
+            url=f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=rating&key={settings.GOOGLE_PLACES_API_KEY}"
+            respose = requests.get(url)
+            data= respose.json()
+            rating = data['result'].get('rating')
+            if rating:
+                listing.rating = rating  # update the rating field for this listing
+                listing.save()
+                      
     listing_type = listing_type      
-    context={"cottages":listings,"listing_type":listing_type,
+    context={"listings":listings,"listing_type":listing_type,
              'active_page':active_page,'view_type':view_type
              ,'view_url':view_url}
     return render(request,'listings/stay.html',context)
@@ -40,8 +51,21 @@ def StayAll(request):
     active_page='listings'
     view_type='list'
     view_url= 'all'
-    listings = Listings.objects.all()         
-    context={"cottages":listings,'active_page':active_page,
+    listings = Listings.objects.all()    
+    for listing in listings:
+        if listing.place_id:
+    
+            url=f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=rating&key={settings.GOOGLE_PLACES_API_KEY}"
+            respose = requests.get(url)
+            data= respose.json()
+            rating = data['result'].get('rating')
+            if rating:
+                listing.rating = rating  # update the rating field for this listing
+                listing.save()
+                
+            
+
+    context={"listings":listings,'active_page':active_page,
              'view_type':view_type,'view_url':view_url}
     return render(request,'listings/stay.html',context)
 
@@ -95,9 +119,8 @@ def ListingDetail(request,slug):
     not_bottom_nav=True
     not_top_nav=True   
     api_photos = []        
-    api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc"
     if listing.place_id:
-        url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
+        url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={settings.GOOGLE_PLACES_API_KEY}"
 
         # Send API request and get response
         response = requests.get(url)
@@ -109,12 +132,12 @@ def ListingDetail(request,slug):
 
 
         # get photos from api
-        gmaps = googlemaps.Client(api_key)
+        gmaps = googlemaps.Client(settings.GOOGLE_PLACES_API_KEY)
         place = gmaps.place(listing.place_id)['result']
         
         for photo in place.get('photos', []):
             photo_reference = photo.get('photo_reference')
-            photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
+            photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={settings.GOOGLE_PLACES_API_KEY}"
             api_photos.append(photo_url)
     else:
         rating=user_rating_total=reviews=None
@@ -168,9 +191,8 @@ def ContactUs(request):
 
 def Places(request,slug): 
 
-    placeDetails = NearByPlaces.objects.get(slug=slug)     
-    api_key = "AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc" # Replace with your actual API key
-    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={api_key}"
+    placeDetails = NearByPlaces.objects.get(slug=slug)  # Replace with your actual API key
+    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={settings.GOOGLE_PLACES_API_KEY}"
 
     # Send API request and get response
     response = requests.get(url)
@@ -181,12 +203,12 @@ def Places(request,slug):
     reviews = data['result']['reviews']
 
 
-    gmaps = googlemaps.Client(api_key)
+    gmaps = googlemaps.Client(settings.GOOGLE_PLACES_API_KEY)
     place = gmaps.place(placeDetails.place_id)['result']
     photos = []
     for photo in place.get('photos', []):
         photo_reference = photo.get('photo_reference')
-        photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={api_key}"
+        photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={settings.GOOGLE_PLACES_API_KEY}"
         photos.append(photo_url)
 
     context={'rating':rating,'reviews':reviews,
