@@ -7,6 +7,9 @@ from django.contrib import messages
 import requests
 import json
 import googlemaps
+from urllib.parse import urlencode
+
+
 
 # Create your views here.
 
@@ -116,7 +119,8 @@ def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
     listing = Listings.objects.get(slug=slug)
     listing_description = listing.description.first()
-    print(listing_description)     
+    
+
     photos = listing.photos.all()       
     not_bottom_nav=True
     not_top_nav=True   
@@ -147,7 +151,8 @@ def ListingDetail(request,slug):
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
                'rating': rating,
-               'reviews':reviews,'api_photos':api_photos,'listing_description':listing_description}
+               'reviews':reviews,'api_photos':api_photos,'listing_description':listing_description,
+               }
     return render(request,'listings/listingDetail.html', context)
 
 

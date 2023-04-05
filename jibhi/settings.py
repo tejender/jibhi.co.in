@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'ckeditor',
     'storages',
-    'django_extensions'
+    'django_extensions',
+    'django_social_share'
 ]
 
 MIDDLEWARE = [

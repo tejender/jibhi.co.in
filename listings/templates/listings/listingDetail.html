@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load social_share %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/single-listing-styles.css' %}">
@@ -22,6 +23,10 @@
                 </a>    
             </i>
             <i>{{listing.location_type}} {{listing.distance_in_meters}}m</i>
+            {% post_to_facebook object_or_url "Post to Facebook!" %}
+{% post_to_whatsapp  object_or_url "Share To WA" %}
+{% post_to_reddit  object_or_url "Share To Reddit" %}
+
         </div>
     </div>
     
