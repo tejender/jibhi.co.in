@@ -23,9 +23,10 @@
                 </a>    
             </i>
             <i>{{listing.location_type}} {{listing.distance_in_meters}}m</i>
-            {% post_to_facebook object_or_url "Post to Facebook!" %}
-{% post_to_whatsapp  object_or_url "Share To WA" %}
-{% post_to_reddit  object_or_url "Share To Reddit" %}
+            {% with title='<i class="fa-solid fa-arrow-up-from-bracket"></i>'%}
+                {% post_to_whatsapp "Checkout this property" object_or_url "Share To WA" %}
+            {% endwith %}
+            
 
         </div>
     </div>
