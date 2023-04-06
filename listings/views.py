@@ -119,6 +119,7 @@ def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
     listing = Listings.objects.get(slug=slug)
     listing_description = listing.description.first()
+    current_url = request.build_absolute_uri()  
     
 
     photos = listing.photos.all()       
@@ -150,8 +151,8 @@ def ListingDetail(request,slug):
 
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
-               'rating': rating,
-               'reviews':reviews,'api_photos':api_photos,'listing_description':listing_description,
+               'rating': rating,'reviews':reviews,'api_photos':api_photos,
+               'listing_description':listing_description,'current_url':current_url,
                }
     return render(request,'listings/listingDetail.html', context)
 

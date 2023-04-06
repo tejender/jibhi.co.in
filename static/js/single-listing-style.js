@@ -27,33 +27,37 @@ closeBtn.addEventListener('click', function() {
 
 
 // listing galley
+function setModalBehavior(modal, openBtn, closeBtn) {
+  var overlay = document.getElementById('overlay-wrapper');
+  
+  openBtn.addEventListener('click', function() {
+    modal.classList.add('open');
+    document.body.classList.add('no-scroll');
+    
+    setTimeout(function() {
+      overlay.classList.add('overlay');
+    }, 1000);
+  });
+  
+  closeBtn.addEventListener('click', function() {
+    document.body.classList.remove('no-scroll');
+    overlay.classList.remove('overlay');
+    
+    setTimeout(function() {
+      modal.classList.remove('open');
+    }, 100);
+  });
+}
+
+
+
 
 var galleryModal = document.getElementById('listing-gallery-modal');
 
 var openGalleryBtn = document.getElementById('load-gallery');
 var overlay = document.getElementById('overlay-wrapper')
 var closeGalleryBtn = document.getElementById('close-gallery-modal');
-
-openGalleryBtn.addEventListener('click', function() {
-  galleryModal.classList.add('open');
-  document.body.classList.add('no-scroll');
-  
-  setTimeout(function() {
-    overlay.classList.add("overlay");
-  }, 1000);
-  
-
-  
-});
-
-closeGalleryBtn.addEventListener('click', function() {
-    document.body.classList.remove('no-scroll')
-    overlay.classList.remove("overlay");    
-  setTimeout(function() {
-    galleryModal.classList.remove('open');
-  }, 100);
- 
-});
+setModalBehavior(galleryModal, openGalleryBtn, closeGalleryBtn);
 
 // listing gallery ends
 
@@ -155,3 +159,55 @@ checkoutInputMobile.addEventListener('change', (event) => {
   });
 
 
+// small modal share
+
+  function setSmallModalBehavior(modal, openBtn, closeBtn) {
+    var overlay = document.getElementById('overlay-wrapper');
+    
+    openBtn.addEventListener('click', function() {
+      modal.classList.add('open');
+      document.body.classList.add('no-scroll');
+      
+      setTimeout(function() {
+        overlay.classList.add('overlay');
+      }, 1000);
+    });
+    
+    closeBtn.addEventListener('click', function() {
+      document.body.classList.remove('no-scroll');
+      overlay.classList.remove('overlay');
+      
+      setTimeout(function() {
+        modal.classList.remove('open');
+      }, 100);
+    });
+  }
+
+
+
+
+// reusable modal
+
+function reusableModal(triggerId, modalId, overlayId, closeId) {
+  var trigger = document.getElementById(triggerId);
+  var modal = document.getElementById(modalId);
+  var overlay = document.getElementById(overlayId);
+  var close = document.getElementById(closeId);
+  
+  trigger.addEventListener('click', function() {
+    overlay.classList.add('is-visible');
+    modal.classList.add('is-visible');
+    document.body.classList.add('no-scroll')
+    console.log('hi');
+  });
+
+  close.addEventListener('click', function() {
+    overlay.classList.remove('is-visible');
+    modal.classList.remove('is-visible');
+    document.body.classList.remove('no-scroll')
+    console.log('object');
+  });
+
+  
+}
+reusableModal('btn-modal', 'share-modal', 'overlay', 'close-btn-share-modal');

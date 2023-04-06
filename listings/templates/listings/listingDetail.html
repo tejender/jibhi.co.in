@@ -23,13 +23,48 @@
                 </a>    
             </i>
             <i>{{listing.location_type}} {{listing.distance_in_meters}}m</i>
-            {% with title='<i class="fa-solid fa-arrow-up-from-bracket"></i>'%}
-                {% post_to_whatsapp "Checkout this property" object_or_url "Share To WA" %}
-            {% endwith %}
-            
+            <div id="btn-modal" class="share-btn">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>    
+            </div>
 
+            <div class="overlay-share" id="overlay"></div>
+            <div class="share-modal" id="share-modal">
+                <div class="share-modal-header"> 
+                    <div class="close-btn" id="close-btn-share-modal">
+                        <i class="fa-solid fa-chevron-left"></i> 
+                        
+                    </div>                           
+                    <h2>Share this place</h2>
+                </div>
+             <div class="share-modal-content">
+                <div class="social-share-btn-wrapper">
+                    <div class="tooltip" id="copy-link-tooltip"></div>
+                    <div class="social-share-btn copy-link">
+                        <div id="copy-link-container">
+                            <a href="#" id="copy-link">
+                              <i class="fas fa-copy"></i>
+                              copy link
+                            </a>
+                            
+                          </div>
+                    </div>
+                    <div class="social-share-btn">
+                        {% post_to_whatsapp  object_or_url '<i class="fa-brands fa-whatsapp"></i> Whatsapp' %}
+                        
+                    </div>
+                    <div class="social-share-btn">
+                        {% post_to_telegram 'hi' object_or_url '<i class="fa-brands fa-telegram"></i> Telegram'  %}
+                    </div>
+
+                    <div class="social-share-btn">
+                        {% post_to_twitter 'hello twitter' object_or_url '<i class="fa-brands fa-twitter"></i> Twitter'  %}
+                    </div>
+                </div>
+                
+             </div>
+            </div>
         </div>
-    </div>
+</div> 
     
     <div class="gallery-grid">
         <a href="{% url 'listings' %}"class="prev-btn">
@@ -404,5 +439,40 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&v=weekly"
       defer
     ></script>
-  
-{% endblock scripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Get the URL of the current page
+          var currentUrl = window.location.href;
+        
+          // Get the copy link element and tooltip element
+          var copyLinkEl = document.getElementById('copy-link');
+          var tooltipEl = document.getElementById('copy-link-tooltip');
+        
+          // When the copy link element is clicked
+          copyLinkEl.addEventListener('click', function(e) {
+            e.preventDefault();
+        
+            // Copy the URL to the clipboard
+            navigator.clipboard.writeText(currentUrl).then(function() {
+              // Show the tooltip with the "Copied" message and a background color
+              tooltipEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> Copied';
+              tooltipEl.classList.add('show');
+        
+              // Hide the tooltip after 2 seconds
+              setTimeout(function() {
+                tooltipEl.classList.remove('show');
+              }, 2000);
+            }).catch(function() {
+              // If clipboard access is denied or failed, show a different message in the tooltip
+              tooltipEl.textContent = 'Copy failed';
+              tooltipEl.classList.add('show');
+        
+              // Hide the tooltip after 2 seconds
+              setTimeout(function() {
+                tooltipEl.classList.remove('show');
+              }, 2000);
+            });
+          });
+        });
+        </script>
+       {% endblock scripts %}
