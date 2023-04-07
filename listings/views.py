@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Listings 
-from .models import NearByPlaces
+from .models import NearByPlaces,AddressGeo
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
@@ -32,17 +32,7 @@ def Stay(request,listing_type):
     active_page='listings'
     view_type='list'
     view_url='specific'
-    listings = Listings.objects.filter(listing_type=listing_type) 
-    for listing in listings:
-        if listing.place_id:
-    
-            url=f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=rating&key={settings.GOOGLE_PLACES_API_KEY}"
-            respose = requests.get(url)
-            data= respose.json()
-            rating = data['result'].get('rating')
-            if rating:
-                listing.rating = rating  # update the rating field for this listing
-                listing.save()
+    listings = Listings.objects.filter(listing_type=listing_type)     
                       
     listing_type = listing_type      
     context={"listings":listings,"listing_type":listing_type,
@@ -55,16 +45,7 @@ def StayAll(request):
     view_type='list'
     view_url= 'all'
     listings = Listings.objects.all()    
-    for listing in listings:
-        if listing.place_id:
     
-            url=f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=rating&key={settings.GOOGLE_PLACES_API_KEY}"
-            respose = requests.get(url)
-            data= respose.json()
-            rating = data['result'].get('rating')
-            if rating:
-                listing.rating = rating  # update the rating field for this listing
-                listing.save()
                 
             
 
@@ -125,33 +106,11 @@ def ListingDetail(request,slug):
     photos = listing.photos.all()       
     not_bottom_nav=True
     not_top_nav=True   
-    api_photos = []        
-    if listing.place_id:
-        url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={listing.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={settings.GOOGLE_PLACES_API_KEY}"
-
-        # Send API request and get response
-        response = requests.get(url)
-        data = response.json()
-        # Extract reviews
-        rating = data['result']['rating']
-        user_rating_total = data['result']['user_ratings_total']    
-        reviews = data['result']['reviews']
-
-
-        # get photos from api
-        gmaps = googlemaps.Client(settings.GOOGLE_PLACES_API_KEY)
-        place = gmaps.place(listing.place_id)['result']
-        
-        for photo in place.get('photos', []):
-            photo_reference = photo.get('photo_reference')
-            photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={settings.GOOGLE_PLACES_API_KEY}"
-            api_photos.append(photo_url)
-    else:
-        rating=user_rating_total=reviews=None
-
+     
+    
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
-               'rating': rating,'reviews':reviews,'api_photos':api_photos,
+               
                'listing_description':listing_description,'current_url':current_url,
                }
     return render(request,'listings/listingDetail.html', context)
@@ -227,21 +186,29 @@ def Places(request,slug):
 
 
 def ListingsMap(request,listing_type):
-    listingCordinates = Listings.objects.filter(listing_type=listing_type)       
+    listings = Listings.objects.filter(listing_type=listing_type)       
     listing_type = listing_type 
     view_type='map' 
-    view_url='specific'  
-    context={'listingCordinates':listingCordinates,
+    view_url='specific' 
+    map_token = settings.MAP_BOX_TOKEN
+
+   
+    context={'listings':listings,
              'listing_type':listing_type,'view_type':view_type,
-             'view_url':view_url}
+             'view_url':view_url,'map_token':map_token}
     return render(request, 'listings/map.html',context)
 
 def ListingsMapAll(request,):
-    listingCordinates = Listings.objects.all()
+    listings = Listings.objects.all()
     view_type='map'
     view_url='all'
-    context={'listingCordinates':listingCordinates,'view_type':view_type,
-             'view_url':view_url}
+    map_token = settings.MAP_BOX_TOKEN
+    print(listings)
+
+    addresses = AddressGeo.objects.all()
+    print(addresses)
+    context={'listings':listings,'view_type':view_type,
+             'view_url':view_url,'addresses':addresses,'map_token':map_token}
     return render(request, 'listings/map.html',context)
 
 

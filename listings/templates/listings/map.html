@@ -4,6 +4,9 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/swiper-cat-list.css' %}">
 <link rel="stylesheet" href="{% static 'css/swiper-listing-inner.css' %}">
+
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+
 {% endblock css %}
 
 {% block content %}
@@ -91,17 +94,20 @@
         
         
 </section>   
+ {% if listings %}
+   <div class="map-wrapper">
+     
+        <div id='map' ></div>
+      </div>
+      {% include './listing-view-toggle.html' %}
+        {% else %}
+       
+          <h2>No listings found</h2>
+      {% endif %}
+ 
+    
 
-    <div class="listings-map-wrapper">
-        <div id="map-listingPin"></div>
-        <p class="map-tip">
-            <i class="fa-solid fa-lightbulb"></i>
-            Quick Tip : Drag the pagman (<i class="fa-solid fa-person"></i>) from middle-right of map over blue dots around the 
-            marker to open street view.
-        </p>
-    </div>
-
-    {% include './listing-view-toggle.html' %}
+    
 
 
 
@@ -109,94 +115,39 @@
 {% endblock content %}
 
 {% block scripts %}
-        <script>
-            // initialize the map
-            function initMap() {
-                // center the map on your town
-                var myLatLng = {lat: 31.59103810391068, lng: 77.35339520655404};
-                var map = new google.maps.Map(document.getElementById('map-listingPin'), {
-                  zoom: 12,
-                  center: myLatLng,
-                  styles: [
-                  
-                  {
-                    featureType: "poi.business",
-                    stylers: [{ visibility: "off" }]
-                  },
-                  
-                  
-                ],
-                mapId: "4504f8b37365c3d0",
-                 
-                });
-                const iconBase = "https://developers.google.com/maps/documentation/javascript/examples/full/images/";
-                // loop through your listings and create a marker for each one
-                
-                
-                
-                
-                {% for listing in listingCordinates %}
-               
-                  var markerLatLng = {lat: {{ listing.latitude }}, lng: {{ listing.longitude }} };
-                  var marker = new google.maps.Marker({
-                    position: markerLatLng,
-                    map: map,
-                    
-                    
-                    
-                    title: ' {{ listing.name }}',
-                    label: {
-                      text: '₹{{ listing.price_per_night }}',
-                      fontWeight: 'bold',
-                      fontSize: '12px', 
-                      className: 'custom-marker',
-                      color: 'white',
-                  }                    
-                    
-                  });
-                  
-                  // create an info window for each marker
-                  var contentString{{ forloop.counter }} = '<a href="{% url "listingDetail" listing.slug %}" class="info-window">' +
-                    '<div class="info-window-image">'+
-                      '<img src="{{ listing.banner_image.url }}" alt="">' +
-                    '</div>'+
-                    '<div class="listing-info-wrapper">' +
-                      '<i class="listing-title">{{listing.name}}</i>'+
-                      '<div class="item-wrapper">'+
-                        '<i class="fa fa-solid fa-location-dot"></i>'+
-                        '<i class="listing-location">{{listing.location}}</i>'+
-                      '</div>'+
-                        '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
-                        '<div class="item-wrapper">'+
-                          '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
-                        '</div>'+
-                    '</div>'+
-                  '</a>';
-              
-                  var infoWindow{{ forloop.counter }} = new google.maps.InfoWindow({
-                    content: contentString{{ forloop.counter }}
-                  });
-                  
-                  // add an event listener to show the info window when the marker is clicked
-                  marker.addListener('click', function() {
-                    infoWindow{{ forloop.counter }}.open(map, this);
-                  });
-                {% endfor %}
-              }
-              
-        </script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-      
-   
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4X65PsaEiyT-rdv4YO5gOn6_fMxJ-_tc&callback=initMap&libraries=marker&v=beta"
-    defer
-  ></script>
+        
 
   
 
 <script src="{%static 'js/swiper-cat-list.js' %}"></script>
 <script src="{%static 'js/swiper-listing-inner.js' %}"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
 
+<script>
+
+  mapboxgl.accessToken = '{{map_token}}';
+  const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/mapbox/streets-v12', // style URL
+  center: [77.35403893670916,31.589977983419985], // starting position [lng, lat]
+  
+  zoom: 12, // starting zoom
+  });
+  // Create a new marker.
+  
+  
+  {% for listing in listings %}
+  var marker{{ forloop.counter }} = new mapboxgl.Marker(
+        {color: "green",
+        scale:.8,
+      }
+  )
+        .setLngLat([{{ listing.longitude }}, {{ listing.latitude }}])
+        .setPopup(new mapboxgl.Popup().setHTML("<h4>Hello World!</h4>"))
+        
+        .addTo(map);
+    console.log({{ listing.longitude }}, {{ listing.latitude }});
+  {% endfor %}
+ 
+  </script>
 {% endblock scripts %}

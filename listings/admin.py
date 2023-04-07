@@ -6,7 +6,7 @@ from django.db import models
 from .models import (
        Host,Amenities,Listings,ThumbImages,
        PhotoGallery,ThingsToKnow,NearByPlaces,
-       OtherInfoPlaces,Testimg,ListingDescription
+       OtherInfoPlaces,Testimg,ListingDescription,AddressGeo
        )
 class ContactAdmin(admin.ModelAdmin):
         list_display = ('id','name', 'email', 'phone', 'address', 'image')
@@ -51,6 +51,10 @@ class OtherInfoPlacesAdmin(admin.ModelAdmin):
 
 class testimgAdmin(admin.ModelAdmin):
        list_display = ('name','image')
+       
+
+class AddressGeoAdmin(admin.ModelAdmin):
+       list_display = ('name','lat','lang',)
 
 admin.site.register(Host, ContactAdmin)
 admin.site.register(Amenities, AmenitiesAdmin)
@@ -62,4 +66,5 @@ admin.site.register(ThingsToKnow,ThingsToKnowAdmin)
 admin.site.register(NearByPlaces,NearByPlacesAdmin)
 admin.site.register(OtherInfoPlaces,OtherInfoPlacesAdmin)
 admin.site.register(Testimg,testimgAdmin)
+admin.site.register(AddressGeo,AddressGeoAdmin)
 

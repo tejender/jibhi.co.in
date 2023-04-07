@@ -81,6 +81,8 @@ ROOT_URLCONF = 'jibhi.urls'
 CSRF_TRUSTED_ORIGINS = ['https://jibhicoin-production.up.railway.app']
 
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -184,5 +186,6 @@ AWS_S3_CUSTOM_DOMAIN='d1myeom73wa04c.cloudfront.net'
 
 # gcp key setup
 
-GOOGLE_PLACES_API_KEY = os.environ.get('GOOGLE_PLACES_API_KEY')
+
+MAP_BOX_TOKEN = os.environ.get('MAPBOX_ACCESS_TOKEN')
 

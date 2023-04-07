@@ -145,6 +145,7 @@ h2,h3{
   .item--1{
     grid-column: 1/2;
     grid-row: 1/2;
+    height: auto;
 
   }
   .item--2{
@@ -479,7 +480,7 @@ h2,h3{
       height: 250px;
 
     }
-    .hero-grid-item.hero-grid-item--1{
+    .hero-grid-item.hero-grid-item--primary{
       display: flex;
     }
     #about-listing-modal-content {

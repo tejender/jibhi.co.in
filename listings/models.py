@@ -4,7 +4,9 @@ from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 import os
+import geocoder
 
+from django.conf import settings
 # Create your models here.
 
 class Host(models.Model):
@@ -176,8 +178,17 @@ class Testimg(models.Model):
 
 
 
+class AddressGeo(models.Model):
+    name = models.TextField()
+    lat = models.FloatField(blank=True, null=True)
+    lang = models.FloatField(blank=True, null=True)
 
     
+    
+
+    def __str__(self):
+        return self.name
+
 
 
 
