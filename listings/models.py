@@ -120,7 +120,15 @@ class PhotoGallery(models.Model):
 
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='photos')
     image = models.ImageField(upload_to=get_upload_path, blank=True)
-    caption = models.CharField(max_length=255, blank=True)
+    photo_category = models.CharField(max_length=255, blank=True,
+                               choices=[
+            ('bedroom', 'Bedroom'),
+            ('indoor', 'Indoor'),
+            ('outdoor', 'Outdoor'),            
+            ('kitchen', 'Kitchen'),
+            ('bathroom', 'Bathroom'),
+            ('view','View')
+            ])
 
     def __str__(self):
         return self.listing.slug

@@ -32,7 +32,7 @@ class ThumbImagesAdmin(admin.ModelAdmin):
 
 
 class PhotoGalleryAdmin(admin.ModelAdmin):
-       list_display = ('listing','image','caption',)
+       list_display = ('listing','image','photo_category',)
 
 class ThingsToKnowAdmin(admin.ModelAdmin):
        list_display = ('name','checkInAfter', 'checkInBefore','checkOutBefore')

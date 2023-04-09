@@ -107,16 +107,28 @@
                         <div class="photo-gallery">                           
                         {% if photos %}
                         
-                            <div class="photos">
+                            
                                 
-                                {% for photo in photos %}  
-                                <div class="item--{{forloop.counter}}">
-                                    <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
-                                    class="" loading="lazy">
-                                </div>                              
-                              
-                              {% endfor %}
+                                {% regroup photos by photo_category as category_list %}
+
+                                {% for category in category_list %}
+                                
+                                  <h2 class="photo-group-title">{{ category.grouper }} Photos</h2>
+                                  <div class=" category-grouper ">
+                                    <div class="photos">
+                                    {% for photo in category.list %}
+
+                                    <div class="item--{{forloop.counter}} ">
+                                      <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+                                      class="" loading="lazy">
+                                  </div>   
+                                    {% endfor %}
+                                  </div>
+                                {% endfor %}
+                                
                             </div>
+
+                            
                         </div>
                       {% else %}
                         <p>No photos available.</p>
