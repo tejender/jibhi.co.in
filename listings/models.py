@@ -12,7 +12,7 @@ from django.conf import settings
 class Host(models.Model):
     
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='host/dp', blank=True)
+    image = models.ImageField(upload_to='images/host/dp', blank=True)
     email = models.EmailField(max_length=255, blank=True)
     phone = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=255, blank=True)

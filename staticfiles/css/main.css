@@ -1001,11 +1001,16 @@ section.section-wrapper.listing-body-wrapper{
   /* border-radius: 50%; */
   /* margin-right: 10%; */
 }
-
+.owner-accomodation-wrapper{
+  display: flex;
+  justify-content: space-between;
+ 
+}
 .owner-accomodation-info{
  display: flex;
  flex-direction: column;
  gap: 10px;
+ align-items: center;
 
 }
 

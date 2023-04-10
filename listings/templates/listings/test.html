@@ -176,3 +176,26 @@ sliderNext.addEventListener('click', handleNextClick);
 
 </body>
 </html>
+
+
+{% for address in addresses %}
+    const marker = new mapboxgl.Marker()
+    .setLngLat([{{address.lang}},{{address.lat}}])
+    .addTo(map);
+  {% endfor %}
+
+
+
+  {% regroup photos by photo_category as category_list %}
+
+{% for category in category_list %}
+  <h2>{{ category.grouper }}</h2>
+  <div class="{{ category.grouper }}">
+    {% for photo in category.list %}
+    <div class="item--{{forloop.counter}}">
+      <img src="{{ photo.image.url }}" alt="{{ photo.caption }}"
+      class="" loading="lazy">
+  </div>   
+    {% endfor %}
+  </div>
+{% endfor %}
