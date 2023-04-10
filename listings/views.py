@@ -103,7 +103,8 @@ def ListingDetail(request,slug):
     current_url = request.build_absolute_uri()  
     
 
-    photos = listing.photos.all()       
+    photos = listing.photos.all()
+     
     not_bottom_nav=True
     not_top_nav=True   
      
@@ -159,28 +160,12 @@ def ContactUs(request):
 def Places(request,slug): 
 
     placeDetails = NearByPlaces.objects.get(slug=slug)  # Replace with your actual API key
-    url = f"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeDetails.place_id}&fields=name,rating,user_ratings_total,formatted_phone_number,reviews&key={settings.GOOGLE_PLACES_API_KEY}"
-
+    
     # Send API request and get response
-    response = requests.get(url)
-    data = response.json()
+   
     # Extract reviews
-    rating = data['result']['rating']
-    user_rating_total = data['result']['user_ratings_total']    
-    reviews = data['result']['reviews']
-
-
-    gmaps = googlemaps.Client(settings.GOOGLE_PLACES_API_KEY)
-    place = gmaps.place(placeDetails.place_id)['result']
-    photos = []
-    for photo in place.get('photos', []):
-        photo_reference = photo.get('photo_reference')
-        photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={settings.GOOGLE_PLACES_API_KEY}"
-        photos.append(photo_url)
-
-    context={'rating':rating,'reviews':reviews,
-             'user_rating_total':user_rating_total,
-             'placeDetails':placeDetails,'photos':photos}
+    
+    context={}
     
     return render(request, 'listings/places.html',context)
 

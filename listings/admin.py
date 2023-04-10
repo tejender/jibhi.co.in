@@ -28,14 +28,14 @@ class ListingDescriptionAdmin(admin.ModelAdmin):
        list_display = ('listing','complete_description')
 
 class ThumbImagesAdmin(admin.ModelAdmin):
-       list_display = ('listing_name','url1','url2','url3','url4','url5',)
+       list_display = ('listing','url1','url2','url3','url4','url5',)
 
 
 class PhotoGalleryAdmin(admin.ModelAdmin):
        list_display = ('listing','image','photo_category',)
 
 class ThingsToKnowAdmin(admin.ModelAdmin):
-       list_display = ('name','checkInAfter', 'checkInBefore','checkOutBefore')
+       list_display = ('listing','checkInAfter', 'checkInBefore','checkOutBefore')
 
 
 class NearByPlacesAdmin(admin.ModelAdmin):

@@ -105,8 +105,7 @@
                             </div>                           
                         </div>
                         <div class="photo-gallery">                          
-                        {% if photos %}
-                        
+                        {% if photos %}                        
                             
                                 
                                 {% regroup photos by photo_category as category_list %}
@@ -145,27 +144,42 @@
     <div class="listing-body--left">
         <div class="listing-body--content">
             <div class="hosting-summary">
-                <div class="owner-accomodation-info">
-                    <h3>Entire Home hosted by {{listing.owner.name}}</h3>
-                    <div class="accomodation-summary">
-                        <i>
-                            {{listing.capacity}} guests
-                        </i>
-                        <i>
-                            {{listing.num_bedrooms}} Bedrooms
-                        </i>
-                        <i>
-                            {{listing.num_bathrooms}} Bathrooms
-                        </i>
+                    <div>
+                    <div class="owner-accomodation-info">
+                        <h3>Entire Home hosted by {{listing.owner.name}}</h3>
+                        <div class="accomodation-summary">
+                            <i>
+                                <img src="{% static '/assets/icons/listing-detail/icon-person.svg' %}" alt="">
+                                {{listing.capacity}} guests
+                            </i>
+                            <i>
+                                <img src="{% static '/assets/icons/listing-detail/icon-bed.svg' %}" alt="">
+                                
+                                {{listing.num_bedrooms}} Bedrooms
+                            </i>
+                            <i>
+                                <img src="{% static '/assets/icons/listing-detail/icon-bathtub.svg' %}" alt="">
+                                
+                                {{listing.num_bathrooms}} Bathrooms
+                            </i>
+                        </div>
+                        
+                        
+                        
                     </div>
+                    {% if listing.owner.image %}
+                    <div class="host-image">
+                        <img src="{{listing.owner.image.url}}" alt="">
+                    </div>
+                    {% endif %}
+                    
+                    
                 </div>
-                {% if listing.owner.image %}
-                <div class="host-image">
-                    <img src="{{listing.owner.image.url}}" alt="">
+                <div class="read-more-btn" id="read-more-btn">
+                    <i  >Check Full Acomodation </i>
                 </div>
-                {% endif %}
-
             </div>
+            
 
             <div class="amenities-wrapper">
                 <div class="amenity-title">
@@ -267,11 +281,11 @@
                 <h3>House rules</h3>
                 <p>
                     <i>
-                        Check-in : {{listing.thingsToKnow.checkInAfter}} - 
-                        {{listing.thingsToKnow.checkInBefore}}
+                        Check-in : {{listing.things_to_know.checkInAfter}} - 
+                        {{listing.things_to_know.checkInBefore}}
                     </i>
                     <i>
-                        Checkout Before : {{listing.thingsToKnow.checkOutBefore}}
+                        Checkout Before : {{listing.things_to_know.checkOutBefore}}
                     </i>
 
                     <i>10 Guests Maximum</i>

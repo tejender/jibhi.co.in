@@ -987,9 +987,10 @@ section.section-wrapper.listing-body-wrapper{
 }
 .hosting-summary{
   display: flex;
-  gap: 50px;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  /* justify-content: space-between; */
+  /* align-items: center; */
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding-bottom: 10px;
 }
@@ -1004,13 +1005,27 @@ section.section-wrapper.listing-body-wrapper{
 .owner-accomodation-info{
  display: flex;
  flex-direction: column;
- gap: 8px;
+ gap: 10px;
+
 }
 
 .host-image img{
   border-radius: 50%;
 }
 
+.accomodation-summary{
+   display: flex;
+   gap: 15px;
+}
+.accomodation-summary i{
+display: flex;
+gap: 5px;
+align-items: center;
+}
+.accomodation-summary i img{
+  height: 20px;
+  width: 20px;
+}
 .amenities-wrapper{
   display: flex;
   flex-direction: column;

@@ -36,30 +36,7 @@ class Amenities(models.Model):
 
    
 
-class ThingsToKnow(models.Model):
-    name = models.CharField(max_length=255)
-    checkInAfter = models.CharField(max_length=20)
-    checkInBefore = models.CharField(max_length=20)
-    checkOutBefore = models.CharField(max_length=20)
 
-    def __str__(self):
-        return self.name
-
-
-class ThumbImages(models.Model):   
-   def get_thumb_upload_path(instance, filename):
-    return f'images/thumb_images/{instance.listing_name}/{filename}'
-
-   
-   listing_name = models.CharField(max_length=50,null=True)
-   url1 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
-   url2 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
-   url3 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
-   url4 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
-   url5 = models.ImageField(upload_to=get_thumb_upload_path,null=True)  
-
-   def __str__(self):
-        return self.listing_name
 
 
 class Listings(models.Model):
@@ -99,7 +76,6 @@ class Listings(models.Model):
 
     thumb_description =  models.TextField(max_length=500,blank=True)
     distance_in_meters = models.IntegerField(default=0)
-    thumb_images = models.ForeignKey(ThumbImages,on_delete=models.CASCADE,null=True)
     slug = models.SlugField(unique=True, max_length=255, blank=True, null=True,default="hi")
     thingsToKnow = models.ForeignKey('ThingsToKnow', on_delete=models.CASCADE, null=True, blank=True)
     
@@ -111,6 +87,21 @@ class Listings(models.Model):
     def __str__(self):
         return self.name
 
+
+
+class ThumbImages(models.Model):   
+   def get_thumb_upload_path(instance, filename):
+    return f'images/thumb_images/{instance.listing_name}/{filename}'
+
+   listing = models.OneToOneField(Listings, on_delete=models.CASCADE, related_name='thumb_images', null=True, blank=True)
+   url1 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url2 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url3 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url4 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
+   url5 = models.ImageField(upload_to=get_thumb_upload_path,null=True)  
+
+   def __str__(self):
+        return self.listing.slug
 
 
 class PhotoGallery(models.Model):
@@ -132,6 +123,16 @@ class PhotoGallery(models.Model):
 
     def __str__(self):
         return self.listing.slug
+
+
+class ThingsToKnow(models.Model):
+    listing = models.OneToOneField(Listings, on_delete=models.CASCADE, related_name='things_to_know', null=True, blank=True)
+    checkInAfter = models.CharField(max_length=20)
+    checkInBefore = models.CharField(max_length=20)
+    checkOutBefore = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
 
 class ListingDescription(models.Model):
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='description')
