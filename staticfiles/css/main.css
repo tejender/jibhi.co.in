@@ -943,11 +943,14 @@ footer .footer-section{
 .listing-header a{
   /* text-decoration: underline; */
 }
-
+.listing-header i.fa{
+  color:black;
+}
 .listing-header .wrapper{
   display: flex;
   gap: 20px;
 }
+
 
 
 section.section-wrapper.listing-body-wrapper{
@@ -1012,6 +1015,7 @@ section.section-wrapper.listing-body-wrapper{
  gap: 10px;
  align-items: center;
 
+
 }
 
 .host-image img{
@@ -1021,6 +1025,8 @@ section.section-wrapper.listing-body-wrapper{
 .accomodation-summary{
    display: flex;
    gap: 15px;
+   flex-wrap: wrap;
+   row-gap: 5px;
 }
 .accomodation-summary i{
 display: flex;
