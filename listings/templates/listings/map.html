@@ -110,7 +110,22 @@
     
 
 
-
+      {% comment %} <a href="{% url "listingDetail" listing.slug %}" class="info-window">' +
+        '<div class="info-window-image">'+
+          '<img src="{{ listing.banner_image.url }}" alt="">' +
+        '</div>'+
+        '<div class="listing-info-wrapper">' +
+          '<i class="listing-title">{{listing.name}}</i>'+
+          '<div class="item-wrapper">'+
+            '<i class="fa fa-solid fa-location-dot"></i>'+
+            '<i class="listing-location">{{listing.location}}</i>'+
+          '</div>'+
+            '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
+            '<div class="item-wrapper">'+
+              '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
+            '</div>'+
+        '</div>'+
+      '</a>' {% endcomment %}
 
 {% endblock content %}
 
@@ -143,7 +158,23 @@
       }
   )
         .setLngLat([{{ listing.longitude }}, {{ listing.latitude }}])
-        .setPopup(new mapboxgl.Popup().setHTML("<h4>Hello World!</h4>"))
+        .setPopup(new mapboxgl.Popup().setHTML(' <a href="{% url "listingDetail" listing.slug %}" class="info-window mapbox-gl-popup">' +
+          '<div class="info-window-image">'+
+            '<img src="https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287__340.jpg" alt="">' +
+          '</div>'+
+          '<div class="listing-info-wrapper">' +
+            '<i class="listing-title">{{listing.name | truncatechars:14 }}</i>'+
+            '<div class="item-wrapper">'+
+              '<i class="fa fa-solid fa-location-dot"></i>'+
+              '<i class="listing-location">{{listing.location}}</i>'+
+            '</div>'+
+              '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
+              '<div class="item-wrapper">'+
+                '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
+              '</div>'+
+          '</div>'+
+           '</a>'
+           ))
         
         .addTo(map);
     console.log({{ listing.longitude }}, {{ listing.latitude }});
