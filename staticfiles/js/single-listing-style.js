@@ -198,16 +198,47 @@ function reusableModal(triggerId, modalId, overlayId, closeId) {
     overlay.classList.add('is-visible');
     modal.classList.add('is-visible');
     document.body.classList.add('no-scroll')
-    console.log('hi');
+   
   });
 
   close.addEventListener('click', function() {
     overlay.classList.remove('is-visible');
     modal.classList.remove('is-visible');
     document.body.classList.remove('no-scroll')
-    console.log('object');
+   
   });
 
   
 }
 reusableModal('btn-modal', 'share-modal', 'overlay', 'close-btn-share-modal');
+
+
+
+// accomodation modal
+
+function initModal(openBtnID, modalID, closeBtnID, overlayID, openClass, closeClass) {
+  const modal = document.getElementById(modalID);
+  const openBtn = document.getElementById(openBtnID);
+  const closeBtn = document.getElementById(closeBtnID);
+  const overlay = document.getElementById(overlayID);
+
+  openBtn.addEventListener('click', function() {
+    console.log('hii');
+    modal.classList.add(openClass);
+    // document.body.classList.add('no-scroll');
+    setTimeout(function() {
+      overlay.classList.add('overlay');
+    }, 1000);
+  });
+
+  closeBtn.addEventListener('click', function() {
+    // document.body.classList.remove('no-scroll');
+    overlay.classList.remove('overlay');
+    setTimeout(function() {
+      modal.classList.remove(openClass);
+    }, 100);
+  });
+}
+
+// Example usage
+initModal('accomodation-btn', 'accomodation-modal', 'close-accomodation-modal', 'overlay-wrapper', 'open', 'close');

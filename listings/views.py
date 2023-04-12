@@ -188,10 +188,10 @@ def ListingsMapAll(request,):
     view_type='map'
     view_url='all'
     map_token = settings.MAP_BOX_TOKEN
-    print(listings)
+   
 
     addresses = AddressGeo.objects.all()
-    print(addresses)
+   
     context={'listings':listings,'view_type':view_type,
              'view_url':view_url,'addresses':addresses,'map_token':map_token}
     return render(request, 'listings/map.html',context)

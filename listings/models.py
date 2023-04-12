@@ -91,7 +91,7 @@ class Listings(models.Model):
 
 class ThumbImages(models.Model):   
    def get_thumb_upload_path(instance, filename):
-    return f'images/thumb_images/{instance.listing_name}/{filename}'
+    return f'images/thumb_images/{instance.listing}/{filename}'
 
    listing = models.OneToOneField(Listings, on_delete=models.CASCADE, related_name='thumb_images', null=True, blank=True)
    url1 = models.ImageField(upload_to=get_thumb_upload_path,null=True)
@@ -132,7 +132,7 @@ class ThingsToKnow(models.Model):
     checkOutBefore = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.name
+        return self.listing.name
 
 class ListingDescription(models.Model):
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='description')

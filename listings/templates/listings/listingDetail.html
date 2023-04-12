@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 {% load static %}
 {% load social_share %}
+{% load filterz %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/single-listing-styles.css' %}">
@@ -150,7 +151,8 @@
             <div class="hosting-summary">
                 <div class="owner-accomodation-wrapper" >             
                 <div class="owner-accomodation-info">
-                    <h3>Entire Home hosted by {{listing.owner.name}}</h3>
+                    <h3>Entire Home hosted by {{ listing.owner.name| split:" "|first }}
+                    </h3>
                     <div class="accomodation-summary">
                         <i>
                             <img src="{% static 'assets/icons/listing-detail/icon-person.svg' %}" alt="">
@@ -174,10 +176,25 @@
                     {% endif %}                
                 </div>
             </div>
-            <div class="read-more-btn" id="read-more-btn">
-                <i  >check full accomodation </i>
+            <div class="read-more-btn" id="accomodation-btn">
+                <i  >Check Full Accomodation </i>
             </div>
-
+            <div id="overlay-wrapper">                    
+                <div id="accomodation-modal">                                       
+   
+                       <div id="accomodation-modal-content">
+                           <div class="about-modal-header">  
+                               <div class="close-btn " id="close-accomodation-modal">
+                                   <i class="fa-solid fa-chevron-left" ></i>                          
+                               </div>                          
+                       </div>  
+                         <div class="description-container">
+      hi
+                       </div>
+                        
+                       </div>
+                   </div>
+               </div>
             </div>
 
             <div class="amenities-wrapper">
