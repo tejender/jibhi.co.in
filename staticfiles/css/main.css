@@ -501,6 +501,22 @@ section.listings{
     font-size: .7rem;
   }
 
+  .marker-price{
+    background-color: #E41B23;
+  transform: translate(-24%,-130%);
+  color: white;
+  font-weight: bolder;
+  border-radius: 80%;
+  font-size: .7rem;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  }
+
   .listing-price{
     font-weight: 600;
     color: #242323;
@@ -1403,6 +1419,7 @@ position: relative;
   gap: 4px;
   color: rgba(0, 0, 0, 0.733);
   height: 500px;
+  margin-top: -25px;
 }
 
 .map-wrapper iframe{

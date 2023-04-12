@@ -144,7 +144,7 @@
   const map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/streets-v12', // style URL
-  center: [77.35403893670916,31.589977983419985], // starting position [lng, lat]
+  center: [77.34655091166768, 31.59824604168619], // starting position [lng, lat]
   
   zoom: 12, // starting zoom
   });
@@ -152,32 +152,37 @@
   
   
   {% for listing in listings %}
-  var marker{{ forloop.counter }} = new mapboxgl.Marker(
-        {color: "green",
-        scale:.8,
-      }
-  )
-        .setLngLat([{{ listing.longitude }}, {{ listing.latitude }}])
-        .setPopup(new mapboxgl.Popup().setHTML(' <a href="{% url "listingDetail" listing.slug %}" class="info-window mapbox-gl-popup">' +
-          '<div class="info-window-image">'+
-            '<img src="https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287__340.jpg" alt="">' +
-          '</div>'+
-          '<div class="listing-info-wrapper">' +
-            '<i class="listing-title">{{listing.name | truncatechars:14 }}</i>'+
-            '<div class="item-wrapper">'+
-              '<i class="fa fa-solid fa-location-dot"></i>'+
-              '<i class="listing-location">{{listing.location}}</i>'+
+  var marker{{ forloop.counter }} = new mapboxgl.Marker({
+    color: "#E41B23",
+    scale: 0.8,
+  })
+  .setLngLat([{{ listing.longitude }}, {{ listing.latitude }}])
+  .setPopup(new mapboxgl.Popup().setHTML(' <a href="{% url "listingDetail" listing.slug %}" class="info-window mapbox-gl-popup">' +
+            '<div class="info-window-image">'+
+              '<img src="https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287__340.jpg" alt="">' +
             '</div>'+
-              '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
+            '<div class="listing-info-wrapper">' +
+              '<i class="listing-title">{{listing.name | truncatechars:14 }}</i>'+
               '<div class="item-wrapper">'+
-                '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
+                '<i class="fa fa-solid fa-location-dot"></i>'+
+                '<i class="listing-location">{{listing.location}}</i>'+
               '</div>'+
-          '</div>'+
-           '</a>'
-           ))
-        
-        .addTo(map);
-    console.log({{ listing.longitude }}, {{ listing.latitude }});
+                '<i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>'+
+                '<div class="item-wrapper">'+
+                  '<i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>'+                          
+                '</div>'+
+            '</div>'+
+             '</a>'
+             ));
+  
+  var price = document.createElement('div');
+  price.className = 'marker-price';
+  price.innerHTML = '<i class="fa-solid fa-indian-rupee-sign"></i> {{ listing.price_per_night }}';
+  
+  marker{{ forloop.counter }}.getElement().appendChild(price);
+  
+  marker{{ forloop.counter }}.addTo(map);
+  
   {% endfor %}
  
   </script>
