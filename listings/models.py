@@ -41,10 +41,19 @@ class Amenities(models.Model):
 
 class Listings(models.Model):
     name = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
+    location = models.CharField(max_length=255,choices=[
+        ('jibhi','Jibhi'),
+        ('tandi','Tandi'),
+        ('sojha','Sojha'),
+        ('sajwar','Sajwar'),
+        ('hirab','Hirab'),
+        ('seri','Seri'),
+        ('mihar','Mihar'),
+        ('narhan','Narhan'),
+        ('bahu','Bahu'),
+    ])
     latitude = models.DecimalField(max_digits=19, decimal_places=14 ,default=0.0)
     longitude = models.DecimalField(max_digits=30, decimal_places=14,default=0.0)
-    place_id = models.CharField(max_length=255,null=True,blank=True)
     capacity = models.IntegerField()
     num_bedrooms = models.IntegerField()
     num_bathrooms = models.IntegerField()

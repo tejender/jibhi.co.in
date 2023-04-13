@@ -56,11 +56,13 @@
   .listings .swiper-slide  {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    background-image:url('/static/assets/images/placeholder/placeholder.png');
+    background-size:80%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   
 

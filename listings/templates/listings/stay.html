@@ -137,9 +137,15 @@
             </div>
             <div class="item-wrapper">
               <i class="fa fa-solid fa-location-dot"></i>
-              <i class="listing-location">{{listing.location}}</i>
+              <i class="listing-location">{{listing.location}}, Jibhi</i>
             </div>
-            <i class="listing-accomodation">{{listing.capacity}} persons | {{listing.num_bedrooms}} bedrooms</i>
+            <i class="listing-accomodation">
+              <img src="{% static 'assets/icons/listing-detail/icon-person.svg' %}" alt="">
+                         
+              {{listing.capacity}} persons |
+              <img src="{% static 'assets/icons/listing-detail/icon-bed.svg' %}" alt="">
+                            
+              {{listing.num_bedrooms}} bedrooms</i>
             <div class="item-wrapper">
 
               <i class="fa-solid fa-indian-rupee-sign"></i> <i class="listing-price">{{listing.price_per_night}} / night</i>

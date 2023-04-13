@@ -495,10 +495,19 @@ section.listings{
   .listing-location,.listing-accomodation{
     color: #717171;
     font-size: .9rem;
+  
   }
-
-  .listing-accomodation{
+.listing-accomodation{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+  .info-window .listing-accomodation{
     font-size: .7rem;
+  }
+  .listing-accomodation img{
+    height: 16px;
+    width: 16px;
   }
 
   .marker-price{
@@ -1409,8 +1418,6 @@ position: relative;
   width: 100%;
   height: 100%;
 }
-
-
 
 
 .map-wrapper{
