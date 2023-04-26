@@ -99,7 +99,6 @@ def Search(request):
 def ListingDetail(request,slug):
       # Retrieve the listing matching the slug
     listing = Listings.objects.get(slug=slug)
-    listing_description = listing.description.first()
     current_url = request.build_absolute_uri()  
     
 
@@ -110,9 +109,8 @@ def ListingDetail(request,slug):
      
     
     context = {'listing': listing,'photos':photos,
-               "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,
-               
-               'listing_description':listing_description,'current_url':current_url,
+               "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,               
+               'current_url':current_url,
                }
     return render(request,'listings/listingDetail.html', context)
 

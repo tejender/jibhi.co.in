@@ -176,9 +176,9 @@
                     {% endif %}                
                 </div>
             </div>
-            <div class="read-more-btn" id="accomodation-btn">
+            {% comment %} <div class="read-more-btn" id="accomodation-btn">
                 <i  >Check Full Accomodation </i>
-            </div>
+            </div> {% endcomment %}
             <div id="overlay-wrapper">                    
                 <div id="accomodation-modal">                                       
    
@@ -270,7 +270,7 @@
             <p class="about-text">
                 <i>
 
-                    {{listing.thumb_description | truncatewords:30}}
+                    {{listing.listing_description.about | truncatewords:30}}
                 </i>
             
             </p>
@@ -286,7 +286,7 @@
                             </div>                          
                     </div>  
                       <div class="description-container">
-                        {{listing_description.complete_description | safe }}
+                        {{listing.listing_description.about|safe }}
                     </div>
                      
                     </div>

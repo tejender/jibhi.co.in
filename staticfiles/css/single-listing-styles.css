@@ -778,6 +778,14 @@ h2,h3{
       .social-share-btn-wrapper{
         justify-content: center;
       }
+
+      .item--1,.item--3,.item--6,.item--7,.item--9,.item--11,.item--14,.item--15{
+        max-height: 150px;
+      }
+
+      .item--2,.item--5,.item--10,.item--13{
+        max-height: 305px;
+      }
       
 }
 

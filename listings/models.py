@@ -144,9 +144,11 @@ class ThingsToKnow(models.Model):
         return self.listing.name
 
 class ListingDescription(models.Model):
-    listing = models.ForeignKey(Listings, on_delete=models.CASCADE, related_name='description')
-    
-    complete_description = RichTextField(null=True, blank=True)
+    listing = models.OneToOneField(Listings, on_delete=models.CASCADE, related_name='listing_description', null=True, blank=True)
+   
+    about = RichTextField(null=True, blank=True)
+    location = RichTextField(null=True, blank=True)
+    layout = RichTextField(null=True, blank=True)
 
     def __str__(self):
         return self.listing.slug

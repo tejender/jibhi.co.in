@@ -25,7 +25,7 @@ class ListingDescriptionAdmin(admin.ModelAdmin):
        formfield_overrides = {
               models.TextField: {'widget': CKEditorWidget}
         }
-       list_display = ('listing','complete_description')
+       list_display = ('listing','about')
 
 class ThumbImagesAdmin(admin.ModelAdmin):
        list_display = ('listing','url1','url2','url3','url4','url5',)
