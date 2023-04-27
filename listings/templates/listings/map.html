@@ -128,9 +128,10 @@
   mapboxgl.accessToken = '{{map_token}}';
   const map = new mapboxgl.Map({
   container: 'map', // container ID
-  style: 'mapbox://styles/mapbox/streets-v12', // style URL
+  style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
   center: [77.34655091166768, 31.59824604168619], // starting position [lng, lat]
-  
+  pitch: 70,
+bearing: 30,
   zoom: 12, // starting zoom
   
   });
