@@ -7,6 +7,11 @@
 
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
 
+<style>
+  .body-container{
+    min-height:550px;
+  }
+</style>
 {% endblock css %}
 
 {% block content %}
@@ -95,7 +100,7 @@
         
 </section>   
  {% if listings %}
-   <div class="map-wrapper">
+   <div class="map-wrapper" >
      
         <div id='map' ></div>
       </div>

@@ -42,6 +42,7 @@ def Stay(request,listing_type):
 
 def StayAll(request):
     active_page='listings'
+    listing_type='all'
     view_type='list'
     view_url= 'all'
     listings = Listings.objects.all()    
@@ -49,7 +50,7 @@ def StayAll(request):
                 
             
 
-    context={"listings":listings,'active_page':active_page,
+    context={"listings":listings,'active_page':active_page,'listing_type':listing_type,
              'view_type':view_type,'view_url':view_url}
     return render(request,'listings/stay.html',context)
 
