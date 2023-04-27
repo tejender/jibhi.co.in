@@ -106,11 +106,12 @@ def ListingDetail(request,slug):
      
     not_bottom_nav=True
     not_top_nav=True   
+    map_token = settings.MAP_BOX_TOKEN
      
     
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,               
-               'current_url':current_url,
+               'current_url':current_url,'map_token':map_token
                }
     return render(request,'listings/listingDetail.html', context)
 

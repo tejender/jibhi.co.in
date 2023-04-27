@@ -5,6 +5,7 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/single-listing-styles.css' %}">
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
 {% endblock css %}
 
 {% block content %}
@@ -332,8 +333,9 @@
 <section class="section-wrapper view-360">
     <h2>Where You'll we</h2>
     <div class="map-wrapper">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6796.400539126985!2d77.3366563516528!3d31.60097170901794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3905afd08f1eb619%3A0xac6fac4b81045094!2sCliff%20Haven%20Treehouse%20%26%20cottages!5e0!3m2!1sen!2sin!4v1680837865316!5m2!1sen!2sin"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div id='map'></div>
     </div>
+    
 </section>
 
 {% if listing.place_id %}
@@ -505,4 +507,35 @@
           });
         });
         </script>
+
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+
+<script>
+
+  mapboxgl.accessToken = '{{map_token}}';
+  const map = new mapboxgl.Map({
+  container: 'map', // container ID
+  style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+  center: [{{listing.longitude}},{{listing.latitude}}], // starting position [lng, lat]
+  
+  zoom: 12, // starting zoom
+  pitch: 70,
+bearing: 30,
+  });
+  // Create a new marker.
+  
+  
+  // Set marker options.
+// Create a new marker.
+// Set marker options.
+const marker = new mapboxgl.Marker({
+    color: "red",
+}).setLngLat([{{listing.longitude}},{{listing.latitude}}])
+    .addTo(map);
+  
+  
+
+ 
+  </script>
        {% endblock scripts %}
