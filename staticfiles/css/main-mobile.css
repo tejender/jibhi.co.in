@@ -92,6 +92,9 @@
         height: 70vh;
     }
 
+    .map-wrapper{
+      height: 550px;
+    }
 
     /* listing-detail-page */
 
