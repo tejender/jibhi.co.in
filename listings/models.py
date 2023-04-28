@@ -29,6 +29,18 @@ class Amenities(models.Model):
 
     amenity_name = models.CharField(max_length=40)
     amenity_icon = models.FileField(upload_to='icons/amenities',validators=[FileExtensionValidator(['svg'])])
+    amenity_category = models.CharField(max_length=40,choices=[
+        ('bathroom','Bathroom'),
+        ('outooor','Outdoor'),
+        ('bedroom and laundry','Bedroom and Laundry'),
+        ('heating and cooling','Heating and Cooling'),
+        ('internet and office','Internet and Office'),
+        ('kitchen and dining','Kitchen and Dining'),
+        ('parking and facilities','Parking and Facilities'),
+        ('home safety','Home Safety'),
+        ('services','Services'),
+        ('other','Other')],default='other')
+    amenity_description = models.TextField(max_length=500,blank=True)
     def __str__(self):
         return self.amenity_name
     

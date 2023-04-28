@@ -14,7 +14,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 class AmenitiesAdmin(admin.ModelAdmin):
-        list_display = ('amenity_name','amenity_icon')
+        list_display = ('amenity_name','amenity_icon','amenity_category')
 
 
 class ListingsAdmin(admin.ModelAdmin):

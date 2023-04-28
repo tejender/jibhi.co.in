@@ -180,22 +180,7 @@
             {% comment %} <div class="read-more-btn" id="accomodation-btn">
                 <i  >Check Full Accomodation </i>
             </div> {% endcomment %}
-            <div id="overlay-wrapper">                    
-                <div id="accomodation-modal">                                       
-   
-                       <div id="accomodation-modal-content">
-                           <div class="about-modal-header">  
-                               <div class="close-btn " id="close-accomodation-modal">
-                                   <i class="fa-solid fa-chevron-left" ></i>                          
-                               </div>                          
-                       </div>  
-                         <div class="description-container">
-      hi
-                       </div>
-                        
-                       </div>
-                   </div>
-               </div>
+            
             </div>
 
             <div class="amenities-wrapper">
@@ -216,6 +201,53 @@
                         </div>
                         {% endfor %}
                     </div>
+
+                    <div class="read-more-btn" id="accomodation-btn">
+                        <i  >See All Amenities</i>
+                      </div>
+                      
+                      
+                      <div id="overlay-wrapper">                    
+                        <div id="accomodation-modal">                                       
+                      
+                               <div id="accomodation-modal-content">
+                                   <div class="accomodation-modal-header">  
+                                       <div class="close-btn " id="close-accomodation-modal">
+                                           <i class="fa-solid fa-chevron-left" ></i>                          
+                                       </div> 
+                                       <h2>What this place offers</h2>                         
+                               </div>  
+                                 <div class="description-container">
+                                   <div class="amenities-wrapper">
+
+                                       {% regroup listing.amenities.all by amenity_category as category_list %}
+                                       
+                                    {% for category in category_list %}
+                                        <h2>{{ category.grouper }}</h2>
+                                        <ul class="modal-amenities-wrapper">
+                                            {% for amenity in category.list %}
+                                                <div class="modal-amenity-wrapper">
+                                                    <div class="amenity-icon">
+                                                        <img src="{{ amenity.amenity_icon.url }}" alt="">
+                                                    </div>
+                                                    <div class="amenity-text-wrapper">
+                                                        <div class="amenity-text">
+                                                            {{ amenity.amenity_name }}
+                                                        </div>                                                        
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                    
+                               </div>
+                                
+                               </div>
+                           </div>
+                       </div>
+                      
                    
                 
             </div>
