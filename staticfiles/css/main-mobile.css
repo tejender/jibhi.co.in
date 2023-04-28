@@ -192,6 +192,7 @@
       .amenities{
       
        gap: 0px;
+       row-gap: 20px;
 
       }
       .single-amenity{

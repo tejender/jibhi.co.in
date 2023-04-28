@@ -241,4 +241,4 @@ function initModal(openBtnID, modalID, closeBtnID, overlayID, openClass, closeCl
 }
 
 // Example usage
-initModal('accomodation-btn', 'accomodation-modal', 'close-accomodation-modal', 'overlay-wrapper', 'open', 'close');
+initModal('amenity-btn', 'accomodation-modal', 'close-accomodation-modal', 'overlay-wrapper', 'open', 'close');

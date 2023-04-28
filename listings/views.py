@@ -8,7 +8,7 @@ import requests
 import json
 import googlemaps
 from urllib.parse import urlencode
-
+import random
 
 
 # Create your views here.
@@ -108,11 +108,18 @@ def ListingDetail(request,slug):
     not_bottom_nav=True
     not_top_nav=True   
     map_token = settings.MAP_BOX_TOKEN
-     
+    standout_amenities= listing.amenities.filter(amenity_priority=1)
+
+
+# Get a random sample of 6 amenities from the high-priority amenities
+    standout_amenities  = random.sample(list(standout_amenities), k=6)
+    
+    
+
     
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,               
-               'current_url':current_url,'map_token':map_token
+               'current_url':current_url,'map_token':map_token,'standout_amenities':standout_amenities,
                }
     return render(request,'listings/listingDetail.html', context)
 
@@ -187,12 +194,13 @@ def ListingsMapAll(request,):
     listings = Listings.objects.all()
     view_type='map'
     view_url='all'
+    listing_type='all'
     map_token = settings.MAP_BOX_TOKEN
    
 
     addresses = AddressGeo.objects.all()
    
-    context={'listings':listings,'view_type':view_type,
+    context={'listings':listings,'view_type':view_type,'listing_type':listing_type,
              'view_url':view_url,'addresses':addresses,'map_token':map_token}
     return render(request, 'listings/map.html',context)
 

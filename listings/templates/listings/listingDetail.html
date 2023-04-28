@@ -190,19 +190,19 @@
                     </h2>
                 </div>
                     <div class="amenities">
-                        {% for amenity in listing.amenities.all %}
-                        <div class="single-amenity">
-                            <div class="amenity-icon">
-                                <img src="{{ amenity.amenity_icon.url }}" alt="{{ amenity.amenity_name }}">
+                        {% for amenity in standout_amenities %}
+                            <div class="single-amenity">
+                                <div class="amenity-icon">
+                                    <img src="{{ amenity.amenity_icon.url }}" alt="{{ amenity.amenity_name }}">
+                                </div>
+                                <div class="amenity-text">
+                                    {{ amenity.amenity_name }}
+                                </div>
                             </div>
-                            <div class="amenity-text">
-                                {{amenity.amenity_name}}
-                            </div>
-                        </div>
                         {% endfor %}
                     </div>
 
-                    <div class="read-more-btn" id="accomodation-btn">
+                    <div class="read-more-btn" id="amenity-btn">
                         <i  >See All Amenities</i>
                       </div>
                       

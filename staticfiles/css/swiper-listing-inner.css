@@ -59,12 +59,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('/static/assets/images/placeholder/placeholder.png');
-    background-size:80%;
+    /* background-image:url('/static/assets/images/placeholder/placeholder.png'); */
+    background-color: #eee;
+    /* background-size:80%; */
     background-repeat: no-repeat;
     background-position: center;
   }
-  
+ 
 
   .swiper-slide img {
     display: block;

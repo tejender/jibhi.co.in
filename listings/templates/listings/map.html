@@ -16,89 +16,85 @@
 
 {% block content %}
 <section class="listings-cat-wrapper">
-    <div class="swiper mySwiper-cat">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide {% if listing_type == 'treehouse' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='treehouse' %}">
-              <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
-              <div class="cat-title">
-                treehouse
-              </div>
-            </a>
-          </div>
-          <div class="swiper-slide {% if listing_type == 'cottage' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='cottage' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-cottage.svg' %}" alt="">
+  <div class="swiper mySwiper-cat">
+      <div class="swiper-wrapper"  id="swiperWrapper">
+     
+        <div class="swiper-slide {% if listing_type == 'all' %}active-cat{% endif %}">
+          <a href="{% url 'map'  %}" id="all">
+            <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
             <div class="cat-title">
-                cottage
+              All
             </div>
           </a>
-          </div>
-          <div class="swiper-slide {% if listing_type == 'homelistings' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='homestay' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-homestay.svg' %}" alt="">
+        </div>
+
+        <div class="swiper-slide {% if listing_type == 'treehouse' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='treehouse' %}" id="treehouse">
+            <img src="{% static 'assets/icons/listing-cat/icon-treehouse.svg' %}" alt="">
             <div class="cat-title">
-                homestay
+              treehouse
             </div>
           </a>
+        </div>
+        <div class="swiper-slide {% if listing_type == 'cottage' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='cottage' %}" id="cottage">
+          <img src="{% static 'assets/icons/listing-cat/icon-cottage.svg' %}" alt="">
+          <div class="cat-title">
+              cottage
           </div>
-          <div class="swiper-slide {% if listing_type == 'a-frame' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='a-frame' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-a-frame.svg' %}" alt="">
-            <div class="cat-title">
-                A frame
-            </div>
-          </a>
+        </a>
+        </div>
+        <div class="swiper-slide {% if listing_type == 'homestay' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='homestay' %}" id="homestay">
+          <img src="{% static 'assets/icons/listing-cat/icon-homestay.svg' %}" alt="">
+          <div class="cat-title">
+              homestay
           </div>
-          <div class="swiper-slide {% if listing_type == 'camp' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='camp' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-camp.svg' %}" alt="">
-            <div class="cat-title">
-                Camping
-            </div>
-          </a>
+        </a>
+        </div>
+        <div class="swiper-slide {% if listing_type == 'a-frame' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='a-frame' %}" id="aframe">
+          <img src="{% static 'assets/icons/listing-cat/icon-a-frame.svg' %}" alt="">
+          <div class="cat-title">
+              A frame
           </div>
-          <div class="swiper-slide">
-            <a href="{% url 'map' listing_type='cottage' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-mountain.svg' %}" alt="">
-            <div class="cat-title">
-                Amazing View
-            </div>
-          </a>
+        </a>
+        </div>
+        <div class="swiper-slide {% if listing_type == 'camp' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='camp' %}" id="camping">
+          <img src="{% static 'assets/icons/listing-cat/icon-camp.svg' %}" alt="">
+          <div class="cat-title">
+              Camping
           </div>
-          <div class="swiper-slide {% if listing_type == 'dome' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='dome' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-dome.svg' %}" alt="">
-            <div class="cat-title">
-                dome
-            </div>
-          </a>
-          </div>
-          <div class="swiper-slide riverside">
-            <a href="{% url 'map' listing_type='cottage' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-river2.svg' %}" alt="">
-            <div class="cat-title">
-                riverside
-            </div>
-          </a>
-          </div>
-          <div class="swiper-slide mudhouse {% if listing_type == 'mudhouse' %}active-cat{% endif %}">
-            <a href="{% url 'map' listing_type='mudhouse' %}">
-            <img src="{% static 'assets/icons/listing-cat/icon-mudhouse.svg' %}" alt="">
-            <div class="cat-title">
-                mudhouse
-            </div>
-          </a>
-          </div>              
+        </a>
         </div>
         
+        <div class="swiper-slide {% if listing_type == 'dome' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='dome' %}" id="dome">
+          <img src="{% static 'assets/icons/listing-cat/icon-dome.svg' %}" alt="">
+          <div class="cat-title">
+              dome
+          </div>
+        </a>
+        </div>
+        
+        <div class="swiper-slide mudhouse {% if listing_type == 'mudhouse' %}active-cat{% endif %}">
+          <a href="{% url 'map' listing_type='mudhouse' %}" id="mudhouse">
+          <img src="{% static 'assets/icons/listing-cat/icon-mudhouse.svg' %}" alt="">
+          <div class="cat-title">
+              mudhouse
+          </div>
+        </a>
+        </div>              
       </div>
-      <div class="swiper-button-prev cat-prev"></div>
-      <div class="swiper-button-next cat-next"></div>
-        
-        
-        
-</section>   
+      
+    </div>
+    <div class="swiper-button-prev cat-prev"></div>
+    <div class="swiper-button-next cat-next"></div>
+      
+      
+      
+</section>  
  {% if listings %}
    <div class="map-wrapper" >
      
