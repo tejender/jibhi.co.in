@@ -108,14 +108,14 @@ def ListingDetail(request,slug):
     not_bottom_nav=True
     not_top_nav=True   
     map_token = settings.MAP_BOX_TOKEN
-    standout_amenities= listing.amenities.filter(amenity_priority=1)
+    print(listing.amenities)
 
-
-# Get a random sample of 6 amenities from the high-priority amenities
-    standout_amenities  = random.sample(list(standout_amenities), k=6)
-    
-    
-
+    if listing.amenities:
+        standout_amenities = listing.amenities.filter(amenity_priority=1)
+        if len(standout_amenities) >= 6:
+            standout_amenities = random.sample(list(standout_amenities), k=6)
+        else:
+            standout_amenities = list(standout_amenities)
     
     context = {'listing': listing,'photos':photos,
                "not_bottom_nav":not_bottom_nav,"not_top_nav":not_top_nav,               
