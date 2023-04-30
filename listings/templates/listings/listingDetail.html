@@ -303,7 +303,7 @@
             <p class="about-text">
                 <i>
 
-                    {{listing.listing_description.about | truncatewords:30}}
+                    {{listing.listing_description.about | truncatewords:30 | safe}}
                 </i>
             
             </p>
@@ -319,7 +319,7 @@
                             </div>                          
                     </div>  
                       <div class="description-container">
-                        {{listing.listing_description.about|safe }}
+                        {{listing.listing_description.about | safe }}
                     </div>
                      
                     </div>
