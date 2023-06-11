@@ -49,6 +49,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 ALLOWED_HOSTS = ['127.0.0.1','192.168.200.209', 'jibhicoin-production.up.railway.app']
 
+TAILWIND_APP_NAME = 'theme'
 
 # Application definition
 
@@ -63,7 +64,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'storages',
     'django_extensions',
-    'django_social_share'
+    'django_social_share',
+      'tailwind',
+      'theme',
+      'django_browser_reload'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'jibhi.urls'
