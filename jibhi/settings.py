@@ -64,9 +64,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'storages',
     'django_extensions',
-    'django_social_share',
-      'tailwind',
-      'theme',
+    'django_social_share',     
       'django_browser_reload'
 ]
 
